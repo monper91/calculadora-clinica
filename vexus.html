@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>VExUS · Congestión venosa | Herramientas clínicas</title>
+<style>
+:root{--navy:#142b4d;--navy2:#213e68;--accent:#244c7b;--text:#193047;--muted:#61758a;--bg:#f3f6fa;--line:#d7e0ed;--pale:#edf2f9;--green:#18724c;--amber:#87570d;--red:#a12d39;--radius:15px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);font:15px/1.52 system-ui,-apple-system,Segoe UI,Arial,sans-serif;color:var(--text)}button,input,textarea{font:inherit}button{cursor:pointer}button:disabled{opacity:.55;cursor:not-allowed}a{color:#1d527f}.wrap{max-width:1210px;margin:0 auto;padding:0 24px}a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #3b8ad5;outline-offset:3px}
+header{background:linear-gradient(115deg,#101f37,#1b3963 65%,#284d7c);color:#fff;padding:22px 0 34px}.nav{display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap}.brand{font-size:12px;letter-spacing:.07em;font-weight:800}.back{border:1px solid #ffffff78;border-radius:9px;color:#fff;text-decoration:none;padding:8px 12px;font-size:12px;font-weight:700}header h1{font-size:clamp(27px,4vw,42px);line-height:1.15;letter-spacing:-.025em;margin:25px 0 9px}header p{margin:0;color:#d9e6f5;max-width:805px;font-size:14px}.chips{display:flex;gap:8px;margin-top:18px;flex-wrap:wrap}.chips span{font-size:12px;border:1px solid #ffffff54;border-radius:50px;padding:4px 11px}
+.main{display:grid;grid-template-columns:minmax(0,1fr) 305px;gap:20px;margin:26px auto 46px;align-items:start}.left{display:grid;gap:17px;min-width:0}.panel,.summary,.sources{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 8px 26px #122d4b09}.panel{padding:23px}.heading{display:flex;gap:12px;align-items:flex-start;margin-bottom:16px}.step{width:38px;height:38px;flex:none;display:grid;place-items:center;border-radius:10px;background:var(--navy);color:#fff;font-weight:850}.heading h2{font-size:18px;line-height:1.35;margin:0}.heading p{font-size:12px;color:var(--muted);margin:4px 0 0}.opts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}.opts.two{grid-template-columns:repeat(2,minmax(0,1fr))}.pattern{position:relative;display:flex;flex-direction:column;min-width:0;gap:7px;padding:11px 11px 12px;border:1.5px solid #cbd9e7;border-radius:12px;cursor:pointer;transition:background .15s,border-color .15s,box-shadow .15s;background:#fff}.pattern:hover{border-color:#8faac6;background:#fafcff}.pattern:has(input:checked){background:var(--pale);border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}.pattern input{position:absolute;top:12px;right:10px;width:16px;height:16px;margin:0;accent-color:var(--accent)}.pattern strong{font-size:13px;line-height:1.34;padding-right:23px}.pattern .small{color:var(--muted);font-size:11px;line-height:1.35;min-height:25px}.pattern svg{width:100%;height:99px;display:block;border:1px solid #e1e8f1;border-radius:7px;background:#f9fbfd;margin-top:auto}.pattern svg .wave{fill:none;stroke:var(--navy2);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}.pattern svg .axis{stroke:#a1b1c5;stroke-width:1;stroke-dasharray:4 4}.pattern svg .lab{fill:#415f81;font-size:12px;font-weight:800}.pattern svg .shade{fill:#cadaea;fill-opacity:.35}.other-option{margin-top:11px;display:flex;gap:8px;align-items:center;max-width:max-content;color:#536a83;font-size:12px;cursor:pointer;padding:5px 0}.other-option input{accent-color:var(--accent);width:16px;height:16px}.help{color:#657b90;font-size:12px;margin:12px 0 0}.callout{border-left:3px solid var(--accent);background:#f1f5fa;border-radius:0 9px 9px 0;padding:10px 13px;font-size:12px;color:#48617b;margin:0}.callout strong{color:var(--navy)}
+.aside{position:sticky;top:16px}.summary{overflow:hidden}.summary-head{background:var(--navy);padding:18px 20px;color:#fff}.summary-head h2{font-size:18px;margin:0}.summary-head p{font-size:12px;margin:4px 0 0;color:#d8e5f2}.summary-body{padding:20px}.grade{display:flex;align-items:baseline;gap:10px;margin:2px 0 11px}.grade strong{font-size:60px;letter-spacing:-.07em;font-variant-numeric:tabular-nums;line-height:1}.grade span{color:#63798e;font-size:12px}.progress{background:#e1e9f3;height:6px;border-radius:9px;overflow:hidden;margin-bottom:16px}.progress div{width:0;background:#4277ad;height:100%;transition:width .16s}.status{border:1px solid var(--line);border-radius:11px;padding:14px;background:#f7f9fc;margin-bottom:13px}.status h3{margin:0 0 5px;font-size:16px}.status p{font-size:12px;color:#516b84;margin:0}.status.good{background:#f1faf5;border-color:#b9dfcb}.status.good h3{color:var(--green)}.status.mid{background:#fff9ec;border-color:#e7d1aa}.status.mid h3{color:var(--amber)}.status.high{background:#fff3f3;border-color:#e8bdc2}.status.high h3{color:var(--red)}.summary-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px solid #eaf0f5;font-size:12px}.summary-row strong{font-weight:750;text-align:right}.caption{font-size:11px;color:var(--muted);margin:11px 0}.report-label{font-size:11px;font-weight:780;text-transform:uppercase;letter-spacing:.06em;color:#526b84;display:block;margin:15px 0 8px}.report{width:100%;height:195px;resize:vertical;border-radius:9px;border:1px solid #ccd9e7;color:#29415b;background:#fbfdff;padding:11px;font:12px/1.5 ui-monospace,SFMono-Regular,Consolas,monospace}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:11px}.btn{flex:1;border:1px solid #bccde0;background:#fff;padding:10px 11px;border-radius:9px;color:var(--navy);font-weight:700;font-size:12px}.btn.primary{background:var(--navy);color:#fff;border-color:var(--navy)}.msg{min-height:17px;font-size:12px;color:var(--green);margin:8px 0 0}.sources{padding:18px 21px;margin:0 auto 28px}.sources summary{cursor:pointer;font-weight:750;font-size:13px;color:var(--navy)}.sources p,.sources li{font-size:12px;color:#576b7e;line-height:1.5}.sources ul{padding-left:18px}.footer{color:#6a7c90;font-size:12px;border-top:1px solid var(--line);padding:18px 24px 28px}
+@media(max-width:930px){.main{grid-template-columns:1fr}.aside{position:static;order:-1}.summary-body{display:grid;grid-template-columns:1fr 1fr;gap:0 17px}.grade,.progress,.caption,.report-label,.report,.actions,.msg{grid-column:1/-1}.status{grid-column:1/-1}.summary-row{gap:7px}}
+@media(max-width:650px){.wrap{padding:0 14px}.main{margin-top:17px}.panel{padding:17px}.opts{grid-template-columns:1fr}.opts.two{grid-template-columns:1fr 1fr}.pattern{padding:10px}.opts:not(.two) .pattern{display:grid;grid-template-columns:1fr 160px;align-items:center;column-gap:10px}.opts:not(.two) .pattern strong{grid-column:1;grid-row:1}.opts:not(.two) .pattern .small{grid-column:1;grid-row:2}.opts:not(.two) .pattern svg{grid-column:2;grid-row:1/3;height:72px}.opts:not(.two) .pattern input{top:9px;right:9px}.heading h2{font-size:17px}.summary-body{display:block}.grade strong{font-size:49px}.opts.two .pattern svg{height:80px}}
+@media(max-width:400px){.opts:not(.two) .pattern{grid-template-columns:1fr 120px}.opts:not(.two) .pattern svg{height:68px}.opts.two{grid-template-columns:1fr}}
+@media print{body{background:#fff}.nav,.chips,.left,.actions,.sources,.footer,.progress,.msg{display:none!important}header{background:#fff;color:#000;padding:5px 0 12px;border-bottom:2px solid #444}header h1{font-size:23px;margin:4px 0}header p{color:#333}.main{display:block;margin:15px auto}.aside{position:static}.summary{border:0;box-shadow:none}.summary-head{background:#fff;color:#000;padding:5px 0 10px;border-bottom:1px solid #aaa}.summary-head p{color:#444}.summary-body{display:block;padding:10px 0}.grade strong{font-size:29px}.status{background:#fff!important}.report{height:260px;border:0;color:#000;overflow:visible;white-space:pre-wrap}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><nav class="nav"><span class="brand">MEDICINA INTERNA · ECOGRAFÍA CLÍNICA</span><a class="back" href="index.html#/categoria/ecografia">← Volver a Ecografía Clínica</a></nav>
+<h1>VExUS · Congestión venosa</h1><p>Clasificación ecográfica de la congestión venosa sistémica mediante VCI y Doppler venoso suprahepático, portal e intrarrenal.</p>
+<div class="chips"><span>Grados 0–3</span><span>Patrones Doppler ilustrados</span><span>Sin conexión</span></div></div></header>
+<main class="wrap main">
+  <div class="left">
+    <p class="callout"><strong>Guía visual:</strong> los dibujos reproducen de forma esquemática la morfología de los trazados. Seleccione el patrón observado en el Doppler real, no por su parecido exacto con el dibujo.</p>
+    <section class="panel" aria-labelledby="vci-heading"><div class="heading"><span class="step">01</span><div><h2 id="vci-heading">VENA CAVA INFERIOR (VCI)</h2><p>Clasifique el diámetro máximo de la VCI.</p></div></div>
+      <div class="opts two" id="opts-ivc"></div><label class="other-option"><input type="radio" name="ivc" value="unassessable"> No evaluable</label>
+    </section>
+    <section class="panel" aria-labelledby="hep-heading"><div class="heading"><span class="step">02</span><div><h2 id="hep-heading">DOPPLER DE VENAS SUPRAHEPÁTICAS</h2><p>Compare el componente sistólico S con el diastólico D.</p></div></div>
+      <div class="opts" id="opts-hepatic"></div><label class="other-option"><input type="radio" name="hepatic" value="unassessable"> No evaluable</label>
+    </section>
+    <section class="panel" aria-labelledby="portal-heading"><div class="heading"><span class="step">03</span><div><h2 id="portal-heading">DOPPLER DE VENA PORTA</h2><p>Seleccione el grado de pulsatilidad del flujo portal.</p></div></div>
+      <div class="opts" id="opts-portal"></div><label class="other-option"><input type="radio" name="portal" value="unassessable"> No evaluable</label>
+      <p class="help">Fracción de pulsatilidad portal = (V<sub>máx</sub> − V<sub>mín</sub>) / V<sub>máx</sub> × 100.</p>
+    </section>
+    <section class="panel" aria-labelledby="renal-heading"><div class="heading"><span class="step">04</span><div><h2 id="renal-heading">DOPPLER VENOSO INTRARRENAL</h2><p>Valore el flujo venoso interlobar, no el arterial.</p></div></div>
+      <div class="opts" id="opts-renal"></div><label class="other-option"><input type="radio" name="renal" value="unassessable"> No evaluable</label>
+    </section>
+  </div>
+  <aside class="aside" aria-label="Resultado VExUS"><div class="summary"><div class="summary-head"><h2>Resultado VExUS</h2><p>Valoración automática del grado</p></div><div class="summary-body">
+    <div class="grade"><strong id="grade">—</strong><span id="gradeSub">grado / 3</span></div><div class="progress"><div id="progress"></div></div>
+    <div id="status" class="status" role="status" aria-live="polite"><h3 id="statusTitle">Evaluación pendiente</h3><p id="statusBody">Seleccione el diámetro de VCI y los patrones Doppler.</p></div>
+    <div class="summary-row"><span>VCI</span><strong id="rowIvc">—</strong></div><div class="summary-row"><span>Suprahepáticas</span><strong id="rowHepatic">—</strong></div><div class="summary-row"><span>Porta</span><strong id="rowPortal">—</strong></div><div class="summary-row"><span>Intrarrenal</span><strong id="rowRenal">—</strong></div>
+    <p class="caption" id="completion">0 de 4 territorios valorados.</p>
+    <label class="report-label" for="report">Texto para historia clínica</label><textarea id="report" class="report" readonly placeholder="Complete la exploración para generar el resultado."></textarea>
+    <div class="actions"><button id="copy" class="btn primary" disabled>Copiar resultado</button><button id="print" class="btn" disabled>Imprimir</button><button id="reset" class="btn">Reiniciar</button></div><p class="msg" id="message" aria-live="polite"></p>
+  </div></div></aside>
+</main>
+<div class="wrap"><details class="sources"><summary>Criterios, precauciones y fuentes</summary>
+<p><strong>Algoritmo VExUS original (clasificación por gravedad):</strong> grado 0, VCI &lt;2 cm; grado 1, VCI ≥2 cm sin patrones Doppler severos; grado 2, VCI ≥2 cm con un patrón severo; grado 3, VCI ≥2 cm con al menos dos patrones severos. En una VCI dilatada, esta herramienta exige interpretar los tres territorios para asignar un grado definitivo; si no son evaluables, no inventa un resultado.</p>
+<p>Las ondas Doppler son esquemas orientativos originales, no imágenes diagnósticas. La interpretación puede alterarse por insuficiencia tricuspídea importante, arritmias (especialmente fibrilación auricular), hipertensión portal/hepatopatía, enfermedad renal avanzada, ventilación mecánica y elevación de la presión intraabdominal. VExUS no mide por sí solo la volemia total y no justifica aisladamente iniciar o retirar fluidos/diuréticos.</p>
+<ul><li><a href="https://link.springer.com/article/10.1186/S13089-020-00163-W" target="_blank" rel="noopener noreferrer">Beaubien-Souligny y cols. Desarrollo original VExUS (2020)</a></li>
+<li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11576717/" target="_blank" rel="noopener noreferrer">Decoding VExUS: guía práctica de interpretación (2024)</a></li>
+<li><a href="https://doi.org/10.1016/j.nefro.2025.501360" target="_blank" rel="noopener noreferrer">Documento de consenso sobre insuficiencia renal aguda (Nefrología, 2025)</a></li></ul>
+<p>Adaptación digital independiente; no es una aplicación oficial ni avalada por sus autores. No solicita ni almacena datos personales y no envía información a servidores.</p>
+</details></div>
+<footer class="wrap footer">Herramientas clínicas · Ecografía Clínica · VExUS · Uso orientativo en profesionales sanitarios. Los datos permanecen en esta pestaña.</footer>
+<script>
+'use strict';
+const $=id=>document.getElementById(id);
+const model={
+  ivc:[
+    {v:'normal',t:'VCI < 2 cm',hint:'No dilatada',type:'ivc-small'},
+    {v:'dilated',t:'VCI ≥ 2 cm',hint:'Dilatada',type:'ivc-large'}],
+  hepatic:[
+    {v:'normal',t:'Normal · S > D',hint:'S y D anterógradas; S dominante',type:'hep-normal'},
+    {v:'mild',t:'Leve · S < D',hint:'S aún anterógrada',type:'hep-mild'},
+    {v:'severe',t:'Grave · S invertida',hint:'Inversión sistólica',type:'hep-severe'}],
+  portal:[
+    {v:'normal',t:'Normal · < 30 %',hint:'Flujo poco pulsátil',type:'por-normal'},
+    {v:'mild',t:'Leve · 30–<50 %',hint:'Pulsatilidad moderada',type:'por-mild'},
+    {v:'severe',t:'Grave · ≥50 %',hint:'Pulsatilidad marcada',type:'por-severe'}],
+  renal:[
+    {v:'normal',t:'Normal · Continuo',hint:'Flujo sin interrupciones',type:'ren-normal'},
+    {v:'mild',t:'Leve · Bifásico',hint:'Flujo discontinuo S y D',type:'ren-mild'},
+    {v:'severe',t:'Grave · Solo D',hint:'Monofásico discontinuo',type:'ren-severe'}]
+};
+const waveData={
+ 'hep-normal':{axis:44,path:'M 9 44 Q 22 44 30 24 Q 38 20 42 44 C 53 44 57 103 76 104 C 95 104 99 45 112 44 C 126 44 136 80 155 82 C 174 82 180 44 194 44 L 221 44',labels:[[29,20,'a'],[73,116,'S'],[158,97,'D']]},
+ 'hep-mild':{axis:44,path:'M 9 44 Q 22 44 30 24 Q 38 20 42 44 C 52 44 57 75 76 78 C 95 78 99 45 112 44 C 126 44 136 100 155 103 C 174 103 180 44 194 44 L 221 44',labels:[[29,20,'a'],[74,93,'S'],[157,116,'D']]},
+ 'hep-severe':{axis:44,path:'M 9 44 Q 22 44 30 24 Q 38 20 42 44 C 52 44 60 12 76 12 C 95 12 99 43 112 44 C 126 44 136 100 155 103 C 174 103 180 44 194 44 L 221 44',labels:[[75,11,'S'],[156,116,'D']]},
+ 'por-normal':{axis:108,path:'M 7 66 Q 25 68 40 64 Q 55 60 72 66 Q 90 69 106 65 Q 123 60 142 66 Q 158 69 175 64 Q 193 61 222 66',labels:[]},
+ 'por-mild':{axis:108,path:'M 7 55 C 21 34 39 35 55 55 S 88 77 106 55 S 142 34 158 55 S 194 77 222 55',labels:[]},
+ 'por-severe':{axis:108,path:'M 7 75 C 21 13 40 13 55 75 S 87 117 106 75 S 141 13 158 75 S 193 117 222 75',labels:[]},
+ 'ren-normal':{axis:35,path:'M 7 59 Q 25 55 41 62 Q 60 69 80 59 Q 99 54 118 62 Q 135 69 155 59 Q 175 55 195 62 Q 212 66 223 61',labels:[]},
+ 'ren-mild':{axis:35,path:'M 7 35 L 19 35 C 26 35 27 65 42 66 C 58 66 60 35 68 35 L 83 35 C 89 35 92 88 111 90 C 130 90 131 35 141 35 L 153 35 C 159 35 163 65 178 66 C 192 66 193 35 202 35 L 223 35',labels:[[41,80,'S'],[112,105,'D'],[177,80,'S']]},
+ 'ren-severe':{axis:35,path:'M 7 35 L 39 35 C 45 35 54 94 72 95 C 91 95 99 35 107 35 L 151 35 C 157 35 166 94 184 95 C 203 95 211 35 219 35 L 223 35',labels:[[73,109,'D'],[185,109,'D']]}
+};
+function svgFor(type){
+ if(type.startsWith('ivc-')){
+   const large=type==='ivc-large';
+   return `<svg viewBox="0 0 230 118" role="img" aria-label="Esquema de vena cava ${large?'dilatada':'no dilatada'}"><path d="M12 59 H218" stroke="#d2dae4" stroke-dasharray="4 5"/><path d="M13 ${large?25:44} C 65 ${large?21:41}, 160 ${large?24:44}, 218 ${large?25:44} L 218 ${large?93:74} C 160 ${large?95:76}, 65 ${large?98:77}, 13 ${large?93:74} Z" fill="#8ba9c9" fill-opacity=".45" stroke="#284f7a" stroke-width="2.5"/><path d="M195 ${large?25:44} v ${large?68:30} m -5 -68 h 10 m -10 68 h 10" stroke="#254f81" stroke-width="1.7" fill="none"/><text x="22" y="17" fill="#4c6685" font-size="12" font-weight="700">${large?'≥ 2 cm':'< 2 cm'}</text></svg>`;
+ }
+ const x=waveData[type];const labs=x.labels.map(([px,py,l])=>`<text class="lab" x="${px}" y="${py}" text-anchor="middle">${l}</text>`).join('');
+ return `<svg viewBox="0 0 230 121" role="img" aria-label="Esquema ilustrativo del patrón Doppler"><line class="axis" x1="7" x2="223" y1="${x.axis}" y2="${x.axis}"/><path class="wave" d="${x.path}"/>${labs}</svg>`
+}
+function renderOptions(){Object.entries(model).forEach(([group,choices])=>{const root=$('opts-'+group);choices.forEach(c=>{const label=document.createElement('label');label.className='pattern';label.innerHTML=`<input type="radio" name="${group}" value="${c.v}"><strong>${c.t}</strong><span class="small">${c.hint}</span>${svgFor(c.type)}`;root.append(label)})})}
+function selected(group){return document.querySelector(`input[name="${group}"]:checked`)?.value||null}
+function getState(){const v=Object.fromEntries(Object.keys(model).map(k=>[k,selected(k)]));const all=Object.values(v).filter(x=>x&&x!=='unassessable').length;
+ const severe=['hepatic','portal','renal'].filter(k=>v[k]==='severe').length;
+ let grade=null;let msg='';let cls='';let done=false;
+ if(v.ivc==='normal'){
+   grade=0;done=true;cls='good';msg='VCI <2 cm. Grado 0 según el algoritmo convencional; no excluye congestión en todos los contextos.';
+ }else if(v.ivc==='dilated'){
+   const complete=['hepatic','portal','renal'].every(k=>['normal','mild','severe'].includes(v[k]));
+   if(complete){grade=severe>=2?3:severe===1?2:1;done=true;cls=grade===1?'good':grade===2?'mid':'high';msg=grade===1?'VCI dilatada sin patrones Doppler graves.':grade===2?'VCI dilatada y un territorio con patrón Doppler grave.':'VCI dilatada y al menos dos territorios con patrones Doppler graves.'}
+   else{msg='VCI dilatada: valore los tres territorios Doppler antes de asignar un grado definitivo.'}
+ }else{msg='Seleccione el estado de la VCI para comenzar la clasificación.'}
+ const gradeLabel=grade===0?'Sin congestión significativa por el algoritmo':grade===1?'Congestión venosa leve':grade===2?'Congestión venosa moderada':grade===3?'Congestión venosa grave':'Evaluación pendiente';
+ return {v,all,severe,grade,gradeLabel,msg,cls,done}
+}
+function optionLabel(k,v){if(!v)return 'Pendiente';if(v==='unassessable')return 'No evaluable';return model[k].find(x=>x.v===v)?.t||'—'}
+function reportText(s){const v=s.v;const lines=['VExUS · Valoración ecográfica de congestión venosa sistémica.',
+ 'VCI: '+optionLabel('ivc',v.ivc)+'.',
+ 'Venas suprahepáticas: '+optionLabel('hepatic',v.hepatic)+'.',
+ 'Vena porta: '+optionLabel('portal',v.portal)+'.',
+ 'Venas intrarrenales: '+optionLabel('renal',v.renal)+'.',
+ `Resultado: VExUS grado ${s.grade}/3 (${s.gradeLabel.toLowerCase()}).`];
+ if(v.ivc==='dilated')lines.push(`Patrones Doppler gravemente alterados: ${s.severe} de 3.`);
+ if(v.ivc==='normal'&&['hepatic','portal','renal'].some(k=>v[k]==='severe'))lines.push('Advertencia: existen patrones Doppler graves pese a VCI <2 cm. Correlacionar y revisar la medición y el contexto clínico.');
+ lines.push('Interpretación orientativa. Integrar con exploración clínica, hemodinámica y posibles factores de confusión.');return lines.join('\n')
+}
+function render(){const s=getState();$('grade').textContent=s.done?String(s.grade):'—';$('gradeSub').textContent=s.done?'grado / 3':'sin resultado';$('progress').style.width=(s.all/4*100)+'%';$('status').className='status '+s.cls;$('statusTitle').textContent=s.gradeLabel;$('statusBody').textContent=s.msg;
+ [['ivc','rowIvc'],['hepatic','rowHepatic'],['portal','rowPortal'],['renal','rowRenal']].forEach(([k,id])=>{$(id).textContent=optionLabel(k,s.v[k])});
+ $('completion').textContent=`${s.all} de 4 territorios con patrón interpretable.${s.v.ivc==='normal'&&s.all<4?' VExUS 0 se establece por el diámetro de la VCI.':''}`;
+ $('report').value=s.done?reportText(s):'';$('copy').disabled=!s.done;$('print').disabled=!s.done}
+async function copyResult(){const content=$('report').value;if(!content)return;try{if(navigator.clipboard&&window.isSecureContext){await navigator.clipboard.writeText(content)}else{$('report').select();if(!document.execCommand('copy'))throw new Error('No copy')} $('message').textContent='Resultado copiado.'}catch(_){$('report').focus();$('report').select();$('message').textContent='Selecciona y copia manualmente el texto.'}}
+renderOptions();document.querySelectorAll('input[type="radio"]').forEach(e=>e.addEventListener('change',()=>{$('message').textContent='';render()}));$('copy').addEventListener('click',copyResult);$('print').addEventListener('click',()=>{if(getState().done)window.print()});$('reset').addEventListener('click',()=>{const has=[...document.querySelectorAll('input[type="radio"]')].some(x=>x.checked);if(has&&!window.confirm('¿Borrar la evaluación VExUS?'))return;document.querySelectorAll('input[type="radio"]').forEach(x=>x.checked=false);$('message').textContent='Evaluación reiniciada.';render();window.scrollTo({top:0,behavior:'smooth'})});render();
+</script>
+</body>
+</html>

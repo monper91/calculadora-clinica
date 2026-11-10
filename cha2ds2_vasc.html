@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><title>CHA₂DS₂-VASc · Riesgo tromboembólico · Herramientas clínicas</title>
+<style>
+:root{--accent:#d62935;--accent-dark:#a71729;--accent-pale:#fff0f1;--text:#26374a;--muted:#62758b;--border:#e2e8ee;--bg:#f7f8fb;--green:#147253;--amber:#956213;--blue:#245b8f}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font:15px/1.5 system-ui,-apple-system,'Segoe UI',Arial,sans-serif;color:var(--text);background:var(--bg)}.wrap{max-width:1180px;padding:0 24px;margin:auto}
+a{color:var(--accent-dark)}a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #245b8f;outline-offset:2px}button{cursor:pointer;font:inherit}button:disabled{opacity:.5;cursor:not-allowed}
+.hero{background:linear-gradient(115deg,#a31529,#e13642);color:#fff;padding:21px 0 30px}.top{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px}.brand{font-size:12px;font-weight:750;letter-spacing:.06em}.back{color:#fff;text-decoration:none;font-size:12px;font-weight:650;border:1px solid #ffffff76;border-radius:9px;padding:7px 12px}.hero h1{font-size:clamp(26px,3.8vw,39px);line-height:1.15;letter-spacing:-.025em;margin:25px 0 7px}.hero p{margin:0;color:#ffe7e9;max-width:790px;font-size:14px}.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:15px}.chip{border:1px solid #ffffff59;border-radius:999px;padding:4px 11px;font-size:11px;color:#fff}
+.layout{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(290px,.84fr);align-items:start;gap:22px;margin:27px auto 55px}.maincol{min-width:0}.card,.sidebar,.sources{background:#fff;border:1px solid var(--border);border-radius:15px;box-shadow:0 5px 20px #1a2e4410}.card{padding:22px 24px}.section-heading h2{font-size:18px;margin:0}.section-heading p{color:var(--muted);margin:4px 0 12px;font-size:13px}.question{padding:15px 0;border-bottom:1px solid #e9edf2}.question:last-child{border-bottom:0}.question-title{display:flex;gap:9px;align-items:baseline;font-size:14px;font-weight:700}.number{font-size:11px;font-weight:800;color:var(--accent);min-width:23px}.help{display:block;font-size:11.5px;color:#607184;margin:3px 0 0 32px}.choices{display:flex;flex-wrap:wrap;gap:7px;margin:11px 0 0 32px}.choice{display:flex;gap:7px;align-items:center;justify-content:center;min-height:41px;padding:8px 12px;border:1px solid #d7dfe7;background:#fff;border-radius:9px;font-size:13px;font-weight:580;cursor:pointer;user-select:none}.choice:hover{border-color:#c68b92;background:#fffafb}.choice:has(input:checked){border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent);background:var(--accent-pale);color:#881a29}.choice input{accent-color:var(--accent);margin:0;flex:none;width:16px;height:16px}.choice:focus-within{outline:3px solid #f4ccd0}
+.sidebar{overflow:hidden;position:sticky;top:15px}.score-head{background:#ae1b2c;color:#fff;padding:19px 22px}.score-head h2{font-size:18px;margin:0}.score-head p{font-size:12px;margin:4px 0 0;color:#ffe4e6}.body{padding:18px 21px}.stat{display:flex;gap:12px;align-items:baseline}.stat strong{font-variant-numeric:tabular-nums;font-size:48px;line-height:1.1}.stat span{color:var(--muted);font-size:13px}.progressinfo{margin:6px 0 8px;color:var(--muted);font-size:12px}.track{height:7px;background:#e7ebef;border-radius:9px;overflow:hidden}.fill{background:var(--accent);height:100%;width:0;transition:width .15s}.verdict{border:1px solid #e1e5eb;background:#f8fafc;border-radius:11px;padding:14px;margin:16px 0}.verdict h3{font-size:16px;margin:0 0 7px;color:#31465c}.verdict p{font-size:12px;line-height:1.5;color:#53657b;margin:0}.verdict.good{border-color:#badccf;background:#f2fbf6}.verdict.good h3{color:var(--green)}.verdict.warn{border-color:#ead6b4;background:#fff9ef}.verdict.warn h3{color:var(--amber)}.verdict.risk{border-color:#edc4cc;background:#fff4f6}.verdict.risk h3{color:#a52032}.subscore{font-size:12px;color:var(--muted);margin:8px 0 14px}.reportlabel{display:block;font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:11px;color:#62758b;margin-bottom:7px}.report{resize:vertical;width:100%;min-height:154px;border:1px solid #dce4ea;border-radius:9px;background:#fafbfd;padding:11px;font:12px/1.5 ui-monospace,SFMono-Regular,Consolas,monospace;color:#304659}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px}.btn{font-size:12px;font-weight:700;padding:10px 13px;border-radius:9px;border:1px solid #d6dce4;background:#fff;color:var(--text)}.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}.status{font-size:11px;min-height:15px;color:var(--green);margin-top:9px}.sources{margin:0 auto 25px;padding:17px 20px;font-size:12px;color:var(--muted)}.sources summary{cursor:pointer;font-weight:700;color:#7f2631}.sources p{margin:10px 0}.sources ul{margin:8px 0;padding-left:19px}.sources li{margin:5px 0}.note{border-left:3px solid #e0a0ab;background:#fff8f9;border-radius:0 9px 9px 0;padding:11px 13px;font-size:12px;color:#5e4551;margin-top:15px}.footer{border-top:1px solid #e1e6eb;padding:17px 0 28px;color:#738295;font-size:11px}
+@media(max-width:840px){.layout{grid-template-columns:1fr}.sidebar{position:static;grid-row:1}.body{display:grid;grid-template-columns:1fr 1fr;column-gap:14px}.stat,.progressinfo,.track,.subscore,.reportlabel,.report,.actions,.status{grid-column:span 2}.verdict{grid-column:span 2}}
+@media(max-width:600px){.wrap{padding:0 14px}.hero{padding-bottom:24px}.hero h1{margin-top:19px}.card{padding:17px}.choices{margin-left:0}.help{margin-left:0}.question-title{gap:6px}.body{display:block}.stat strong{font-size:40px}.choices .choice{flex-grow:1}.actions .btn{flex:1}}
+@media print{body{background:#fff!important;font-size:11px}.hero{background:#fff!important;color:#000;border-bottom:2px solid #333;padding:0 0 8px}.hero h1{font-size:22px;margin:5px 0}.hero p,.top,.chips,.maincol,.actions,.sources,.footer,.track,.status{display:none!important}.layout{display:block;margin-top:16px}.sidebar{box-shadow:none;border:0}.score-head{background:#fff!important;color:#000;padding:0 0 8px;border-bottom:1px solid #aaa}.score-head p{color:#333}.body{display:block;padding:10px 0}.stat strong{font-size:28px}.verdict{background:#fff!important;border:1px solid #aaa}.report{height:260px;min-height:260px;border:0;color:#000}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+</style></head><body>
+<header class="hero"><div class="wrap"><div class="top"><div class="brand">MEDICINA INTERNA · INSUFICIENCIA CARDIACA Y FIBRILACIÓN AURICULAR</div><a class="back" href="index.html#/categoria/cardiologia">← Volver a la categoría</a></div>
+<h1>CHA₂DS₂-VASc · Riesgo tromboembólico</h1><p>Escala clásica de riesgo tromboembólico en fibrilación auricular. Incorpora sexo femenino como modificador de riesgo.</p><div class="chips"><span class="chip">Fibrilación auricular · escala clásica</span><span class="chip">Puntuación automática</span><span class="chip">Sin conexión</span></div></div></header>
+<main class="wrap layout"><section class="maincol"><div class="card"><div class="section-heading"><h2>Cuestionario clínico</h2><p>Seleccione una respuesta por apartado. No hay valores preseleccionados.</p></div><form id="questionForm" autocomplete="off"><div id="questions"></div></form><p class="note">El sexo femenino no se interpreta como factor de riesgo suficiente por sí solo. ESC 2024 recomienda utilizar preferentemente CHA₂DS₂-VA.</p></div></section>
+<aside class="sidebar" aria-label="Resultados"><div class="score-head"><h2>Resultado · CHA₂DS₂-VASc</h2><p>Interpretación automática tras completar todos los apartados</p></div><div class="body"><div class="stat"><strong id="score" aria-live="polite">—</strong><span>/ 9 puntos</span></div><div id="progressText" class="progressinfo">0 apartados completados</div><div class="track" aria-hidden="true"><div id="fill" class="fill"></div></div><div id="verdict" class="verdict" role="status" aria-live="polite"><h3 id="resultTitle">Valoración pendiente</h3><p id="resultText">Complete los criterios para calcular el resultado.</p></div><label class="reportlabel" for="report">Texto para la historia clínica</label><textarea class="report" id="report" readonly placeholder="Complete el cuestionario para generar el informe."></textarea><div class="actions"><button id="copy" class="btn primary" type="button" disabled>Copiar informe</button><button id="print" class="btn" type="button" disabled>Imprimir</button><button id="reset" class="btn" type="button">Nueva evaluación</button></div><div id="status" class="status" role="status" aria-live="polite"></div></div></aside></main>
+<section class="wrap sources"><details><summary>Fuentes y limitaciones</summary><p>Herramienta orientativa de apoyo clínico. Las puntuaciones e interpretaciones requieren confirmar la situación del paciente y el contexto de aplicación. No almacena ni envía respuestas a servidores.</p><ul id="sourcesList"></ul></details></section>
+<footer class="wrap footer">Aplicación HTML local · Medicina Interna · Diseño no afiliado oficialmente a sociedades científicas.</footer>
+<script>
+'use strict';
+const CFG={"title": "CHA₂DS₂-VASc · Riesgo tromboembólico", "short": "CHA₂DS₂-VASc", "subtitle": "Fibrilación auricular · escala clásica", "max": 9, "lead": "Escala clásica de riesgo tromboembólico en fibrilación auricular. Incorpora sexo femenino como modificador de riesgo.", "source": [["Guía ESC 2024: comparación entre VA y VASc", "https://academic.oup.com/eurheartj/article/45/36/3314/7738779"], ["Resumen de la escala clásica", "https://www.ncbi.nlm.nih.gov/books/NBK553096/"]], "questions": [{"id": "edad", "label": "Edad", "values": [0, 1, 2], "choices": ["<65 años", "65–74 años", "≥75 años"]}, {"id": "ic", "label": "Insuficiencia cardiaca", "hint": "Incluye insuficiencia cardiaca clínica o disfunción sistólica ventricular izquierda.", "choices": ["No", "Sí"]}, {"id": "hta", "label": "Hipertensión arterial", "hint": "Incluye antecedente de HTA controlada con tratamiento.", "choices": ["No", "Sí"]}, {"id": "dm", "label": "Diabetes mellitus", "choices": ["No", "Sí"]}, {"id": "ictus", "label": "Ictus, AIT o embolia arterial previa", "values": [0, 2], "choices": ["No", "Sí"]}, {"id": "vascular", "label": "Enfermedad vascular", "hint": "Infarto previo, arteriopatía periférica o placa aórtica.", "choices": ["No", "Sí"]}, {"id": "sexo", "label": "Sexo según la escala clásica", "hint": "El sexo femenino es un modificador de riesgo, no una indicación aislada de anticoagulación.", "choices": ["Masculino (0)", "Femenino (+1)"]}], "id": "cha2ds2_vasc"};
+const $=id=>document.getElementById(id);
+const answers={};
+const fmt=n=>Number.isInteger(n)?String(n):String(n).replace('.',',');
+const names={everest:'EVEREST',cha2ds2_va:'CHA₂DS₂-VA',cha2ds2_vasc:'CHA₂DS₂-VASc',has_bled:'HAS-BLED'};
+function create(){
+ const target=$('questions');
+ CFG.questions.forEach((q,i)=>{
+   const section=document.createElement('div');section.className='question';
+   const title=document.createElement('div');title.className='question-title';
+   const num=document.createElement('span');num.className='number';num.textContent=String(i+1).padStart(2,'0');
+   const word=document.createElement('span');word.textContent=q.label;title.append(num,word);section.append(title);
+   if(q.hint){const hint=document.createElement('small');hint.className='help';hint.textContent=q.hint;section.append(hint)}
+   const choices=document.createElement('div');choices.className='choices';choices.setAttribute('role','group');choices.setAttribute('aria-label',q.label);
+   q.choices.forEach((label,j)=>{
+      const value=q.values ? q.values[j] : j;
+      const l=document.createElement('label');l.className='choice';
+      const r=document.createElement('input');r.type='radio';r.name='ans-'+q.id;r.value=String(j);r.autocomplete='off';
+      r.addEventListener('change',()=>{answers[q.id]={value,label};$('status').textContent='';update()});
+      const span=document.createElement('span');span.textContent=(CFG.id==='everest' ? j+' · ':'')+label;
+      l.append(r,span);choices.append(l);
+   });
+   section.append(choices);target.append(section)
+ });
+ const ul=$('sourcesList');CFG.source.forEach(([title,url])=>{const li=document.createElement('li');if(url){const a=document.createElement('a');a.href=url;a.target='_blank';a.rel='noopener noreferrer';a.textContent=title;li.append(a)}else{li.textContent=title}ul.append(li)});
+ update();
+}
+function data(){
+ let total=0,completed=0;const parts=[];
+ for(const q of CFG.questions){const a=answers[q.id];if(!a)continue;const n=q.values ? q.values[a.value] : Number(a.value);total+=n;completed++;parts.push({label:q.label,answer:a.label,points:n})}
+ return {total,completed,complete:completed===CFG.questions.length,parts};
+}
+function assessment(s){
+ if(CFG.id==='everest'){
+   let status=s.total===0?'Sin congestión identificada por los seis ítems':s.total<3?'Congestión clínica residual':'Congestión clínica significativa';
+   let detail=s.total===0?'No se han marcado signos ni síntomas de congestión.':s.total<3?'Existe al menos un hallazgo de congestión.':'Puntuación elevada que aconseja evaluar la congestión residual en su contexto clínico.';
+   return {title:status,detail,style:s.total===0?'good':s.total<3?'warn':'risk',line:'EVEREST '+s.total+'/18: '+status.toLowerCase()+'.'};
+ }
+ if(CFG.id==='cha2ds2_va'){
+   if(s.total===0)return {title:'Riesgo tromboembólico bajo según escala',detail:'CHA₂DS₂-VA = 0: por la puntuación aislada, no se indica anticoagulación sistemática. Considere situaciones especiales y factores no incluidos.',style:'good',line:'CHA₂DS₂-VA 0: bajo riesgo por la escala.'};
+   if(s.total===1)return {title:'Considerar anticoagulación',detail:'CHA₂DS₂-VA = 1: las guías ESC 2024 recomiendan considerar anticoagulación tras valoración individualizada.',style:'warn',line:'CHA₂DS₂-VA 1: considerar anticoagulación.'};
+   return {title:'Anticoagulación recomendada',detail:'CHA₂DS₂-VA ≥2: las guías ESC 2024 recomiendan anticoagulación si no existen contraindicaciones específicas.',style:'risk',line:'CHA₂DS₂-VA '+s.total+': anticoagulación recomendada, sujeto a valoración clínica.'};
+ }
+ if(CFG.id==='cha2ds2_vasc'){
+   const female=answers.sexo?.value==='1';const low=(!female&&s.total===0)||(female&&s.total===1);
+   return {title:low?'Puntuación de bajo riesgo por la escala clásica':'Presenta factores de riesgo tromboembólico',detail:'CHA₂DS₂-VASc utiliza sexo femenino como modificador del riesgo. Para decisiones de anticoagulación en Europa, las guías ESC 2024 priorizan CHA₂DS₂-VA y la valoración individual.',style:low?'good':s.total>=3?'risk':'warn',line:'CHA₂DS₂-VASc '+s.total+'/9: '+(low?'bajo riesgo según umbral clásico.':'factores de riesgo tromboembólico presentes.')};
+ }
+ if(s.total>=3){return {title:'Riesgo hemorrágico elevado',detail:'HAS-BLED ≥3: corregir factores modificables y programar seguimiento más estrecho. No implica por sí solo suspender o evitar la anticoagulación.',style:'risk',line:'HAS-BLED '+s.total+'/9: riesgo hemorrágico elevado; revisar factores modificables.'}}
+ return {title:'Menor puntuación de riesgo hemorrágico',detail:'HAS-BLED <3: identificar y corregir los factores modificables que estén presentes. Una puntuación baja no excluye hemorragia.',style:'good',line:'HAS-BLED '+s.total+'/9: puntuación inferior al umbral de riesgo elevado.'};
+}
+function makeReport(s,r){
+ const lines=[CFG.short+' — evaluación clínica',...s.parts.map(p=>p.label+': '+p.answer+' ('+p.points+' p).'),CFG.short+': '+s.total+'/'+CFG.max+' puntos.',r.line];
+ if(CFG.id==='everest')lines.push('Valoración de congestión clínica; la puntuación no estima el riesgo individual exacto.');
+ if(CFG.id==='cha2ds2_vasc')lines.push('La decisión terapéutica debe considerar CHA₂DS₂-VA y otros factores clínicos.');
+ if(CFG.id==='has_bled')lines.push('La puntuación no constituye por sí sola una contraindicación de anticoagulación.');
+ return lines.join('\n');
+}
+function update(){
+ const s=data();$('progressText').textContent=s.completed+' de '+CFG.questions.length+' apartados completados';
+ $('fill').style.width=(100*s.completed/CFG.questions.length)+'%';
+ $('score').textContent=s.complete?String(s.total):'—';
+ const box=$('verdict');box.className='verdict';
+ if(!s.complete){$('resultTitle').textContent='Valoración pendiente';$('resultText').textContent='Complete los apartados para obtener la puntuación. No se interpretan las respuestas parciales.';$('report').value='';$('copy').disabled=true;$('print').disabled=true;return}
+ const r=assessment(s);box.classList.add(r.style);$('resultTitle').textContent=r.title;$('resultText').textContent=r.detail;
+ $('report').value=makeReport(s,r);$('copy').disabled=false;$('print').disabled=false;
+}
+async function copyReport(){
+ const value=$('report').value;if(!value)return;
+ try{if(navigator.clipboard&&window.isSecureContext){await navigator.clipboard.writeText(value)}else{$('report').select();if(!document.execCommand('copy'))throw new Error('copy')} $('status').textContent='Informe copiado al portapapeles.'}
+ catch(e){$('report').focus();$('report').select();$('status').textContent='Seleccione el texto del informe y cópielo manualmente.'}
+}
+$('copy').addEventListener('click',copyReport);
+$('print').addEventListener('click',()=>{if(data().complete)window.print()});
+$('reset').addEventListener('click',()=>{
+ if(data().completed>0&&!confirm('¿Borrar todas las respuestas de esta evaluación?'))return;
+ document.querySelectorAll('#questions input').forEach(x=>x.checked=false);
+ for(const key of Object.keys(answers))delete answers[key];$('status').textContent='Nueva evaluación iniciada.';update();
+});
+create();
+</script></body></html>

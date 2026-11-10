@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Calculadora clínica 4AT-ES para cribado del delirium. Aplicación sin conexión.">
+  <title>4AT-ES | Cribado del delirium</title>
+  <style>
+    :root{--ink:#142c3b;--muted:#586b78;--line:#dbe5e9;--teal:#087b78;--teal-dark:#075e62;--light:#eff8f7;--paper:#fff;--bg:#f3f6f8;--amber:#a45608;--amber-bg:#fff4de;--red:#a42f34;--red-bg:#fff0f0;--shadow:0 10px 35px rgba(22,51,66,.07)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background:var(--bg);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:15.5px;line-height:1.52}
+    a{color:var(--teal-dark);text-underline-offset:2px}button,input{font:inherit}button{cursor:pointer}.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+    header{background:linear-gradient(130deg,#0e3c4a,#0a656a 72%,#127a75);color:white;padding:29px 0 33px}
+    .topline{display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap}.brand{font-weight:800;letter-spacing:.01em;font-size:16px}.tag{font-size:12px;border:1px solid #ffffff65;border-radius:100px;padding:5px 11px;background:#ffffff13}
+    h1{font-size:clamp(29px,4vw,43px);letter-spacing:-.035em;line-height:1.13;margin:27px 0 12px}header p{max-width:730px;color:#dbeded;margin:0}.leadrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}.chip{font-size:12.5px;color:#e6f9f6;border:1px solid #ffffff47;padding:6px 11px;border-radius:9px}
+    main{padding:29px 0 55px}.layout{display:grid;grid-template-columns:minmax(0,1fr) 310px;gap:22px;align-items:start}.left{min-width:0}.card,.scorecard{background:var(--paper);border:1px solid var(--line);border-radius:17px;box-shadow:var(--shadow)}
+    .card{padding:24px;margin-bottom:18px}.section-intro{font-size:13px;color:var(--muted);margin-top:5px}.cardhead{display:flex;gap:13px;align-items:flex-start;margin-bottom:15px}.numb{display:grid;place-items:center;border-radius:11px;flex:none;width:39px;height:39px;background:#e4f3f1;color:var(--teal-dark);font-weight:800;font-size:16px}.cardhead h2{font-size:20px;letter-spacing:-.015em;line-height:1.2;margin:0 0 5px}.cardhead p{margin:0;color:var(--muted);font-size:13.5px}
+    .optional-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}.fieldlabel{font-weight:650;font-size:13px;display:block;margin:0 0 6px}.field{width:100%;border:1px solid #c5d3d9;border-radius:9px;padding:11px 12px;color:var(--ink);background:white;min-width:0}.field:focus{outline:3px solid #bce9e4;border-color:var(--teal)}.privacy-note{font-size:12.5px;color:var(--muted);margin:13px 0 0}
+    .callout{background:var(--light);border-left:3px solid var(--teal);border-radius:0 9px 9px 0;padding:11px 14px;margin:13px 0 17px;font-size:14px}.callout strong{color:#075a5b}.help{font-size:13px;color:var(--muted);margin:10px 0 0}.options{display:grid;gap:9px}label.option{display:flex;align-items:center;gap:12px;position:relative;padding:12px 13px;border:1px solid #d6e0e4;background:#fff;border-radius:11px;cursor:pointer;transition:background .12s,border-color .12s,box-shadow .12s;min-height:53px}label.option:hover{background:#f6fbfa;border-color:#9ebfbd}label.option:has(input:checked){background:#eaf7f4;border-color:var(--teal);box-shadow:inset 0 0 0 1px var(--teal)}label.option:focus-within{outline:3px solid #bce9e4;outline-offset:1px}label.option input{width:18px;height:18px;accent-color:var(--teal);margin:0;flex:none}.option-text{flex:1;min-width:0}.option-text b{font-weight:650}.points{white-space:nowrap;font-weight:800;color:#536976;font-size:13px;padding:4px 9px;background:#f1f5f7;border-radius:7px}input:checked ~ .points{color:var(--teal-dark);background:#d5eeea}
+    .questions{display:grid;grid-template-columns:repeat(2,1fr);gap:8px 14px;padding:0;margin:12px 0 17px;list-style:none}.questions li{padding:9px 11px;background:#f5f8f9;border:1px solid #e5ecef;border-radius:8px;font-size:13px}.qicon{color:var(--teal);font-weight:800;margin-right:5px}
+    .aside{position:sticky;top:18px}.scorecard{overflow:hidden}.scoretop{padding:25px 24px 21px;background:#e8f4f2;border-bottom:1px solid #d6e6e4}.scoretop .eyebrow{font-size:12px;letter-spacing:.095em;color:#256b70;font-weight:800;text-transform:uppercase}.bigscore{font-size:68px;font-weight:800;line-height:1;letter-spacing:-.07em;margin:10px 0 5px}.bigscore small{font-size:22px;color:#6b8890;letter-spacing:0}.completion{font-size:12px;color:#4f6c73}.meter{height:7px;border-radius:20px;background:#ccdedd;margin-top:14px;overflow:hidden}.fill{height:100%;width:0;background:var(--teal);transition:width .2s}.result{padding:20px 22px;border-bottom:1px solid var(--line)}.result h3{font-size:16px;margin:0 0 7px}.result p{margin:0;font-size:13px;color:#4a606c}.result.high{background:var(--red-bg)}.result.high h3{color:var(--red)}.result.mid{background:var(--amber-bg)}.result.mid h3{color:var(--amber)}.result.low{background:#f0f8f2}.result.low h3{color:#26673b}.sublabel{color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:11px;margin-bottom:8px}.breakdown{padding:19px 22px}.breakrow{display:flex;justify-content:space-between;align-items:center;font-size:13px;padding:7px 0;border-bottom:1px solid #edf0f2}.breakrow:last-child{border:0}.breakrow strong{font-variant-numeric:tabular-nums}.actions{padding:0 21px 22px;display:grid;gap:9px}.btn{display:flex;justify-content:center;align-items:center;gap:8px;min-height:42px;width:100%;font-weight:700;font-size:13.5px;border:1px solid #ccd8dd;border-radius:10px;background:white;color:var(--ink)}.btn.primary{background:var(--teal-dark);color:white;border-color:var(--teal-dark)}.btn.primary:hover{background:#064e51}.btn:disabled{cursor:not-allowed;opacity:.46}.btn:not(:disabled):hover{filter:brightness(.975)}.notice{margin:0;font-size:12px;color:var(--muted);text-align:center;min-height:18px}.reference{margin-top:20px;color:var(--muted);font-size:12.5px;line-height:1.5}.reference summary{cursor:pointer;color:var(--teal-dark);font-weight:700}.reference p{margin-bottom:9px}.smallcopy{font-size:12px;color:var(--muted)}.report{background:#f6f8f9;border:1px solid #dfe7ea;border-radius:10px;padding:14px;white-space:pre-wrap;overflow-wrap:anywhere;font:13px/1.5 ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",monospace;margin:12px 0 0;max-height:240px;overflow-y:auto}.footline{font-size:12px;color:var(--muted);margin-top:12px}.footer{font-size:12px;border-top:1px solid #d8e3e8;padding:18px 0 26px;color:#61717d}
+    @media(max-width:860px){.layout{grid-template-columns:1fr}.aside{position:static;order:-1}.scorecard{display:grid;grid-template-columns:1fr 1fr}.scoretop,.result{border-bottom:1px solid var(--line)}.breakdown,.actions{grid-column:span 1}.actions{align-content:start;padding-top:18px}.scoretop{padding:18px 22px}.bigscore{font-size:53px}}
+    @media(max-width:600px){.wrap{padding:0 14px}header{padding:23px 0 26px}h1{margin-top:22px}.card{padding:18px;border-radius:13px}.cardhead h2{font-size:19px}.optional-grid,.questions,.scorecard{grid-template-columns:1fr}.breakdown,.actions{grid-column:auto}.scoretop{border-bottom:0}.result{border-bottom:1px solid var(--line)}.cardhead{gap:10px}.numb{width:35px;height:35px}.bigscore{margin-top:6px}.actions{padding-top:0}}
+    @media print{*{box-shadow:none!important}html,body{background:white!important;color:#000!important;font-size:11px}header{background:white;color:black;padding:8px 0 12px;border-bottom:2px solid black}header p,.chip,.tag,.leadrow,.privacy-note,.footer,.actions,.reference,.footline{display:none!important}header h1{font-size:24px;margin:4px 0}main{padding:12px 0}.wrap{max-width:none;padding:0}.layout{display:block}.card,.scorecard{border:1px solid #ccc;break-inside:avoid;margin-bottom:9px;padding:12px;border-radius:5px}.aside{position:static;display:block}.scorecard{display:block;padding:0}.scoretop,.result,.breakdown{background:white!important;padding:9px 14px;border-bottom:1px solid #ddd}.bigscore{font-size:26px;margin:0}.meter,.section-intro{display:none}.options{gap:4px}label.option{padding:4px 8px;min-height:0;border:0;display:none!important}label.option:has(input:checked){display:flex!important;background:#f8f8f8!important;border:1px solid #ccc!important;box-shadow:none!important}label.option input{display:none}.cardhead{margin-bottom:5px}.cardhead h2{font-size:15px}.cardhead p{font-size:10px}.callout,.help{margin:5px 0;padding:3px 5px;font-size:10px}.questions{margin:4px 0;gap:3px;grid-template-columns:repeat(4,1fr)}.questions li{padding:4px}.report{max-height:none;font-size:10px}.section-intro{display:none}#patientCard{padding:10px}.field{border:0;padding:0}.scorecard{break-before:avoid}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+  </style>
+</head>
+<body>
+<header><div class="wrap">
+  <div class="topline"><div class="brand">4AT · Evaluación clínica</div><span class="tag">4AT-ES · Versión 1.2</span></div>
+  <h1>Cribado rápido del delirium</h1>
+  <p>Escala 4AT-ES para la detección inicial de posible delirium y deterioro cognitivo. Complete los cuatro apartados. La puntuación se calcula de forma automática.</p>
+  <div class="leadrow"><span class="chip">4 apartados</span><span class="chip">0–12 puntos</span><span class="chip">≈ 2 minutos</span><span class="chip">Funciona sin conexión</span></div>
+</div></header>
+<main class="wrap"><div class="layout"><div class="left">
+  <section class="card" id="patientCard" aria-labelledby="identityTitle">
+    <div class="cardhead"><div class="numb" aria-hidden="true">+</div><div><h2 id="identityTitle">Datos de la evaluación</h2><p>Opcionales; se usan únicamente al copiar o imprimir el informe.</p></div></div>
+    <div class="optional-grid"><div><label class="fieldlabel" for="patient">Identificador del paciente (opcional)</label><input class="field" id="patient" type="text" maxlength="80" autocomplete="off" placeholder="Ej. n.º de historia / código"></div><div><label class="fieldlabel" for="reviewer">Profesional evaluador (opcional)</label><input class="field" id="reviewer" type="text" maxlength="80" autocomplete="off" placeholder="Nombre o iniciales"></div></div>
+    <p class="privacy-note">Privacidad: el cálculo rápido no guarda datos. Si elige guardar en expediente de prueba, únicamente se conservan las respuestas y el resultado, no estos campos de identificación. No introduzca datos reales en la demo.</p>
+  </section>
+
+  <section class="card" aria-labelledby="item1Title"><div class="cardhead"><span class="numb">01</span><div><h2 id="item1Title">Nivel de conciencia</h2><p>Observe el nivel de alerta y la actividad del paciente.</p></div></div>
+    <div class="callout">Si está dormido, intente despertarlo hablándole o tocándole suavemente el hombro. Puede pedirle que diga su nombre y dirección para facilitar la valoración.</div>
+    <div class="options" role="radiogroup" aria-labelledby="item1Title">
+      <label class="option"><input type="radio" name="q1" value="0" data-label="Normal"><span class="option-text"><b>Normal</b>: completamente alerta, sin agitación durante la evaluación.</span><span class="points">0 pt</span></label>
+      <label class="option"><input type="radio" name="q1" value="0" data-label="Somnolencia leve breve"><span class="option-text">Somnolencia leve <b>menos de 10 segundos</b> tras despertar; después normal.</span><span class="points">0 pt</span></label>
+      <label class="option"><input type="radio" name="q1" value="4" data-label="Claramente anormal"><span class="option-text"><b>Claramente anormal</b> (somnolencia significativa, alteración de alerta o agitación/hiperactividad).</span><span class="points">4 pts</span></label>
+    </div>
+  </section>
+
+  <section class="card" aria-labelledby="item2Title"><div class="cardhead"><span class="numb">02</span><div><h2 id="item2Title">AMT4 · Orientación</h2><p>Formule al paciente las siguientes cuatro preguntas.</p></div></div>
+    <ul class="questions"><li><span class="qicon">1.</span> ¿Qué edad tiene?</li><li><span class="qicon">2.</span> ¿Cuál es su fecha de nacimiento?</li><li><span class="qicon">3.</span> ¿Dónde estamos?</li><li><span class="qicon">4.</span> ¿En qué año estamos?</li></ul>
+    <div class="options" role="radiogroup" aria-labelledby="item2Title">
+      <label class="option"><input type="radio" name="q2" value="0" data-label="Sin errores"><span class="option-text"><b>Sin errores</b>.</span><span class="points">0 pt</span></label>
+      <label class="option"><input type="radio" name="q2" value="1" data-label="1 error"><span class="option-text"><b>1 error</b>.</span><span class="points">1 pt</span></label>
+      <label class="option"><input type="radio" name="q2" value="2" data-label="2 o más errores / imposible de evaluar"><span class="option-text"><b>2 o más errores</b> o imposible de evaluar.</span><span class="points">2 pts</span></label>
+    </div>
+    <p class="help">Para el lugar, se admite una identificación razonable (p. ej., «el hospital»), sin exigir el nombre oficial.</p>
+  </section>
+
+  <section class="card" aria-labelledby="item3Title"><div class="cardhead"><span class="numb">03</span><div><h2 id="item3Title">Atención · Meses en orden inverso</h2><p>Evalúe la capacidad para mantener la atención.</p></div></div>
+    <div class="callout"><strong>Diga al paciente:</strong> «Por favor, dígame los meses del año en orden inverso, empezando por diciembre».<br>Se permite una única ayuda inicial: «¿Cuál es el mes anterior a diciembre?».</div>
+    <div class="options" role="radiogroup" aria-labelledby="item3Title">
+      <label class="option"><input type="radio" name="q3" value="0" data-label="7 o más meses correctos"><span class="option-text">Consigue decir <b>7 o más meses correctamente</b>.</span><span class="points">0 pt</span></label>
+      <label class="option"><input type="radio" name="q3" value="1" data-label="Menos de 7 meses / se niega a comenzar"><span class="option-text">Consigue <b>menos de 7 meses</b> o se niega a comenzar.</span><span class="points">1 pt</span></label>
+      <label class="option"><input type="radio" name="q3" value="2" data-label="Imposible de evaluar"><span class="option-text"><b>Imposible de evaluar</b> por malestar, somnolencia o falta de atención.</span><span class="points">2 pts</span></label>
+    </div>
+    <p class="help">Referencia: diciembre → noviembre → octubre → septiembre → agosto → julio → junio (siete meses).</p>
+  </section>
+
+  <section class="card" aria-labelledby="item4Title"><div class="cardhead"><span class="numb">04</span><div><h2 id="item4Title">Cambio agudo o curso fluctuante</h2><p>Compare con el estado basal del paciente.</p></div></div>
+    <div class="callout">¿Existe evidencia de cambio significativo o fluctuación del nivel de conciencia, cognición u otra función mental (p. ej., paranoia o alucinaciones) <strong>surgido en las últimas 2 semanas</strong> y <strong>presente en las últimas 24 horas</strong>?</div>
+    <div class="options" role="radiogroup" aria-labelledby="item4Title">
+      <label class="option"><input type="radio" name="q4" value="0" data-label="No"><span class="option-text"><b>No</b>.</span><span class="points">0 pt</span></label>
+      <label class="option"><input type="radio" name="q4" value="4" data-label="Sí"><span class="option-text"><b>Sí</b>.</span><span class="points">4 pts</span></label>
+    </div>
+    <p class="help">Utilice familiares, cuidadores, profesionales y/o la historia clínica. Si todavía no hay datos para este apartado, déjelo sin marcar y la prueba permanecerá pendiente.</p>
+  </section>
+
+  <section class="card" aria-labelledby="reportTitle"><div class="cardhead"><span class="numb" aria-hidden="true">≡</span><div><h2 id="reportTitle">Texto para la historia clínica</h2><p>Se genera al completar los cuatro apartados.</p></div></div>
+    <div class="report" id="report" aria-live="polite">Complete los cuatro apartados para generar el informe.</div>
+    <p class="footline">El resultado es de cribado: no establece por sí solo un diagnóstico definitivo de delirium.</p>
+  </section>
+  <div class="reference"><details><summary>Fuentes, uso e indicaciones</summary>
+    <p>Instrumento basado en el 4AT-ES, versión 1.2, y su guía de puntuación. Ítems 1–3: observación directa; ítem 4: información clínica sobre estado basal y curso temporal. Valore posibles barreras de comunicación (hipoacusia, disfasia, idioma).</p>
+    <p>Un resultado ≥4 sugiere posible delirium con o sin deterioro cognitivo; requiere valoración clínica. Un resultado 1–3 sugiere posible deterioro cognitivo, aunque no excluye delirium. Con 0 puntos, delirium o deterioro cognitivo son poco probables, pero no quedan descartados, sobre todo si la información del apartado 4 es incompleta.</p>
+    <p><a href="https://www.the4at.com/4at-espanol" target="_blank" rel="noopener noreferrer">Versión oficial en español</a> · <a href="https://www.the4at.com/userguide" target="_blank" rel="noopener noreferrer">Guía oficial de uso</a> · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">Licencia CC BY 4.0</a>.</p>
+    <p>Adaptación digital de la presentación para autocalcular y documentar, sin alterar los ítems ni las puntuaciones del instrumento. 4AT © 2011–2014 Alasdair MacLullich, Tracy Ryan y Helen Cash. CC BY 4.0. Versión oficial: https://www.the4at.com. No existe aval de los autores para esta interfaz. Se entrega sin garantías de idoneidad para un uso específico.</p>
+  </details></div>
+</div>
+<aside class="aside" aria-label="Resultado y acciones"><div class="scorecard">
+  <div class="scoretop"><div class="eyebrow">Puntuación 4AT</div><div class="bigscore"><span id="score">—</span> <small>/12</small></div><div class="completion" id="completion" aria-live="polite">0 de 4 apartados completados</div><div class="meter" aria-hidden="true"><div class="fill" id="progress"></div></div></div>
+  <div class="result" id="result" role="status" aria-live="polite"><h3 id="resultTitle">Evaluación pendiente</h3><p id="resultDesc">Seleccione una respuesta en cada apartado para interpretar el resultado.</p></div>
+  <div class="breakdown"><div class="sublabel">Desglose</div><div class="breakrow"><span>1. Nivel de conciencia</span><strong id="value1">—</strong></div><div class="breakrow"><span>2. AMT4</span><strong id="value2">—</strong></div><div class="breakrow"><span>3. Atención</span><strong id="value3">—</strong></div><div class="breakrow"><span>4. Cambio agudo</span><strong id="value4">—</strong></div></div>
+  <div class="actions"><button class="btn primary" id="copy" type="button" disabled>Copiar para historia clínica</button><button class="btn" id="print" type="button" disabled>Imprimir / Guardar PDF</button><button class="btn" id="reset" type="button">Nueva evaluación</button><p class="notice" id="notice" role="status" aria-live="polite"></p></div>
+</div><div class="reference"><strong>Importante:</strong> La escala 4AT es una herramienta de cribado, no un diagnóstico automático. Si existe sospecha clínica, evalúe al paciente independientemente de la puntuación.</div></aside>
+</div></main>
+<footer class="footer"><div class="wrap">Aplicación HTML local · 4AT-ES v1.2 · No transmite información; solo guarda resultados si pulsas «Guardar en expediente de prueba». Fuente: <a href="https://www.the4at.com" target="_blank" rel="noopener noreferrer">the4at.com</a> · CC BY 4.0.</div></footer>
+<script>
+  'use strict';
+  const names = ['Nivel de conciencia', 'AMT4', 'Atención', 'Cambio agudo o curso fluctuante'];
+  const esc = id => document.getElementById(id);
+  function selected(i){return document.querySelector('input[name="q'+i+'"]:checked')}
+  function state(){const entries=[1,2,3,4].map(selected);const completed=entries.filter(Boolean).length;const subtotal=entries.reduce((a,input)=>a+(input?Number(input.value):0),0);return {entries,completed,subtotal,done:completed===4}}
+  function interpretation(score){
+    if(score>=4)return {title:'Posible delirium',desc:'Cribado positivo (≥4). Puede coexistir deterioro cognitivo. Requiere valoración clínica y búsqueda de factores precipitantes.',level:'high',report:'Posible delirium con o sin deterioro cognitivo (cribado positivo).'};
+    if(score>=1)return {title:'Posible deterioro cognitivo',desc:'Puntuación de 1 a 3. Valorar cognición basal e historia aportada por informantes. No excluye delirium.',level:'mid',report:'Posible deterioro cognitivo. El delirium no queda excluido.'};
+    return {title:'Delirium poco probable',desc:'Puntuación de 0. Delirium o deterioro cognitivo poco probables, pero no excluidos, especialmente si los datos de cambio agudo son incompletos.',level:'low',report:'Delirium o deterioro cognitivo poco probables; no se excluyen por completo.'};
+  }
+  function createReport(s){
+    const patient=esc('patient').value.trim();const reviewer=esc('reviewer').value.trim();
+    const now=new Intl.DateTimeFormat('es-ES',{dateStyle:'short',timeStyle:'short'}).format(new Date());
+    const parts=s.entries.map((input,j)=>`${j+1}. ${names[j]}: ${input.value} punto${input.value==='1'?'':'s'} (${input.dataset.label}).`);
+    const intro=['4AT-ES (cribado de delirium) — '+now];if(patient)intro.push('Identificador: '+patient);if(reviewer)intro.push('Evaluador: '+reviewer);
+    return [...intro,...parts,`Puntuación total: ${s.subtotal}/12.`,`Interpretación: ${interpretation(s.subtotal).report}`,'La puntuación 4AT orienta el cribado; debe interpretarse en contexto clínico.'].join('\n');
+  }
+  function render(){
+    const s=state();esc('score').textContent=s.done?String(s.subtotal):'—';
+    esc('completion').textContent=`${s.completed} de 4 apartados completados${s.done?' · Resultado definitivo':''}`;
+    esc('progress').style.width=(s.completed*25)+'%';
+    s.entries.forEach((input,j)=>esc('value'+(j+1)).textContent=input?input.value+' pt':'—');
+    const box=esc('result');box.className='result';
+    if(s.done){const interp=interpretation(s.subtotal);box.classList.add(interp.level);esc('resultTitle').textContent=interp.title;esc('resultDesc').textContent=interp.desc;esc('report').textContent=createReport(s)}
+    else{esc('resultTitle').textContent='Evaluación pendiente';esc('resultDesc').textContent=`Faltan ${4-s.completed} apartado${4-s.completed!==1?'s':''}. Puntuación acumulada de los contestados: ${s.subtotal} punto${s.subtotal!==1?'s':''}. No interpretar como resultado final.`;esc('report').textContent='Complete los cuatro apartados para generar el informe.'}
+    esc('copy').disabled=!s.done;esc('print').disabled=!s.done;
+  }
+  function notify(message){esc('notice').textContent=message;}
+  async function copyReport(){
+    const s=state();if(!s.done)return;const value=createReport(s);
+    try{
+      if(navigator.clipboard && window.isSecureContext){await navigator.clipboard.writeText(value)}
+      else{const tmp=document.createElement('textarea');tmp.value=value;tmp.setAttribute('readonly','');tmp.style.position='fixed';tmp.style.opacity='0';document.body.appendChild(tmp);tmp.select();const ok=document.execCommand('copy');tmp.remove();if(!ok)throw new Error('copy failed')}
+      notify('Informe copiado.');
+    }catch(e){notify('No se pudo copiar automáticamente: seleccione el texto del informe y cópielo manualmente.');esc('report').focus()}
+  }
+  document.querySelectorAll('input[type="radio"]').forEach(input=>input.addEventListener('change',()=>{notify('');render()}));
+  ['patient','reviewer'].forEach(id=>esc(id).addEventListener('input',()=>{notify('');render()}));
+  esc('copy').addEventListener('click',copyReport);
+  esc('print').addEventListener('click',()=>{if(state().done)window.print()});
+  esc('reset').addEventListener('click',()=>{
+    if(state().completed>0 && !window.confirm('¿Iniciar una nueva evaluación? Se borrarán las respuestas y los datos introducidos.'))return;
+    document.querySelectorAll('input[type="radio"]').forEach(input=>input.checked=false);
+    esc('patient').value='';esc('reviewer').value='';notify('Nueva evaluación iniciada.');render();window.scrollTo({top:0,behavior:'smooth'});
+  });
+  render();
+</script>
+<script>window.DEMO_SCALE='4at';</script><script src="expedientes.js"></script><script src="expediente-widget.js"></script>
+</body>
+</html>

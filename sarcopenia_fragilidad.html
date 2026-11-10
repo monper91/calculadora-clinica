@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="color-scheme" content="light"/><title>Sarcopenia y fragilidad · Herramientas clínicas</title>
+<style>
+:root{--navy:#0b5558;--blue:#0f8b8d;--blue2:#21a3a3;--ink:#19334f;--muted:#576f87;--line:#d8e4ee;--base:#f3f7fb;--white:#fff;--focus:#0b6cc9;--green:#0d735c;--orange:#9b570e;--red:#a3353c;--softblue:#edf8f8}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--base);font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink)}a{color:var(--blue)}button,input,select{font:inherit}button{cursor:pointer}a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid var(--focus);outline-offset:3px}button:disabled{opacity:.48;cursor:not-allowed}.wrap{max-width:1240px;margin:auto;padding:0 24px}
+.mast{background:linear-gradient(115deg,#0b5558,#149a9b);color:#fff;padding:20px 0 34px}.nav{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}.brand{font-weight:800;letter-spacing:.06em;font-size:13px;text-transform:uppercase}.back{color:#fff;text-decoration:none;border:1px solid #ffffff78;border-radius:9px;padding:7px 13px;font-size:13px;font-weight:650}.mast h1{font-size:clamp(25px,3.5vw,39px);line-height:1.12;letter-spacing:-.025em;margin:27px 0 9px}.mast p{max-width:780px;margin:0;color:#e3effb}.chips{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0}.chips span{border:1px solid #ffffff55;color:#f4faff;border-radius:50px;font-size:12px;padding:4px 11px}
+.layout{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(300px,.85fr);gap:22px;margin:28px auto 50px;align-items:start}.formcol{display:grid;gap:19px}.panel,.summary,.clinicalnotes{background:white;border:1px solid var(--line);border-radius:15px;box-shadow:0 7px 26px #133b5c0a}.panel{padding:24px}.sectionhead{display:flex;align-items:flex-start;gap:12px;margin-bottom:18px}.step{background:var(--blue);border-radius:9px;color:white;font-weight:800;min-width:38px;height:38px;display:grid;place-items:center}.sectionhead h2{font-size:19px;margin:0;line-height:1.25;letter-spacing:.015em}.sectionhead p{color:var(--muted);font-size:13px;margin:5px 0 0}.subhead{font-weight:750;font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:#0b6c6d;margin:16px 0 12px}.fieldgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.field{display:flex;flex-direction:column;gap:6px}.field label,.fieldlabel{font-weight:650;font-size:14px}.small{color:var(--muted);font-size:12px;line-height:1.45}.field input,.field select{border:1px solid #b9cddd;border-radius:9px;background:white;color:var(--ink);padding:10px 12px;width:100%;min-height:44px}.field input:disabled{background:#edf1f6;color:#71839a}.unit{position:relative}.unit input{padding-right:56px}.unit span{position:absolute;right:12px;top:12px;color:#5a7085;font-size:12px}.seg{display:flex;flex-wrap:wrap;gap:9px}.opt{display:flex;gap:8px;align-items:center;border:1px solid var(--line);background:#fff;padding:9px 14px;border-radius:9px;min-height:43px;cursor:pointer;font-size:14px}.opt:has(input:checked){background:var(--softblue);border-color:#159395;box-shadow:inset 0 0 0 1px #159395}.opt input{accent-color:var(--blue);width:16px;height:16px}.soft{border-radius:11px;padding:13px 15px;background:#f4f8fc;border:1px solid #dae7f2;margin-top:16px}.soft p{margin:0}.rule{border:0;border-top:1px solid var(--line);margin:22px 0}.minihead{font-weight:720;font-size:14px;margin:0 0 11px}.q{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:13px;align-items:center;padding:14px 0;border-bottom:1px solid #e7eff6}.q:last-child{border:0}.q strong{font-size:14px;line-height:1.4}.q small{display:block;color:#687f94;font-size:12px;margin-top:3px}.q .seg{gap:5px}.q .opt{min-width:56px;padding:7px 9px;justify-content:center;font-size:13px}.q .opt input{width:14px;height:14px}.qnum{color:var(--blue);font-weight:800;margin-right:6px}.hint{margin-top:8px;color:var(--muted);font-size:12px}details{border:1px solid var(--line);border-radius:11px;padding:12px 15px;margin-top:18px}summary{cursor:pointer;font-weight:680;color:#0b6c6d}details p{font-size:13px;color:var(--muted);margin:11px 0}.evaluation{border:1px solid #bdd5eb;border-radius:12px;padding:12px 15px;background:#f6faff;margin:0 0 12px}.evaluation h3{font-size:12px;text-transform:uppercase;letter-spacing:.065em;margin:0 0 5px;color:#57718a}.evaluation strong{display:block;font-size:18px;line-height:1.35;color:var(--navy)}.evaluation p{margin:5px 0 0;font-size:12px;color:#5b7186}.evaluation.positive{border-color:#e2c2c1;background:#fff7f6}.evaluation.positive strong{color:var(--red)}.evaluation.attention{border-color:#e8d0aa;background:#fff9ee}.evaluation.attention strong{color:#82521b}.evaluation.good{border-color:#b6d9cf;background:#f2fbf7}.evaluation.good strong{color:var(--green)}.aside{position:sticky;top:16px}.summary{overflow:hidden}.summaryheader{background:var(--navy);color:white;padding:20px 22px}.summaryheader h2{font-size:18px;margin:0}.summaryheader p{font-size:12px;color:#d4e6f6;margin:5px 0 0}.summarybody{padding:19px}.score{display:flex;align-items:baseline;gap:9px;margin-bottom:13px}.score strong{font-size:45px;line-height:1;font-variant-numeric:tabular-nums}.score span{color:var(--muted);font-size:13px}.meter{height:7px;border-radius:8px;background:#e0ebf4;overflow:hidden;margin-bottom:16px}.meter div{background:var(--blue2);height:100%;width:0%;transition:width .2s}.actions{display:flex;flex-wrap:wrap;gap:8px}.btn{padding:10px 12px;border:1px solid #c1d3e1;border-radius:9px;background:white;font-weight:700;color:var(--navy);font-size:13px}.btn.primary{background:var(--blue);border-color:var(--blue);color:white}.notice{font-size:12px;color:var(--green);min-height:18px}.reportbox{margin-top:18px}.reportbox label{font-size:12px;font-weight:750;text-transform:uppercase;color:#55728c;letter-spacing:.06em}.reportbox textarea{margin-top:8px;width:100%;height:184px;resize:vertical;border:1px solid var(--line);padding:12px;border-radius:9px;background:#f9fbfe;color:#274059;font-size:12px;line-height:1.6}.clinicalnotes{margin-top:14px;padding:17px 19px;color:#506b82;font-size:12px}.clinicalnotes p{margin:6px 0}.foot{font-size:12px;color:#5e7286;border-top:1px solid var(--line);padding:23px 0 34px}.foot a{word-break:break-word}.legend{display:flex;align-items:center;gap:7px;margin:6px 0 0;color:#6b8092;font-size:12px}
+@media(max-width:900px){.layout{grid-template-columns:1fr}.aside{position:static;order:-1}.summarybody{display:grid;grid-template-columns:1fr 1fr;gap:10px 18px}.score,.meter,.actions,.reportbox,.notice{grid-column:span 2}.evaluation{margin:0}}@media(max-width:590px){.wrap{padding:0 14px}.mast{padding-bottom:25px}.mast h1{margin-top:21px}.panel{padding:17px}.fieldgrid{grid-template-columns:1fr}.q{grid-template-columns:1fr;gap:7px;padding:13px 0}.summarybody{display:block}.evaluation{margin-bottom:10px}.score strong{font-size:38px}.q .seg{justify-content:flex-start}.actions .btn{flex:1}}
+@media print{body{background:#fff;font-size:11px}.mast{background:white;color:black;padding:0;border-bottom:2px solid #333}.mast p,.nav,.chips,.formcol,.actions,.foot,.clinicalnotes,.meter,.notice{display:none!important}.mast h1{font-size:23px;margin:5px 0 9px}.layout{display:block;margin:15px auto}.aside{position:static}.summary{border:0;box-shadow:none}.summaryheader{background:white;color:black;border-bottom:1px solid #ccc;padding:8px 0}.summaryheader p{color:#333}.summarybody{padding:10px 0}.evaluation{border:1px solid #999;background:white!important;break-inside:avoid}.reportbox textarea{height:320px;color:black;border:0;overflow:visible}.score strong{font-size:26px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+</style></head>
+<body>
+<header class="mast"><div class="wrap"><nav class="nav"><span class="brand">MEDICINA INTERNA · HERRAMIENTAS CLÍNICAS</span><a class="back" href="index.html#/categoria/cronicidad">← Volver a CRONICIDAD Y PLURIPATOLOGÍA</a></nav><h1>Valoración de sarcopenia y fragilidad</h1><p>Herramienta de cribado y apoyo a la valoración clínica a partir del documento SEMI y los criterios EWGSOP2. Los apartados pueden completarse de manera independiente.</p><div class="chips"><span>Fuerza y masa muscular</span><span>Escala FRAIL</span><span>Velocidad de la marcha</span><span>Sin conexión</span></div></div></header>
+<main class="wrap layout"><div class="formcol"><form id="assessment" autocomplete="off" novalidate>
+<section class="panel" id="sarcopenia"><div class="sectionhead"><span class="step">01</span><div><h2>SARCOPENIA · FUERZA Y MASA MUSCULAR</h2><p>La fuerza baja indica sarcopenia probable; para confirmar se necesita masa muscular reducida.</p></div></div>
+<div class="subhead">1. Fuerza muscular</div>
+<div class="field"><label>Sexo (para los puntos de corte)</label><div class="seg"><label class="opt"><input type="radio" name="sex" value="male"/> Hombre</label><label class="opt"><input type="radio" name="sex" value="female"/> Mujer</label></div></div>
+<div class="field" style="margin-top:15px"><span class="fieldlabel">Dinamometría · fuerza de prensión</span><div class="seg"><label class="opt"><input type="radio" name="grip" value="low"/> Inferior al punto de corte</label><label class="opt"><input type="radio" name="grip" value="normal"/> Igual o superior</label></div><span class="small" id="gripHint">Punto de corte: &lt;27 kg en hombres; &lt;16 kg en mujeres.</span></div>
+<div class="field" style="margin-top:16px"><span class="fieldlabel">Chair stand · tiempo para 5 levantamientos</span><div class="seg"><label class="opt"><input type="radio" name="chair" value="normal"/> ≤15 s</label><label class="opt"><input type="radio" name="chair" value="low"/> &gt;15 s</label><label class="opt"><input type="radio" name="chair" value="unable"/> No completa por debilidad</label></div><span class="small">Sin usar los brazos como apoyo.</span></div>
+<hr class="rule"/><div class="subhead">2. Masa muscular</div>
+<div class="fieldgrid"><div class="field"><span class="fieldlabel">Perímetro de pantorrilla (orientativo)</span><div class="seg"><label class="opt"><input type="radio" name="calf" value="low"/> &lt;31 cm</label><label class="opt"><input type="radio" name="calf" value="normal"/> ≥31 cm</label></div><span class="small">Un valor bajo orienta, pero no confirma sarcopenia.</span></div><div class="field"><label for="massMethod">Método de valoración de masa muscular</label><select id="massMethod"><option value="">Sin registrar</option><option value="dxa">DXA</option><option value="bia">Bioimpedanciometría (BIA)</option><option value="ct">TC / RM</option><option value="eco">Ecografía muscular</option></select></div></div>
+<div class="field" style="margin-top:13px"><span class="fieldlabel">Resultado de la valoración de masa muscular</span><div class="seg"><label class="opt"><input type="radio" name="mass" value="low"/> Reducida</label><label class="opt"><input type="radio" name="mass" value="normal"/> No reducida</label></div><span class="small">Según puntos de corte validados para la técnica y población.</span></div>
+<details><summary>Ecografía clínica · Criterios orientativos del material SEMI</summary><p>Grosor del recto femoral en corte transversal, a mitad del trayecto EIAS–polo superior rotuliano y sin contracción.</p>
+<div class="field"><span class="fieldlabel">¿Se visualiza la aponeurosis central?</span><div class="seg"><label class="opt"><input type="radio" name="aponeurosis" value="yes"/> Sí</label><label class="opt"><input type="radio" name="aponeurosis" value="no"/> No</label></div></div>
+<div class="field" style="margin-top:13px"><span class="fieldlabel">Grosor del recto femoral</span><div class="seg"><label class="opt"><input type="radio" name="rectus" value="low"/> Inferior al punto de corte</label><label class="opt"><input type="radio" name="rectus" value="normal"/> Igual o superior</label></div><span class="small" id="rectusHint">Orientativo: &lt;9 mm en hombres; &lt;7 mm en mujeres.</span></div><p id="ecoMsg" aria-live="polite"></p></details>
+</section>
+<section class="panel" id="fragilidad"><div class="sectionhead"><span class="step">02</span><div><h2>FRAGILIDAD · ESCALA FRAIL</h2><p>Cinco preguntas, 1 punto por cada respuesta afirmativa. El resultado se muestra al responder las cinco.</p></div></div>
+<div class="q"><div><strong><span class="qnum">1</span>¿Se encuentra cansado/a o fatigado/a?</strong></div><div class="seg"><label class="opt"><input type="radio" name="fatigue" value="1"/> Sí</label><label class="opt"><input type="radio" name="fatigue" value="0"/> No</label></div></div>
+<div class="q"><div><strong><span class="qnum">2</span>¿Es incapaz de subir un piso de escaleras?</strong></div><div class="seg"><label class="opt"><input type="radio" name="stairs" value="1"/> Sí</label><label class="opt"><input type="radio" name="stairs" value="0"/> No</label></div></div>
+<div class="q"><div><strong><span class="qnum">3</span>¿Es incapaz de caminar una manzana?</strong></div><div class="seg"><label class="opt"><input type="radio" name="ambulation" value="1"/> Sí</label><label class="opt"><input type="radio" name="ambulation" value="0"/> No</label></div></div>
+<div class="q"><div><strong><span class="qnum">4</span>¿Tiene más de cinco enfermedades?</strong></div><div class="seg"><label class="opt"><input type="radio" name="illness" value="1"/> Sí</label><label class="opt"><input type="radio" name="illness" value="0"/> No</label></div></div>
+<div class="q"><div><strong><span class="qnum">5</span>¿Ha perdido más del 5 % de su peso en los últimos 6 meses?</strong></div><div class="seg"><label class="opt"><input type="radio" name="weight" value="1"/> Sí</label><label class="opt"><input type="radio" name="weight" value="0"/> No</label></div></div>
+<div class="soft"><p class="small"><strong>Interpretación:</strong> FRAIL 0 = sin criterios; 1–2 = prefragilidad; 3–5 = fragilidad. El documento SEMI considera ≥1 como umbral para detectar posibles pacientes frágiles y ampliar la valoración.</p></div>
+</section>
+<section class="panel" id="marcha"><div class="sectionhead"><span class="step">03</span><div><h2>RENDIMIENTO FÍSICO · VELOCIDAD DE LA MARCHA</h2><p>Cribado de fragilidad y medida de la gravedad de la sarcopenia.</p></div></div>
+<div class="field"><span class="fieldlabel">Velocidad de marcha en 4 metros</span><div class="seg"><label class="opt"><input type="radio" name="gait" value="low"/> ≤0,8 m/s (≥5 s)</label><label class="opt"><input type="radio" name="gait" value="normal"/> &gt;0,8 m/s (&lt;5 s)</label><label class="opt"><input type="radio" name="gait" value="unable"/> No realizable</label></div><span class="small">EWGSOP2: rendimiento bajo si ≤0,8 m/s. La infografía SEMI usa &lt;0,8 m/s para cribado.</span></div></section>
+</form></div>
+<aside class="aside"><section class="summary" aria-label="Resultados"><div class="summaryheader"><h2>Interpretación automática</h2><p>Resultados independientes según las pruebas cumplimentadas.</p></div><div class="summarybody"><div class="score"><strong id="frailScore">—</strong><span>/ 5 puntos FRAIL</span></div><div class="meter"><div id="meterFill"></div></div><div class="evaluation" id="sarcoBox"><h3>Sarcopenia</h3><strong id="sarcoTitle">Pendiente de valoración</strong><p id="sarcoDesc">Introduzca al menos una medida de fuerza muscular.</p></div><div class="evaluation" id="frailBox"><h3>FRAIL</h3><strong id="frailTitle">Pendiente</strong><p id="frailDesc">0 de 5 ítems respondidos.</p></div><div class="evaluation" id="gaitBox"><h3>Marcha 4 metros</h3><strong id="gaitTitle">No evaluada</strong><p id="gaitDesc">Introduzca el tiempo para calcular m/s.</p></div><div class="actions"><button type="button" id="copy" class="btn primary" disabled>Copiar resultado</button><button type="button" id="print" class="btn" disabled>Imprimir</button><button type="button" id="reset" class="btn">Nueva valoración</button></div><div class="notice" id="notice" role="status" aria-live="polite"></div><div class="reportbox"><label for="report">Texto para historia clínica</label><textarea id="report" readonly aria-label="Informe para copiar">Complete algún apartado para generar el resumen.</textarea></div></div></section><div class="clinicalnotes"><strong>Uso clínico</strong><p>Las pruebas alteradas pueden relacionarse también con enfermedad aguda, dolor, limitaciones osteoarticulares o déficit neurológico. Interpretar según situación basal.</p><p>La pantorrilla y los umbrales ecográficos del material son orientativos: para confirmar la sarcopenia se requiere una valoración adecuada de la cantidad o calidad muscular.</p><p>La calculadora no guarda datos ni realiza peticiones a Internet.</p></div></aside></main>
+<footer class="wrap foot">Adaptación interactiva independiente, sin aval oficial de SEMI. Fuentes: <a href="https://www.fesemi.org/sites/default/files/documentos/1010.pdf" target="_blank" rel="noopener noreferrer">Infografía SEMI · Valoración de fragilidad y sarcopenia</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6322506/" target="_blank" rel="noopener noreferrer">EWGSOP2 (2019)</a> · <a href="https://www.sanidad.gob.es/fr/areas/promocionPrevencion/envejecimientoSaludable/fragilidadCaidas/docs/actualizacionDoc_FragilidadyCaidas_personamayor2026.pdf" target="_blank" rel="noopener noreferrer">Ministerio de Sanidad, consenso 2026</a>. Uso de apoyo al juicio clínico; no constituye diagnóstico autónomo.</footer>
+<script>
+'use strict';
+const $=id=>document.getElementById(id);
+const selected=name=>document.querySelector('input[name="'+name+'"]:checked')?.value??null;
+const frailNames=['fatigue','stairs','ambulation','illness','weight'];
+const frailLabels=['fatiga','incapacidad para subir un piso de escaleras','incapacidad para caminar una manzana','más de cinco enfermedades','pérdida de peso >5 % en 6 meses'];
+const methodLabels={dxa:'DXA',bia:'BIA',ct:'TC/RM',eco:'ecografía clínica'};
+function getState(){
+ const sex=selected('sex'),grip=selected('grip'),chair=selected('chair'),calf=selected('calf');
+ const gripLow=grip===null?null:grip==='low';
+ const chairLow=chair===null?null:chair==='low'||chair==='unable';
+ const strengthLow=gripLow===true||chairLow===true?true:(gripLow===false||chairLow===false)?false:null;
+ const mass=selected('mass'),method=$('massMethod').value;
+ const massConfirmed=mass==='low'&&['dxa','bia','ct'].includes(method);
+ const massEco=mass==='low'&&method==='eco';
+ const aponeurosis=selected('aponeurosis'),rectus=selected('rectus');
+ const ecoLow=aponeurosis==='yes'&&rectus!==null?rectus==='low':null;
+ const gait=selected('gait'),gaitLow=gait===null||gait==='unable'?null:gait==='low';
+ const frail=frailNames.map(selected),answered=frail.filter(x=>x!==null).length;
+ const frailScore=frail.reduce((sum,x)=>sum+(x==='1'?1:0),0),frailDone=answered===5;
+ return {sex,grip,gripLow,chair,chairLow,strengthLow,calf,mass,method,massConfirmed,massEco,aponeurosis,rectus,ecoLow,gait,gaitLow,frail,answered,frailScore,frailDone};
+}
+function classify(s){
+ let sarco={title:'Pendiente de valoración',desc:'Seleccione una prueba de fuerza muscular.',cls:''};
+ if(s.strengthLow===true){
+   if(s.massConfirmed&&s.gaitLow===true)sarco={title:'Sarcopenia grave',desc:'Baja fuerza, masa muscular reducida confirmada y bajo rendimiento físico (EWGSOP2).',cls:'positive'};
+   else if(s.massConfirmed)sarco={title:'Sarcopenia confirmada',desc:'Baja fuerza y masa muscular reducida. '+(s.gaitLow===false?'Rendimiento de marcha no bajo.':'Falta valorar rendimiento físico para graduar gravedad.'),cls:'positive'};
+   else sarco={title:'Sarcopenia probable',desc:s.massEco?'Fuerza baja; ecografía compatible con masa reducida, pendiente de confirmación mediante criterio validado.':(s.calf==='low'?'Fuerza baja y pantorrilla <31 cm; pendiente de confirmación de masa muscular.':'Fuerza baja; falta confirmar masa muscular.'),cls:'attention'};
+ }else if(s.strengthLow===false){sarco={title:'Sin baja fuerza demostrada',desc:'No se observa baja fuerza en las pruebas disponibles. Una valoración incompleta no excluye sarcopenia.',cls:'good'};}
+ else if(s.mass==='low')sarco={title:'Falta valorar la fuerza',desc:'Se ha consignado masa muscular baja, pero falta valorar la fuerza para clasificar sarcopenia.',cls:'attention'};
+ let frail={title:'Pendiente',desc:`${s.answered} de 5 ítems respondidos. Puntuación provisional: ${s.frailScore}.`,cls:''};
+ if(s.frailDone){
+   if(s.frailScore>=3)frail={title:'Fragilidad (FRAIL '+s.frailScore+'/5)',desc:'Clasificación habitual: 3–5 puntos. Cribado positivo.',cls:'positive'};
+   else if(s.frailScore>=1)frail={title:'Prefragilidad (FRAIL '+s.frailScore+'/5)',desc:'Clasificación habitual: 1–2 puntos. Cribado positivo según SEMI (≥1).',cls:'attention'};
+   else frail={title:'Sin criterios FRAIL (0/5)',desc:'Cribado negativo por FRAIL; no excluye fragilidad por otras pruebas.',cls:'good'};
+ }
+ let gait={title:'No evaluada',desc:'Seleccione el resultado de la marcha de 4 metros.',cls:''};
+ if(s.gait==='low')gait={title:'Rendimiento físico bajo',desc:'Velocidad ≤0,8 m/s (≥5 s en 4 m); criterio EWGSOP2.',cls:'positive'};
+ else if(s.gait==='normal')gait={title:'Velocidad de marcha conservada',desc:'Velocidad >0,8 m/s (<5 s en 4 m).',cls:'good'};
+ else if(s.gait==='unable')gait={title:'Prueba de marcha no realizable',desc:'No puede interpretarse con el umbral de velocidad; valorar el motivo clínico.',cls:'attention'};
+ return {sarco,frail,gait};
+}
+function report(s,i){
+ const lines=['VALORACIÓN DE SARCOPENIA Y FRAGILIDAD'];
+ const pieces=[];
+ if(s.grip!==null)pieces.push('dinamometría '+(s.grip==='low'?'inferior':'igual o superior')+' al punto de corte ('+(s.sex==='male'?'hombres: 27 kg':s.sex==='female'?'mujeres: 16 kg':'<27 kg hombres / <16 kg mujeres')+')');
+ if(s.chair!==null)pieces.push('chair stand (5 repeticiones): '+({low:'>15 s',normal:'≤15 s',unable:'no completa por debilidad'}[s.chair]));
+ if(pieces.length)lines.push('Fuerza muscular: '+pieces.join('; ')+'.');
+ if(s.calf!==null)lines.push('Perímetro de pantorrilla: '+(s.calf==='low'?'<31 cm (indicador orientativo de masa reducida)':'≥31 cm')+'.');
+ if(s.mass!==null)lines.push('Masa muscular: '+(s.mass==='low'?'reducida':'no reducida')+(s.method?' ('+methodLabels[s.method]+')':' (método no indicado)')+'.');
+ if(s.aponeurosis!==null||s.rectus!==null){
+  let msg='Ecografía orientativa: '+(s.aponeurosis==='yes'?'aponeurosis central visible':s.aponeurosis==='no'?'aponeurosis central no visible':'aponeurosis no evaluada');
+  if(s.rectus!==null)msg+='; grosor de recto femoral '+(s.rectus==='low'?'inferior':'igual o superior')+' al punto de corte ('+(s.sex==='male'?'9 mm en hombres':s.sex==='female'?'7 mm en mujeres':'<9 mm hombres / <7 mm mujeres')+')';
+  if(s.ecoLow===true)msg+=' (bajo umbral orientativo)';
+  if(s.aponeurosis==='no')msg+=' (grosor no fiable)';
+  lines.push(msg+'.');
+ }
+ if(s.strengthLow!==null||s.mass!==null)lines.push('Clasificación de sarcopenia: '+i.sarco.title+'. '+i.sarco.desc);
+ if(s.frailDone)lines.push('FRAIL: '+s.frailScore+'/5 ('+frailNames.filter(n=>selected(n)==='1').map(n=>frailLabels[frailNames.indexOf(n)]).join(', ').replace(/^$/,'sin ítems positivos')+'). '+i.frail.title+'.');
+ else if(s.answered>0)lines.push('FRAIL parcial: '+s.answered+'/5 ítems, '+s.frailScore+' positivos. Sin clasificación definitiva.');
+ if(s.gait!==null)lines.push('Marcha de 4 m: '+({low:'≤0,8 m/s (≥5 s)',normal:'>0,8 m/s (<5 s)',unable:'no realizable'}[s.gait])+'. '+i.gait.title+'.');
+ lines.push('Interpretar según situación clínica y funcional basal.');
+ return lines.join('\n');
+}
+function render(){
+ const s=getState(),i=classify(s);
+ $('gripHint').textContent=s.sex==='male'?'Baja fuerza: <27 kg en hombres.':s.sex==='female'?'Baja fuerza: <16 kg en mujeres.':'Baja fuerza: <27 kg en hombres; <16 kg en mujeres.';
+ $('rectusHint').textContent=s.sex==='male'?'Umbral orientativo: <9 mm en hombres.':s.sex==='female'?'Umbral orientativo: <7 mm en mujeres.':'Umbral orientativo: <9 mm en hombres; <7 mm en mujeres.';
+ $('frailScore').textContent=s.frailDone?String(s.frailScore):'—';$('meterFill').style.width=(s.answered/5*100)+'%';
+ for(const x of ['sarco','frail','gait']){$(x+'Title').textContent=i[x].title;$(x+'Desc').textContent=i[x].desc;$(x+'Box').className='evaluation '+i[x].cls;}
+ let msg='';
+ if(s.aponeurosis==='no')msg='La aponeurosis central no es visible: no interpretar aisladamente el grosor.';
+ else if(s.aponeurosis==='yes'&&s.rectus!==null)msg=s.ecoLow?'Grosor bajo el umbral orientativo; no confirma por sí solo sarcopenia.':'Grosor no inferior al umbral orientativo.';
+ $('ecoMsg').textContent=msg;
+ const done=[s.grip,s.chair,s.calf,s.mass,s.aponeurosis,s.rectus,s.gait].some(x=>x!==null)||s.answered>0;
+ $('report').value=done?report(s,i):'Complete algún apartado para generar el resumen.';$('copy').disabled=!done;$('print').disabled=!done;
+}
+async function copy(){
+ const value=$('report').value;
+ try{if(navigator.clipboard&&isSecureContext)await navigator.clipboard.writeText(value);
+ else{const t=$('report');t.select();if(!document.execCommand('copy'))throw Error('clipboard');t.setSelectionRange(0,0);}
+ $('notice').textContent='Resultado copiado.';
+ }catch(e){$('report').focus();$('report').select();$('notice').textContent='Seleccione y copie el texto manualmente.';}
+}
+document.querySelectorAll('#assessment input,#assessment select').forEach(el=>el.addEventListener('change',()=>{$('notice').textContent='';render()}));
+$('copy').addEventListener('click',copy);$('print').addEventListener('click',()=>window.print());
+$('reset').addEventListener('click',()=>{if(!$('copy').disabled&&!confirm('¿Borrar todas las respuestas de la valoración?'))return;$('assessment').reset();$('notice').textContent='Valoración reiniciada.';render();window.scrollTo({top:0,behavior:'smooth'});});
+render();
+</script></body></html>

@@ -1,0 +1,78 @@
+PORTAL DE HERRAMIENTAS CLÍNICAS · MEDICINA INTERNA
+Versión 14 · Acceso libre y perfiles locales de demostración · 10/11/2026
+
+CÓMO PROBARLO
+1. Descomprime el ZIP entero manteniendo la carpeta «portal_clinico».
+2. Abre «index.html» para utilizar las calculadoras SIN GUARDAR NADA.
+3. Para probar expedientes, es recomendable servir la carpeta mediante localhost o HTTPS:
+   - En Windows, si tienes Python instalado, abre una terminal dentro de «portal_clinico».
+   - Ejecuta: py -m http.server 8000
+     (también puede funcionar: python -m http.server 8000)
+   - Visita http://localhost:8000/index.html con el navegador.
+4. Pulsa «PERFILES LOCALES». Crea un alias ficticio, por ejemplo «Perfil A».
+5. En «EXPEDIENTES DEMO», crea un expediente ficticio DEMO-xxxxxx.
+6. Abre 4AT, SARC-F o Villalta. Completa la escala y pulsa «Guardar esta evaluación».
+7. Regresa al expediente para consultar su historial. Puedes cambiar de perfil.
+8. «Salir del perfil» devuelve al acceso libre sin borrar los expedientes ficticios.
+
+ATENCIÓN: NO ES UN SISTEMA CLÍNICO NI UN SISTEMA DE CUENTAS
+- USAR EXCLUSIVAMENTE DATOS FICTICIOS, nunca nombres, historias clínicas,
+  números de expediente hospitalario ni información médica real de pacientes.
+- Los perfiles son ALIAS LOCALES SIN CONTRASEÑA; solo organizan la vista.
+  Cualquier persona con acceso al mismo navegador puede elegir otro perfil y ver
+  sus expedientes DEMO. NO hay separación de seguridad, cifrado de expedientes,
+  trazabilidad, copias de seguridad automáticas ni control de accesos.
+- La información se guarda mediante IndexedDB EN ESTE NAVEGADOR Y ORIGEN.
+  No se transmite a servidores desde el módulo de expedientes.
+- Borrar los datos del navegador, cambiar de ordenador, usar una ventana privada
+  o cambiar el origen puede hacer desaparecer el historial.
+- El acceso libre a las calculadoras no guarda evaluaciones. Solo se guarda
+  en expedientes DEMO cuando el usuario pulsa expresamente el botón de guardar.
+- La prueba de guardar está integrada inicialmente en 4AT, SARC-F y Villalta.
+  Las demás calculadoras mantienen el cálculo rápido y la copia del resultado.
+- Si existían expedientes ficticios creados en la v13 bajo el mismo origen,
+  se asignan a un perfil denominado «Perfil recuperado (v13)» al actualizar.
+- Abrir las páginas directamente como file:// puede impedir que IndexedDB
+  se comparta entre archivos. Para el módulo de perfiles, usa localhost/HTTPS.
+
+HERRAMIENTAS INCLUIDAS
+CRONICIDAD Y PLURIPATOLOGÍA
+- 4AT (cribado de delirium)
+- Sarcopenia y fragilidad (FRAIL)
+- SARC-F (acceso compartido)
+- Enlace externo VIMA (requiere Internet)
+
+DIABETES, OBESIDAD Y NUTRICIÓN
+- IMC (OMS)
+- EOSS
+- SARC-F
+- FIB-4
+
+ECOGRAFÍA CLÍNICA
+- VExUS, con esquemas Doppler
+
+ENFERMEDAD TROMBOEMBÓLICA
+- Hestia, sPESI y PESI
+- Villalta
+- Wells para TVP y TEP
+- Caprini
+- Padua
+- ETV: tratamiento a largo plazo (VTE-BLEED, RIETE, HERDOO2 y guía orientativa)
+
+INSUFICIENCIA CARDIACA Y FIBRILACIÓN AURICULAR
+- EVEREST
+- CHA₂DS₂-VA
+- CHA₂DS₂-VASc
+- HAS-BLED
+
+ARCHIVOS PRINCIPALES
+- index.html: inicio y buscador.
+- perfiles.html: creación, selección y eliminación de perfiles ficticios.
+- expedientes.html: expedientes e historial dentro de un perfil.
+- expedientes.js: motor de almacenamiento local compartido.
+- expediente-widget.js: guardado voluntario en las tres escalas conectadas.
+- [otras páginas].html: las calculadoras clínicas independientes.
+
+La biblioteca es un proyecto independiente, sin aval oficial de SEMI ni de los
+creadores de las escalas. Las decisiones clínicas requieren validación y juicio
+profesional. No introducir información clínica real en este prototipo.
