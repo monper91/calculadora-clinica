@@ -11,9 +11,27 @@
 @media(max-width:900px){.layout{grid-template-columns:1fr}.aside{position:static;order:-1}.summarybody{display:grid;grid-template-columns:1fr 1fr;gap:10px 18px}.score,.meter,.actions,.reportbox,.notice{grid-column:span 2}.evaluation{margin:0}}@media(max-width:590px){.wrap{padding:0 14px}.mast{padding-bottom:25px}.mast h1{margin-top:21px}.panel{padding:17px}.fieldgrid{grid-template-columns:1fr}.q{grid-template-columns:1fr;gap:7px;padding:13px 0}.summarybody{display:block}.evaluation{margin-bottom:10px}.score strong{font-size:38px}.q .seg{justify-content:flex-start}.actions .btn{flex:1}}
 @media print{body{background:#fff;font-size:11px}.mast{background:white;color:black;padding:0;border-bottom:2px solid #333}.mast p,.nav,.chips,.formcol,.actions,.foot,.clinicalnotes,.meter,.notice{display:none!important}.mast h1{font-size:23px;margin:5px 0 9px}.layout{display:block;margin:15px auto}.aside{position:static}.summary{border:0;box-shadow:none}.summaryheader{background:white;color:black;border-bottom:1px solid #ccc;padding:8px 0}.summaryheader p{color:#333}.summarybody{padding:10px 0}.evaluation{border:1px solid #999;background:white!important;break-inside:avoid}.reportbox textarea{height:320px;color:black;border:0;overflow:visible}.score strong{font-size:26px}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+:root{--category-return-color:#0b5558;}
+
+  /* V17: boton de navegación común a todas las herramientas */
+  header a.back-to-category {
+    display:inline-flex!important;align-items:center!important;justify-content:center!important;
+    min-height:42px!important;max-width:100%!important;
+    padding:9px 14px!important;border:1px solid #fff!important;border-radius:10px!important;
+    background:#fff!important;color:var(--category-return-color,#173c53)!important;
+    text-decoration:none!important;font-size:14px!important;font-weight:750!important;
+    line-height:1.35!important;letter-spacing:0!important;text-align:center!important;
+    white-space:normal!important;overflow-wrap:break-word!important;
+    box-shadow:0 2px 8px rgba(0,0,0,.10)!important;
+  }
+  header a.back-to-category:hover {background:#f1f5f9!important;text-decoration:underline!important}
+  header a.back-to-category:focus-visible {outline:3px solid #fff!important;outline-offset:3px!important}
+  @media(max-width:600px){header a.back-to-category{font-size:13.5px!important;padding:9px 11px!important}}
+  @media print{header a.back-to-category{display:none!important}}
+
 </style></head>
 <body>
-<header class="mast"><div class="wrap"><nav class="nav"><span class="brand">MEDICINA INTERNA · HERRAMIENTAS CLÍNICAS</span><a class="back" href="index.html#/categoria/cronicidad">← Volver a CRONICIDAD Y PLURIPATOLOGÍA</a></nav><h1>Valoración de sarcopenia y fragilidad</h1><p>Herramienta de cribado y apoyo a la valoración clínica a partir del documento SEMI y los criterios EWGSOP2. Los apartados pueden completarse de manera independiente.</p><div class="chips"><span>Fuerza y masa muscular</span><span>Escala FRAIL</span><span>Velocidad de la marcha</span><span>Sin conexión</span></div></div></header>
+<header class="mast"><div class="wrap"><nav class="nav"><span class="brand">MEDICINA INTERNA · HERRAMIENTAS CLÍNICAS</span><a class="back back-to-category" href="calculadoras.html#/categoria/cronicidad">← Volver a Cronicidad y Pluripatología</a></nav><h1>Valoración de sarcopenia y fragilidad</h1><p>Herramienta de cribado y apoyo a la valoración clínica a partir del documento SEMI y los criterios EWGSOP2. Los apartados pueden completarse de manera independiente.</p><div class="chips"><span>Fuerza y masa muscular</span><span>Escala FRAIL</span><span>Velocidad de la marcha</span><span>Sin conexión</span></div></div></header>
 <main class="wrap layout"><div class="formcol"><form id="assessment" autocomplete="off" novalidate>
 <section class="panel" id="sarcopenia"><div class="sectionhead"><span class="step">01</span><div><h2>SARCOPENIA · FUERZA Y MASA MUSCULAR</h2><p>La fuerza baja indica sarcopenia probable; para confirmar se necesita masa muscular reducida.</p></div></div>
 <div class="subhead">1. Fuerza muscular</div>

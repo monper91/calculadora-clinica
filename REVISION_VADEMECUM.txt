@@ -1,0 +1,30 @@
+VADEMÉCUM HOSPITALIZACIÓN V19 · REGISTRO DE REVISIÓN
+====================================================
+Edición piloto; no validada por Farmacia hospitalaria.
+
+Criterios de publicación de una ficha definitiva:
+1. Producto concreto autorizado y comercializado en España: consultar CIMA.
+2. Disponibilidad en el Hospital de Mérida: confirmar con Guía Farmacoterapéutica de centro.
+3. Dosis y límites por indicación separados: validadas por ficha técnica/protocolo.
+4. Reconstitución, concentración final, diluyente, vía, ritmo, estabilidad,
+   compatibilidad y cuidados de enfermería: validación por Servicio de Farmacia.
+5. Ajustes (función renal/hepática, edad, peso), contraindicaciones e interacciones.
+6. Calculadora con prueba numérica, validación de unidades y valores extremos.
+7. Registrar fecha y referencia revisada; reevaluar cuando cambie la FT.
+
+PRIORIDADES DE REVISIÓN PENDIENTES
+- Noradrenalina periférica: requiere acuerdo del Servicio de Medicina Interna,
+  Enfermería y Farmacia, con criterios de acceso, concentración, monitorización,
+  extravasación y escalada de cuidados. Un protocolo externo no autoriza su uso local.
+- Fosfato, calcio, magnesio y bicarbonato: distinguir sales, unidades
+  y aportes de electrolitos; no introducir ajustes sin función renal/contexto.
+- Insulina IV no críticos: obtener algoritmo SEMI exacto antes de programarlo.
+- Furosemida de IC aguda: cotejar el diagrama de bolos del protocolo SEMI.
+- Pantoprazol perfusión HDA: diferenciar FT del uso en guías específicas.
+- Fibrinolíticos: diferenciar ictus, IAM y TEP, incluyendo selección/contraindicaciones.
+- Anticonvulsivantes, paralizantes, sedantes: definir ámbito y monitorización exigidos.
+
+El prontuario SES Cáceres de 2019 fue utilizado para seleccionar temas, pero no
+se distribuye ni se transforma automáticamente en pauta asistencial.
+
+V20: retirado cloruro potásico del catálogo a petición del usuario.

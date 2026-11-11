@@ -16,10 +16,28 @@ header{background:linear-gradient(115deg,#101f37,#1b3963 65%,#284d7c);color:#fff
 @media(max-width:400px){.opts:not(.two) .pattern{grid-template-columns:1fr 120px}.opts:not(.two) .pattern svg{height:68px}.opts.two{grid-template-columns:1fr}}
 @media print{body{background:#fff}.nav,.chips,.left,.actions,.sources,.footer,.progress,.msg{display:none!important}header{background:#fff;color:#000;padding:5px 0 12px;border-bottom:2px solid #444}header h1{font-size:23px;margin:4px 0}header p{color:#333}.main{display:block;margin:15px auto}.aside{position:static}.summary{border:0;box-shadow:none}.summary-head{background:#fff;color:#000;padding:5px 0 10px;border-bottom:1px solid #aaa}.summary-head p{color:#444}.summary-body{display:block;padding:10px 0}.grade strong{font-size:29px}.status{background:#fff!important}.report{height:260px;border:0;color:#000;overflow:visible;white-space:pre-wrap}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+:root{--category-return-color:#142b4d;}
+
+  /* V17: boton de navegación común a todas las herramientas */
+  header a.back-to-category {
+    display:inline-flex!important;align-items:center!important;justify-content:center!important;
+    min-height:42px!important;max-width:100%!important;
+    padding:9px 14px!important;border:1px solid #fff!important;border-radius:10px!important;
+    background:#fff!important;color:var(--category-return-color,#173c53)!important;
+    text-decoration:none!important;font-size:14px!important;font-weight:750!important;
+    line-height:1.35!important;letter-spacing:0!important;text-align:center!important;
+    white-space:normal!important;overflow-wrap:break-word!important;
+    box-shadow:0 2px 8px rgba(0,0,0,.10)!important;
+  }
+  header a.back-to-category:hover {background:#f1f5f9!important;text-decoration:underline!important}
+  header a.back-to-category:focus-visible {outline:3px solid #fff!important;outline-offset:3px!important}
+  @media(max-width:600px){header a.back-to-category{font-size:13.5px!important;padding:9px 11px!important}}
+  @media print{header a.back-to-category{display:none!important}}
+
 </style>
 </head>
 <body>
-<header><div class="wrap"><nav class="nav"><span class="brand">MEDICINA INTERNA · ECOGRAFÍA CLÍNICA</span><a class="back" href="index.html#/categoria/ecografia">← Volver a Ecografía Clínica</a></nav>
+<header><div class="wrap"><nav class="nav"><span class="brand">MEDICINA INTERNA · ECOGRAFÍA CLÍNICA</span><a class="back back-to-category" href="calculadoras.html#/categoria/ecografia">← Volver a Ecografía Clínica</a></nav>
 <h1>VExUS · Congestión venosa</h1><p>Clasificación ecográfica de la congestión venosa sistémica mediante VCI y Doppler venoso suprahepático, portal e intrarrenal.</p>
 <div class="chips"><span>Grados 0–3</span><span>Patrones Doppler ilustrados</span><span>Sin conexión</span></div></div></header>
 <main class="wrap main">

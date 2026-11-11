@@ -9,8 +9,26 @@ button,input{font:inherit}button{cursor:pointer}button:disabled{opacity:.5;curso
 @media print{body{background:#fff;color:black;font-size:11px}header{background:#fff!important;color:black;padding:0;border-bottom:2px solid #888}header p,header .top,header .pills,.stack,.actions,.sources,.footer,.bar,.notice{display:none!important}.layout{display:block;margin:15px auto}.summary{position:static;box-shadow:none;border:0}.summaryhead{background:#fff!important;color:black;border-bottom:1px solid #bbb;padding:8px 0}.summaryhead p{color:black}.summarybody{padding:10px 0}.result{background:white!important;border:1px solid #aaa}.big{font-size:29px}.report{height:350px;border:0;overflow:visible;color:black}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
 
+:root{--category-return-color:#365c19;}
+
+  /* V17: boton de navegación común a todas las herramientas */
+  header a.back-to-category {
+    display:inline-flex!important;align-items:center!important;justify-content:center!important;
+    min-height:42px!important;max-width:100%!important;
+    padding:9px 14px!important;border:1px solid #fff!important;border-radius:10px!important;
+    background:#fff!important;color:var(--category-return-color,#173c53)!important;
+    text-decoration:none!important;font-size:14px!important;font-weight:750!important;
+    line-height:1.35!important;letter-spacing:0!important;text-align:center!important;
+    white-space:normal!important;overflow-wrap:break-word!important;
+    box-shadow:0 2px 8px rgba(0,0,0,.10)!important;
+  }
+  header a.back-to-category:hover {background:#f1f5f9!important;text-decoration:underline!important}
+  header a.back-to-category:focus-visible {outline:3px solid #fff!important;outline-offset:3px!important}
+  @media(max-width:600px){header a.back-to-category{font-size:13.5px!important;padding:9px 11px!important}}
+  @media print{header a.back-to-category{display:none!important}}
+
 </style></head><body>
-<header><div class="wrap"><nav class="top"><span class="brand"><svg width="23" height="23" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="vertical-align:middle;margin-right:6px"><path d="M12 10.6c-4.2 0-7 2.3-7 5.7 0 2.7 2 4.7 4.8 4.7 1.4 0 2.3-.4 3.2-1.4.9 1 1.8 1.4 3.2 1.4 2.8 0 4.8-2 4.8-4.7 0-3.4-2.8-5.7-7-5.7Z"/><path d="M12.1 8.3c1.4-2.3 3.8-3.5 6.6-3.3-.5 2.7-2.1 4.5-4.8 5.3-1 .3-1.8 1-2.2 1.9-.7-1.8-2.1-2.9-4.2-3.4-.6-.2-1.1-.7-1.3-1.3 2.4-.8 4.4-.5 5.9.8Z"/></svg> MEDICINA INTERNA · DIABETES, OBESIDAD Y NUTRICIÓN</span><a class="return" href="index.html#/categoria/nutricion">← Volver al portal</a></nav><h1>EOSS · Estadificación de la obesidad</h1><p>Sistema de Estadificación de la Obesidad de Edmonton (EOSS): valora la gravedad clínica y funcional, independientemente del IMC.</p><div class="pills"><span>5 estadios · 0–4</span><span>Cálculo automático</span><span>Sin conexión</span></div></div></header>
+<header><div class="wrap"><nav class="top"><span class="brand">MEDICINA INTERNA · DIABETES, OBESIDAD Y NUTRICIÓN</span><a class="return back-to-category" href="calculadoras.html#/categoria/nutricion">← Volver a Diabetes, Obesidad y Nutrición</a></nav><h1>EOSS · Estadificación de la obesidad</h1><p>Sistema de Estadificación de la Obesidad de Edmonton (EOSS): valora la gravedad clínica y funcional, independientemente del IMC.</p><div class="pills"><span>5 estadios · 0–4</span><span>Cálculo automático</span><span>Sin conexión</span></div></div></header>
 <main class="wrap layout"><div class="stack"><section class="card"><h2>1. AFECTACIÓN CARDIOMETABÓLICA Y ORGÁNICA</h2><p class="lead">Seleccione el estadio más grave presente y razonablemente relacionado con la obesidad.</p><div class="choices"><label class="choice"><input type="radio" name="medical" value="0"><span><strong>Sin complicaciones relacionadas con adiposidad</strong><small>Sin factores de riesgo ni daño orgánico atribuible a obesidad.</small></span><span class="scoretag">0</span></label>
 <label class="choice"><input type="radio" name="medical" value="1"><span><strong>Factores subclínicos</strong><small>Prediabetes, factores cardiometabólicos limítrofes o alteración metabólica leve sin enfermedad establecida.</small></span><span class="scoretag">1</span></label>
 <label class="choice"><input type="radio" name="medical" value="2"><span><strong>Comorbilidad establecida</strong><small>Diabetes tipo 2, hipertensión diagnosticada o tratada, apnea obstructiva del sueño u otra enfermedad asociada a adiposidad.</small></span><span class="scoretag">2</span></label>

@@ -1,78 +1,142 @@
-PORTAL DE HERRAMIENTAS CLÍNICAS · MEDICINA INTERNA
-Versión 14 · Acceso libre y perfiles locales de demostración · 10/11/2026
+PORTAL DE MEDICINA INTERNA · VERSIÓN 21 (acordeones y tabla de estatinas integrada)
 
-CÓMO PROBARLO
-1. Descomprime el ZIP entero manteniendo la carpeta «portal_clinico».
-2. Abre «index.html» para utilizar las calculadoras SIN GUARDAR NADA.
-3. Para probar expedientes, es recomendable servir la carpeta mediante localhost o HTTPS:
-   - En Windows, si tienes Python instalado, abre una terminal dentro de «portal_clinico».
-   - Ejecuta: py -m http.server 8000
-     (también puede funcionar: python -m http.server 8000)
-   - Visita http://localhost:8000/index.html con el navegador.
-4. Pulsa «PERFILES LOCALES». Crea un alias ficticio, por ejemplo «Perfil A».
-5. En «EXPEDIENTES DEMO», crea un expediente ficticio DEMO-xxxxxx.
-6. Abre 4AT, SARC-F o Villalta. Completa la escala y pulsa «Guardar esta evaluación».
-7. Regresa al expediente para consultar su historial. Puedes cambiar de perfil.
-8. «Salir del perfil» devuelve al acceso libre sin borrar los expedientes ficticios.
-
-ATENCIÓN: NO ES UN SISTEMA CLÍNICO NI UN SISTEMA DE CUENTAS
-- USAR EXCLUSIVAMENTE DATOS FICTICIOS, nunca nombres, historias clínicas,
-  números de expediente hospitalario ni información médica real de pacientes.
-- Los perfiles son ALIAS LOCALES SIN CONTRASEÑA; solo organizan la vista.
-  Cualquier persona con acceso al mismo navegador puede elegir otro perfil y ver
-  sus expedientes DEMO. NO hay separación de seguridad, cifrado de expedientes,
-  trazabilidad, copias de seguridad automáticas ni control de accesos.
-- La información se guarda mediante IndexedDB EN ESTE NAVEGADOR Y ORIGEN.
-  No se transmite a servidores desde el módulo de expedientes.
-- Borrar los datos del navegador, cambiar de ordenador, usar una ventana privada
-  o cambiar el origen puede hacer desaparecer el historial.
-- El acceso libre a las calculadoras no guarda evaluaciones. Solo se guarda
-  en expedientes DEMO cuando el usuario pulsa expresamente el botón de guardar.
-- La prueba de guardar está integrada inicialmente en 4AT, SARC-F y Villalta.
-  Las demás calculadoras mantienen el cálculo rápido y la copia del resultado.
-- Si existían expedientes ficticios creados en la v13 bajo el mismo origen,
-  se asignan a un perfil denominado «Perfil recuperado (v13)» al actualizar.
-- Abrir las páginas directamente como file:// puede impedir que IndexedDB
-  se comparta entre archivos. Para el módulo de perfiles, usa localhost/HTTPS.
-
-HERRAMIENTAS INCLUIDAS
-CRONICIDAD Y PLURIPATOLOGÍA
-- 4AT (cribado de delirium)
-- Sarcopenia y fragilidad (FRAIL)
-- SARC-F (acceso compartido)
-- Enlace externo VIMA (requiere Internet)
-
-DIABETES, OBESIDAD Y NUTRICIÓN
-- IMC (OMS)
-- EOSS
-- SARC-F
-- FIB-4
-
-ECOGRAFÍA CLÍNICA
-- VExUS, con esquemas Doppler
-
-ENFERMEDAD TROMBOEMBÓLICA
-- Hestia, sPESI y PESI
-- Villalta
-- Wells para TVP y TEP
-- Caprini
-- Padua
-- ETV: tratamiento a largo plazo (VTE-BLEED, RIETE, HERDOO2 y guía orientativa)
-
-INSUFICIENCIA CARDIACA Y FIBRILACIÓN AURICULAR
-- EVEREST
-- CHA₂DS₂-VA
-- CHA₂DS₂-VASc
-- HAS-BLED
+INICIO
+1. Descomprimir el ZIP completo conservando la carpeta portal_medicina.
+2. Abrir el archivo portal_medicina/index.html.
+3. Elegir CALCULADORAS CLÍNICAS o VADEMÉCUM Y EQUIVALENCIAS.
 
 ARCHIVOS PRINCIPALES
-- index.html: inicio y buscador.
-- perfiles.html: creación, selección y eliminación de perfiles ficticios.
-- expedientes.html: expedientes e historial dentro de un perfil.
-- expedientes.js: motor de almacenamiento local compartido.
-- expediente-widget.js: guardado voluntario en las tres escalas conectadas.
-- [otras páginas].html: las calculadoras clínicas independientes.
+- index.html: nuevo índice general.
+- calculadoras.html: catálogo completo de escalas y calculadoras anteriores.
+- vademecum.html: menú farmacológico.
+- equivalencias.html: opioides, benzodiazepinas, corticoides, IECA/ARA-II, betabloqueantes y calcioantagonistas.
+- Tabla de estatinas: INTEGRADA como desplegable en equivalencias.html#estatinas.
+- indice_cintura_altura.html: índice cintura-altura y clasificación NICE de adiposidad central.
+- Demás archivos .html: escalas clínicas individuales ya existentes.
+- Infografia_01_ETV-v03.pdf: recurso ETV incluido en versiones previas.
 
-La biblioteca es un proyecto independiente, sin aval oficial de SEMI ni de los
-creadores de las escalas. Las decisiones clínicas requieren validación y juicio
-profesional. No introducir información clínica real en este prototipo.
+USO FARMACOLÓGICO
+Las conversiones de opioides y benzodiazepinas son aproximaciones para comparar exposición, NO instrucciones de prescripción o rotación. El resultado puede cambiar según la fuente. En opioides, el parche de fentanilo se introduce en microgramos/hora; para fentanilo IV se solicita la cantidad realmente administrada en microgramos/24 horas, con confirmación explícita por su incertidumbre. El cálculo IV utiliza una estimación equianalgésica perioperatoria que no valida las conversiones en tratamiento crónico. Metadona y fentanilo transmucoso no se calculan automáticamente.
+En los sumadores, se introduce directamente la dosis TOTAL de cada principio activo durante las últimas 24 horas, no el número de tomas. Las equivalencias de benzodiazepinas pueden aparecer como intervalos.
+Las tablas de IECA, ARA-II y betabloqueantes se refieren a dosis iniciales y objetivo para insuficiencia cardiaca con fracción de eyección reducida, y NO son factores de conversión entre antihipertensivos. Las dosis de calcioantagonistas dependen de la indicación y formulación.
+Los enlaces a las fuentes clínicas se muestran al pie de cada familia del vademécum.
+
+PERFILES Y EXPEDIENTES
+La función de perfiles locales de la versión 14 queda APARCADA: no aparece en la navegación ni se carga en las tres escalas previamente integradas. Sus antiguos archivos (perfiles.html, expedientes.html, expedientes.js y expediente-widget.js) se conservan por compatibilidad y para trabajo futuro, pero NO deben usarse con datos reales. Esta versión no guarda resultados de escalas ni de equivalencias.
+
+FUNCIONAMIENTO SIN INTERNET
+Los archivos HTML funcionan localmente sin conexión para las calculadoras y el vademécum. Los enlaces a guías o servicios externos requieren Internet. El ZIP también puede alojarse con GitHub Pages: mantener index.html en la raíz del directorio publicado.
+
+Este portal no es una aplicación oficial de SEMI ni está validado como dispositivo de apoyo a la decisión clínica. Revisar indicaciones, vías, fichas técnicas y protocolos institucionales antes de cambiar tratamientos.
+
+VERSIÓN 17 — Consistencia de navegación (11/11/2026)
+- 4AT: encabezado color Cronicidad y botón de retorno a su categoría.
+- En todas las herramientas: botón legible y homogéneo «Volver a [categoría]».
+- Se elimina el icono antiguo de manzana de los encabezados IMC, EOSS y SARC-F, sin afectar al icono de la categoría del índice.
+- SARC-F vuelve a Cronicidad cuando se abre desde Cronicidad y a Nutrición cuando se abre desde Nutrición.
+
+
+VERSIÓN 18 — Buscador, menú farmacológico y tablas (11/11/2026)
+- index.html: buscador global de calculadoras, escalas, equivalencias y tablas de estatinas.
+- vademecum.html: NUEVO MENÚ de farmacología con Equivalencias y tablas integradas, y Vademécum clínico de hospitalización.
+- equivalencias.html: antiguo módulo vademecum.html, ahora accesible desde el menú; conserva opioides, benzodiazepinas, corticoides y comparaciones de antihipertensivos.
+- equivalencias.html, sección Corticoides: tabla de dosis antiinflamatorias equipotentes, potencia relativa glucocorticoidea, mineralocorticoidea y duración del efecto biológico, según Endotext.
+- equivalencias.html#estatinas: tabla de estatinas y asociaciones con ezetimiba, dosis y reducción del LDL; asociaciones contrastadas con CIMA-AEMPS. NO predice la respuesta individual.
+- El apartado Vademécum clínico permanece reservado hasta que se aporte el material; no existe ninguna fuente ni documento inventado.
+- No se reactivan perfiles ni expedientes. El ZIP conserva íntegramente las calculadoras anteriores.
+- Apertura: index.html > Vademécum y equivalencias > sección. No se requiere servidor para navegar o calcular.
+
+
+V19 · NUEVO VADEMÉCUM CLÍNICO (PILOTO DE REVISIÓN)
+====================================================
+Desde Vademécum y equivalencias se puede abrir vademecum_clinico.html.
+Incluye un catálogo de medicamentos para hospitalización, fichas desarrolladas
+para un subconjunto cotejado con fuentes oficiales, y otras fichas PENDIENTES.
+Cada ficha informa de su estado y proporciona enlaces a las fuentes utilizadas.
+La calculadora de perfusión convierte una dosis prescrita y una concentración
+INTRODUCIDA POR EL USUARIO: nunca prescribe la dosis ni valida una preparación.
+Incluye cálculos por peso para alteplasa en ictus y tenecteplasa para ictus/IAM,
+que requieren circuito/protocolo asistencial y no verifican elegibilidad.
+
+ATENCIÓN: no utilizar este prototipo como fuente única de prescripción. Su
+contenido debe validarse por Farmacia y el equipo asistencial antes de uso
+clínico. En especial, las fichas pendientes NO ofrecen dosis ni diluciones.
+La disponibilidad exacta en Mérida y Extremadura NO se ha verificado.
+NO se incluye el PDF del prontuario SES de 2019 en el paquete por derechos
+de autor y porque sus datos pueden estar obsoletos.
+Todos los archivos .js deben mantenerse en la misma carpeta que los HTML.
+
+V20: potasio IV retirado del vademécum; calculadora universal desplegable,
+calculadoras de fibrinólisis únicamente en alteplasa/tenecteplasa y dosis
+visualmente destacadas al principio de cada ficha. Se conservan las demás
+herramientas y la distinción entre dosis revisadas y pendientes.
+
+
+V21 · EQUIVALENCIAS DESPLEGABLES Y ESTATINAS INTEGRADAS
+- equivalencias.html: siete familias en paneles plegados de inicio. Abrir una familia despliega solo esa categoría y mantiene sus calculadoras anteriores intactas.
+- Enlace directo con #opioides, #benzodiazepinas, #corticoides, #ieca, #betabloqueantes, #calcio o #estatinas abre el panel referido.
+- estatinas y asociaciones con ezetimiba integradas en la última categoría del mismo archivo. Tabla reestructurada: Fármaco/asociación | Dosis diaria | ↓ LDL %.
+- Resultados para estatinas solas heredados del módulo anterior; porcentajes de asociaciones documentados en fichas técnicas CIMA-AEMPS. Proceden de ensayos distintos: no se deben comparar como eficacia relativa directa.
+- Eliminados el menú independiente Tablas farmacológicas y estatinas.html. Buscador global redirige a equivalencias.html#estatinas.
+- Todas las demás herramientas anteriores permanecen en el paquete.
+
+
+V22 · EDITOR DE ANALÍTICAS (PILOTO DE RECONOCIMIENTO LOCAL)
+- Portada: tercera sección «Herramientas de consulta», con acceso al Editor de analíticas.
+- editor_analiticas.html y editor_analiticas.js: inseparables; mantener ambos
+  archivos en la misma carpeta que index.html. No requiere conexión ni servidores.
+- Pegar resultados anonimizados, procesar, revisar los reconocidos / omitidos /
+  pendientes, seleccionar apartados, configurar perfil y opciones, editar el texto
+  y copiarlo. Incluye ejemplo inventado para pruebas.
+- Perfiles: informe habitual, completa, solo alteraciones y personalizada.
+  Preferencias en localStorage; exportación e importación JSON. No se guarda
+  el texto de la analítica ni el resultado. Los perfiles locales de pacientes
+  continúan aparcados y sin acceso visible.
+- Microbiología: clasificación S/I/R agrupada por defecto. La fecha de cada
+  cultivo se conserva. Las gasometrías exigen origen arterial/venoso; la FiO2
+  se muestra solo en arterial cuando se aporta.
+- ALERTA: piloto no validado con exportaciones reales del laboratorio. Los
+  nombres/unidades/intervalos y antibiogramas pueden variar entre sistemas.
+  Debe revisarse todo el resultado con el original antes de usarlo en informes.
+  Si hay varias fechas fuera de microbiología, se bloquea la generación para
+  prevenir mezclas. No pegar datos identificativos de pacientes.
+
+
+ACTUALIZACIÓN V23 — EDITOR DE ANALÍTICAS (PILOTO)
+------------------------------------------------
+- Se mantiene todo el portal v22. Editor de analíticas adaptado a formatos
+  de extracción con el valor situado delante del nombre, referencias al
+  principio y cabeceras repetidas, incluidos perfiles de orina.
+- Detecta pruebas rechazadas y no realizadas; no las incorpora al informe.
+- Nuevo ejemplo ficticio «Ejemplo formato hospital».
+- Separa sangre y orina, y mantiene la RNL y el cociente albúmina/creatinina.
+- Las unidades discordantes (p. ej., Apo-B g/L vs intervalos habituales)
+  se señalan para revisión y nunca se corrigen automáticamente.
+- IMPORTANTE: prototipo NO validado para producción clínica. Cotejar cada
+  resultado con la fuente original antes de utilizarlo en informes.
+- En GitHub Pages, subir EL CONTENIDO de la carpeta portal_medicina a la
+  misma carpeta/raíz que contiene el index.html ya publicado.
+- Subir conjuntamente editor_analiticas.html y editor_analiticas.js.
+- No subir muestras clínicas ni datos identificativos al repositorio público.
+- Las preferencias del editor se guardan por dispositivo/navegador; no
+  se sincronizan por GitHub.
+
+
+ACTUALIZACIÓN V23 — EDITOR DE ANALÍTICAS (PILOTO)
+------------------------------------------------
+- Se mantiene todo el portal v22. Editor de analíticas adaptado a formatos
+  de extracción con el valor situado delante del nombre, referencias al
+  principio y cabeceras repetidas, incluidos perfiles de orina.
+- Detecta pruebas rechazadas y no realizadas; no las incorpora al informe.
+- Nuevo ejemplo ficticio «Ejemplo formato hospital».
+- Separa sangre y orina, y mantiene la RNL y el cociente albúmina/creatinina.
+- Las unidades discordantes (p. ej., Apo-B g/L vs intervalos habituales)
+  se señalan para revisión y nunca se corrigen automáticamente.
+- IMPORTANTE: prototipo NO validado para producción clínica. Cotejar cada
+  resultado con la fuente original antes de utilizarlo en informes.
+- En GitHub Pages, subir EL CONTENIDO de la carpeta portal_medicina a la
+  misma carpeta/raíz que contiene el index.html ya publicado.
+- Subir conjuntamente editor_analiticas.html y editor_analiticas.js.
+- No subir muestras clínicas ni datos identificativos al repositorio público.
+- Las preferencias del editor se guardan por dispositivo/navegador; no
+  se sincronizan por GitHub.

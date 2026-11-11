@@ -1,0 +1,128 @@
+<!doctype html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Calculadoras clínicas · Medicina Interna</title><style>
+:root{--blue:#316faf;--navy:#173e70;--line:#dbe6f0;--muted:#658098;--bg:#f4f7fb;--ink:#193550;--cronicidad:#0f8b8d;--cronicidad-soft:#e7f6f6;--nutricion:#8bc53f;--nutricion-soft:#f3fbe7;--ecografia:#142b4d;--ecografia-soft:#e9eef7;--etev:#7a2136;--etev-soft:#faedf1;--cardiologia:#e53935;--cardiologia-soft:#fdecea}*{box-sizing:border-box}body{margin:0;font:15px/1.5 system-ui,-apple-system,Segoe UI,Arial,sans-serif;color:var(--ink);background:var(--bg)}button,input{font:inherit}button{cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #006cc4;outline-offset:3px}.wrap{max-width:1170px;margin:auto;padding:0 24px}.hero{background:linear-gradient(115deg,#153d71,#367ab8);color:#fff;padding:28px 0 41px}.top{display:flex;align-items:center;gap:13px}.logo{width:43px;height:43px;border:1px solid #b6d4f0;border-radius:12px;display:grid;place-items:center;font-weight:850;letter-spacing:-.06em;font-size:21px}.brand{font-weight:780;letter-spacing:.06em;font-size:12px}.brand small{display:block;font-weight:450;letter-spacing:0;color:#d2e5f7;font-size:12px}.hero h1{font-size:clamp(26px,4vw,42px);line-height:1.1;margin:31px 0 8px}.hero p{color:#dbeafb;max-width:670px;margin:0}.search{margin-top:23px;max-width:660px}.search input{background:#fff url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%2353718c" stroke-width="2"%3E%3Ccircle cx="11" cy="11" r="7"/%3E%3Cpath d="m20 20-4-4"/%3E%3C/svg%3E') no-repeat 17px center;background-size:19px;border:0;border-radius:12px;padding:15px 18px 15px 50px;width:100%;color:var(--ink);box-shadow:0 7px 22px #15345824}.search input::placeholder{color:#7a8fa3}.layout{display:grid;grid-template-columns:255px 1fr;gap:26px;margin:31px auto 60px}.sidebar h2{font-size:12px;letter-spacing:.06em;color:#56718b;text-transform:uppercase;margin:4px 0 13px}.filters{display:flex;flex-direction:column;gap:6px}.filters button{display:flex;align-items:center;gap:10px;text-align:left;border:1px solid transparent;color:#375471;background:transparent;border-radius:10px;padding:9px 10px;font-weight:650;font-size:12px;line-height:1.5;text-transform:uppercase}.filters .navIcon{width:31px;height:31px;min-width:31px;display:grid;place-items:center;border-radius:8px;background:#e9f2fa;color:#2768a4}.filters .navIcon svg{width:19px;height:19px;display:block}.filters .navText{min-width:0;flex:1}.filters button.cat-cronicidad .navIcon{background:var(--cronicidad-soft);color:var(--cronicidad)}.filters button.cat-nutricion .navIcon{background:var(--nutricion-soft);color:#6e9f2d}.filters button.cat-ecografia .navIcon{background:var(--ecografia-soft);color:var(--ecografia)}.filters button.cat-etev .navIcon{background:var(--etev-soft);color:var(--etev)}.filters button.cat-cardiologia .navIcon{background:var(--cardiologia-soft);color:var(--cardiologia)}.filters button.active{background:white;border-color:#c6dcee;color:var(--navy);box-shadow:inset 4px 0 var(--blue)}.filters button:hover{background:#eaf2fa}.filters button.cat-cronicidad.active{box-shadow:inset 4px 0 var(--cronicidad);color:var(--cronicidad)}.filters button.cat-nutricion.active{box-shadow:inset 4px 0 var(--nutricion);color:#5f8d23}.filters button.cat-ecografia.active{box-shadow:inset 4px 0 var(--ecografia);color:var(--ecografia)}.filters button.cat-etev.active{box-shadow:inset 4px 0 var(--etev);color:var(--etev)}.filters button.cat-cardiologia.active{box-shadow:inset 4px 0 var(--cardiologia);color:var(--cardiologia)}.mainheading{display:flex;justify-content:space-between;align-items:baseline;gap:13px;margin-bottom:16px}.mainheading h2{font-size:18px;line-height:1.3;margin:0;text-transform:uppercase;letter-spacing:.015em}.count{font-size:12px;color:var(--muted);white-space:nowrap}.cats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.category{border:1px solid #d6e5f0;background:#fff;border-radius:13px;text-align:left;padding:19px 18px 16px;color:var(--ink);display:flex;min-height:163px;flex-direction:column;align-items:flex-start;transition:transform .15s,box-shadow .15s,border-color .15s}.category:hover,.tool:hover{transform:translateY(-2px);box-shadow:0 9px 22px #143e6713}.catIcon{height:43px;width:43px;background:#e9f2fa;border-radius:10px;color:#2768a4;display:grid;place-items:center;margin-bottom:14px}.catIcon svg{width:24px;height:24px;display:block}.category.cat-cronicidad{border-color:#c5e6e5;background:linear-gradient(180deg,#fff, #fbfefe)}.category.cat-cronicidad .catIcon{background:var(--cronicidad-soft);color:var(--cronicidad)}.category.cat-nutricion{border-color:#d8eab8;background:linear-gradient(180deg,#fff,#fdfff8)}.category.cat-nutricion .catIcon{background:var(--nutricion-soft);color:#6e9f2d}.category.cat-ecografia{border-color:#ccd7eb;background:linear-gradient(180deg,#fff,#fafcff)}.category.cat-ecografia .catIcon{background:var(--ecografia-soft);color:var(--ecografia)}.category.cat-etev{border-color:#e9c8d2;background:linear-gradient(180deg,#fff,#fffafb)}.category.cat-etev .catIcon{background:var(--etev-soft);color:var(--etev)}.category.cat-cardiologia{border-color:#f2c1bf;background:linear-gradient(180deg,#fff,#fff8f8)}.category.cat-cardiologia .catIcon{background:var(--cardiologia-soft);color:var(--cardiologia)}.catName{font-weight:790;text-transform:uppercase;letter-spacing:.025em;line-height:1.35;font-size:14px}.catCount{font-size:12px;color:#71879a;margin-top:auto;padding-top:10px}.tools{display:grid;grid-template-columns:1fr 1fr;gap:15px}.tool{border:1px solid var(--line);background:#fff;border-radius:13px;padding:19px;text-decoration:none;color:inherit;display:flex;flex-direction:column;min-height:157px;transition:transform .15s,box-shadow .15s,border-color .15s}.toolTop{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}.tile{background:#e8f2fb;color:#256aa5;border-radius:9px;padding:8px 10px;font-size:12px;font-weight:850}.tag{font-size:11px;color:#637c91;border:1px solid #dce8f2;border-radius:20px;padding:3px 8px}.tool strong{font-size:16px;line-height:1.35}.tool p{font-size:12px;color:#627b90;margin:5px 0 0}.tool.tool-cronicidad{border-color:#cbe6e5}.tool.tool-cronicidad .tile{background:var(--cronicidad-soft);color:var(--cronicidad)}.tool.tool-cronicidad:hover{box-shadow:0 9px 22px #0f8b8d16}.tool.tool-nutricion{border-color:#dbeabf}.tool.tool-nutricion .tile{background:var(--nutricion-soft);color:#6e9f2d}.tool.tool-nutricion:hover{box-shadow:0 9px 22px #7eb62d16}.tool.tool-ecografia{border-color:#d2dced}.tool.tool-ecografia .tile{background:var(--ecografia-soft);color:var(--ecografia)}.tool.tool-ecografia:hover{box-shadow:0 9px 22px #142b4d14}.tool.tool-etev{border-color:#e8c9d0}.tool.tool-etev .tile{background:var(--etev-soft);color:var(--etev)}.tool.tool-etev:hover{box-shadow:0 9px 22px #7a213618}.tool.tool-cardiologia{border-color:#f3cbc8}.tool.tool-cardiologia .tile{background:var(--cardiologia-soft);color:var(--cardiologia)}.tool.tool-cardiologia:hover{box-shadow:0 9px 22px #e5393516}.empty{border:1px dashed #bed1e3;border-radius:15px;min-height:190px;background:#fff;display:flex;align-items:center;justify-content:center;text-align:center;padding:30px;flex-direction:column;gap:10px;color:#658096}.empty strong{color:#35546f}.back{color:#236b9f;border:0;background:transparent;padding:5px 0;font-weight:750;margin-bottom:13px}.intro{font-size:13px;color:#628097;margin:-5px 0 18px}.foot{border-top:1px solid #dce6ee;font-size:12px;color:#697f91;padding:22px 0 29px}@media(max-width:790px){.layout{display:block}.sidebar{margin-bottom:24px}.filters{flex-direction:row;overflow-x:auto;padding-bottom:7px}.filters button{min-width:170px}.mainheading h2{font-size:16px}}@media(max-width:550px){.wrap{padding:0 14px}.hero{padding-bottom:30px}.cats,.tools{grid-template-columns:1fr}.category{min-height:135px}.hero h1{margin-top:24px}.catIcon{margin-bottom:10px}}
+
+/* v11 — encabezado compacto y tarjetas con color de categoría completo. */
+.hero{padding:18px 0 25px}
+.hero h1{font-size:clamp(26px,3.5vw,37px);margin:17px 0 6px}
+.hero p{font-size:14px;line-height:1.45}
+.search{margin-top:17px}
+.search input{padding-top:12px;padding-bottom:12px}
+.category{position:relative;overflow:hidden;border-width:1px;isolation:isolate;box-shadow:0 5px 16px #173d6220;transition:transform .15s,box-shadow .15s,filter .15s}
+.category.cat-cronicidad{background:linear-gradient(145deg,#075f66,#0d8188);border-color:#0d858c;color:#fff}
+.category.cat-nutricion{background:linear-gradient(145deg,#8bc53f,#a7d856);border-color:#87bd35;color:#1d3c13}
+.category.cat-ecografia{background:linear-gradient(145deg,#112a4b,#254a70);border-color:#142b4d;color:#fff}
+.category.cat-etev{background:linear-gradient(145deg,#6d1e34,#8e2b47);border-color:#76233a;color:#fff}
+.category.cat-cardiologia{background:linear-gradient(145deg,#c81f2c,#d62935);border-color:#d52732;color:#fff}
+.category .catName{color:inherit;max-width:100%}
+.category .catCount{color:inherit;opacity:.82;font-weight:550}
+.category .catIcon,
+.category.cat-cronicidad .catIcon,
+.category.cat-nutricion .catIcon,
+.category.cat-ecografia .catIcon,
+.category.cat-etev .catIcon,
+.category.cat-cardiologia .catIcon{background:#ffffff24;border:1px solid #ffffff44;color:inherit}
+.category.cat-nutricion .catIcon{background:#23471913;border-color:#23471933}
+.category:hover{transform:translateY(-3px);filter:brightness(1.04);box-shadow:0 13px 25px #173d6230}
+.category:focus-visible{outline:3px solid #122d4a;outline-offset:3px}
+@media(max-width:550px){.hero{padding:15px 0 20px}.hero h1{margin-top:14px;font-size:29px}.search{margin-top:13px}.category{min-height:125px}}
+@media(prefers-reduced-motion:reduce){.category{transition:none}}
+.demo-header{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:13px}.demo-entry{color:#153d71;background:white;border-radius:9px;padding:10px 13px;text-decoration:none;font-size:12px;font-weight:800}.demo-entry:focus-visible{outline:3px solid white;outline-offset:3px}.demo-header span{font-size:12px;color:#d7e9fa}@media(max-width:550px){.demo-header{gap:7px}.demo-header span{font-size:11px}}
+
+/* Acceso optativo sin aumentar la altura del encabezado */
+.demo-header{gap:8px 11px;align-items:center;flex-wrap:wrap}
+.demo-header #profileMode{font-size:12px;color:#e5f2ff;margin-right:auto}
+.demo-header .demo-entry{display:inline-flex;align-items:center;min-height:32px;padding:6px 10px;border:1px solid #ffffff73;border-radius:8px;color:#fff;text-decoration:none;background:#ffffff13;font-size:11px;font-weight:760;letter-spacing:.025em}
+.demo-header button.demo-entry{cursor:pointer}
+.demo-header .demo-entry:hover{background:#ffffff2a}
+.demo-header [hidden]{display:none!important}
+@media(max-width:600px){.demo-header{margin-top:12px}.demo-header #profileMode{flex:0 0 100%}.demo-header .demo-entry{font-size:10px}}
+</style></head><body><header class="hero"><div class="wrap"><div class="top"><div class="logo">MI</div><div class="brand">MEDICINA INTERNA<small><a href="index.html" style="color:#eaf7ff;text-decoration:none">← Índice general</a> · Biblioteca de calculadoras</small></div></div><h1>Calculadoras clínicas</h1><p>Calculadoras, escalas y recursos organizados por áreas de Medicina Interna.</p><div class="search"><input id="query" type="search" autocomplete="off" aria-label="Buscar herramienta o categoría" placeholder="Buscar herramienta o categoría..."></div></div></header><main class="wrap layout"><aside class="sidebar"><h2>Áreas clínicas</h2><div class="filters" id="filters"></div></aside><section id="main" aria-live="polite"></section></main><footer class="wrap foot">Calculadoras clínicas de Medicina Interna. Uso educativo y de apoyo; verificar criterios y decisiones con las fuentes originales. No es una aplicación oficial de SEMI. Los perfiles locales permanecen en pausa.</footer><script>
+'use strict';
+// Para añadir una nueva herramienta, copie su HTML en esta carpeta y agregue una entrada al array TOOLS.
+const ICONS={
+  cronicidad:'<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21V7a4.5 4.5 0 1 0-9 0v1.5"/></svg>',
+  nutricion:'<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8C10.4 6.4 7.8 6 5.7 7.6C2.6 10.1 4.6 19.7 8.3 20.5c1.6.4 2.4-.5 3.7-.5s2.1.9 3.7.5c3.7-.8 5.7-10.4 2.6-12.9C16.2 6 13.6 6.4 12 8Z"/><path d="M12 8c-.3-2.7.7-4.3 2.7-5.1"/><path d="M13.4 5.3c2.1-2.7 4.5-2.7 5.6-2.4-.4 2.1-2.2 3-5.6 2.4Z" fill="currentColor" stroke="none"/></svg>',
+  ecografia:'<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.15" stroke-linecap="round"><path d="M3.2 8.3a13.5 13.5 0 0 1 17.6 0"/><path d="M6.6 11.8a8.4 8.4 0 0 1 10.8 0"/><path d="M9.7 15.2a3.8 3.8 0 0 1 4.6 0"/><circle cx="12" cy="19" r="1.4" fill="currentColor" stroke="none"/></svg>',
+  etev:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5c2 3 5.8 6.9 5.8 10.7A5.8 5.8 0 1 1 6.2 14.2C6.2 10.4 10 6.5 12 3.5Z" fill="currentColor"/></svg>',
+  cardiologia:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.6 10.7 19.4C5.7 14.9 3 12.4 3 9.2A4.2 4.2 0 0 1 7.2 5c1.8 0 3.5.8 4.8 2.2A6.3 6.3 0 0 1 16.8 5A4.2 4.2 0 0 1 21 9.2c0 3.2-2.7 5.7-7.7 10.2L12 20.6Z" fill="currentColor"/></svg>'
+};
+const CATEGORIES=[
+{id:'cronicidad',title:'CRONICIDAD Y PLURIPATOLOGÍA'},
+{id:'nutricion',title:'DIABETES, OBESIDAD Y NUTRICIÓN'},
+{id:'ecografia',title:'ECOGRAFÍA CLÍNICA'},
+{id:'etev',title:'ENFERMEDAD TROMBOEMBÓLICA'},
+{id:'cardiologia',title:'INSUFICIENCIA CARDIACA Y FIBRILACIÓN AURICULAR'}
+];
+const TOOLS=[
+{id:'sarcf-cronicidad',cat:'cronicidad',title:'SARC-F · Cribado de sarcopenia',desc:'Cuestionario breve de cinco ítems. Acceso compartido con Nutrición.',href:'sarc_f.html?categoria=cronicidad',label:'Calculadora',code:'SARC-F'},
+{id:'sarco',cat:'cronicidad',title:'Sarcopenia y fragilidad',desc:'Fuerza muscular, masa, escala FRAIL y velocidad de marcha.',href:'sarcopenia_fragilidad.html',label:'Calculadora',code:'SF'},
+{id:'4at',cat:'cronicidad',title:'4AT · Cribado de delirium',desc:'Evaluación e interpretación del cuestionario 4AT-ES.',href:'4AT_delirium_app.html',label:'Calculadora',code:'4AT'},
+{id:'vima',cat:'cronicidad',title:'VIMA · Valoración integral multidimensional',desc:'Aplicación oficial de SEMI (abre una web externa).',href:'https://vima.fesemi.org/',label:'Externo ↗',code:'VIMA',external:true},
+{id:'imc',cat:'nutricion',title:'IMC · Índice de masa corporal',desc:'Peso, talla y clasificación OMS en adultos.',href:'imc.html',label:'Calculadora',code:'IMC'},
+{id:'cintura-altura',cat:'nutricion',title:'Índice cintura-altura · Adiposidad central',desc:'Perímetro de cintura / altura, con categorías de riesgo según NICE.',href:'indice_cintura_altura.html',label:'Calculadora',code:'ICA'},
+{id:'eoss',cat:'nutricion',title:'EOSS · Estadificación de la obesidad',desc:'Estadio 0–4 según afectación cardiometabólica, funcional y psicológica.',href:'eoss.html',label:'Calculadora',code:'EOSS'},
+{id:'sarcf',cat:'nutricion',title:'SARC-F · Cribado de sarcopenia',desc:'Cuestionario de cinco ítems con puntuación de 0 a 10.',href:'sarc_f.html',label:'Calculadora',code:'SARC-F'},
+{id:'fib4',cat:'nutricion',title:'FIB-4 · Índice de fibrosis hepática',desc:'AST, ALT, edad y plaquetas, con interpretación adaptada a la edad.',href:'fib4.html',label:'Calculadora',code:'FIB-4'},
+{id:'vexus',cat:'ecografia',title:'VExUS · Congestión venosa',desc:'Clasificación 0–3 con patrones Doppler ilustrados de VCI, venas suprahepáticas, porta e intrarrenales.',href:'vexus.html',label:'Calculadora',code:'VExUS'},
+{id:'wells',cat:'etev',title:'Wells · TVP y TEP',desc:'Probabilidad clínica preprueba para trombosis venosa profunda y embolia pulmonar.',href:'wells.html',label:'Calculadora',code:'WELLS'},
+{id:'caprini',cat:'etev',title:'Caprini · Riesgo quirúrgico de ETV',desc:'Modelo 2013 ponderado para estimar riesgo en pacientes quirúrgicos.',href:'caprini.html',label:'Calculadora',code:'CAP'},
+{id:'padua',cat:'etev',title:'Padua · Riesgo de ETV en ingresados',desc:'Once factores para pacientes médicos hospitalizados.',href:'padua.html',label:'Calculadora',code:'PAD'},
+{id:'hestia',cat:'etev',title:'Hestia · Manejo ambulatorio del TEP',desc:'Once criterios para valorar la seguridad del tratamiento extrahospitalario.',href:'tep_escalas.html#hestia',label:'Calculadora',code:'HEST'},
+{id:'spesi',cat:'etev',title:'sPESI · Riesgo pronóstico del TEP',desc:'Índice simplificado de mortalidad a 30 días (6 criterios).',href:'tep_escalas.html#spesi',label:'Calculadora',code:'sPESI'},
+{id:'pesi',cat:'etev',title:'PESI · Índice de gravedad del TEP',desc:'Índice original de 11 variables y cinco clases de mortalidad.',href:'tep_escalas.html#pesi',label:'Calculadora',code:'PESI'},
+{id:'villalta',cat:'etev',title:'Villalta · Síndrome postrombótico',desc:'11 signos y síntomas graduados de 0 a 3, con valoración de úlcera venosa.',href:'villalta.html',label:'Calculadora',code:'VILL'},
+{id:'everest',cat:'cardiologia',title:'EVEREST · Congestión en insuficiencia cardiaca',desc:'Seis parámetros de congestión puntuados de 0 a 3 (total 0–18).',href:'everest.html',label:'Calculadora',code:'EV'},
+{id:'cha-va',cat:'cardiologia',title:'CHA₂DS₂-VA · Riesgo tromboembólico',desc:'Estratificación en FA sin componente de sexo (ESC 2024).',href:'cha2ds2_va.html',label:'Calculadora',code:'VA'},
+{id:'cha-vasc',cat:'cardiologia',title:'CHA₂DS₂-VASc · Riesgo tromboembólico',desc:'Escala clásica para FA, con sexo femenino como modificador.',href:'cha2ds2_vasc.html',label:'Calculadora',code:'VASc'},
+{id:'has-bled',cat:'cardiologia',title:'HAS-BLED · Riesgo hemorrágico',desc:'Factores de riesgo de sangrado y revisión de los modificables.',href:'has_bled.html',label:'Calculadora',code:'HB'},
+{id:'etv-largo',cat:'etev',title:'ETV · Tratamiento a largo plazo',desc:'Factores de riesgo, VTE-BLEED, RIETE, HERDOO2 y opciones de anticoagulación extendida.',href:'etv_largo_plazo.html',label:'Herramienta clínica',code:'ETV'}
+];
+const $=id=>document.getElementById(id);const state={cat:null,term:''};
+function clean(t){return t.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'')}
+function make(tag,cls,text){const e=document.createElement(tag);if(cls)e.className=cls;if(text!==undefined)e.textContent=text;return e}
+// La navegación entre categorías no recarga la página ni modifica el desplazamiento.
+function setCategory(cat){
+  const nextHash=cat?'#/categoria/'+cat:'#/';
+  state.cat=cat;
+  if(state.term){state.term='';$('query').value=''}
+  if(location.hash!==nextHash){
+    // pushState no provoca un salto de ancla ni dispara una segunda renderización.
+    try{history.pushState(null,'',nextHash)}catch(e){location.hash=nextHash}
+  }
+  render();
+}
+function render(){const main=$('main');main.replaceChildren();const q=clean(state.term.trim());const count=cat=>TOOLS.filter(t=>t.cat===cat).length;
+ const filters=$('filters');
+ // Crear una vez el menú lateral: al cambiar de sección solo se actualiza su estado.
+ // Evita perder el foco del botón y que el navegador recalcule toda la navegación.
+ if(!filters.hasChildNodes()){
+   const all=make('button','');all.type='button';all.dataset.cat='';
+   const allIcon=make('span','navIcon');allIcon.setAttribute('aria-hidden','true');allIcon.innerHTML='<svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5" fill="currentColor"/><rect x="14" y="3" width="7" height="7" rx="1.5" fill="currentColor"/><rect x="3" y="14" width="7" height="7" rx="1.5" fill="currentColor"/><rect x="14" y="14" width="7" height="7" rx="1.5" fill="currentColor"/></svg>';
+   all.append(allIcon,make('span','navText','TODAS LAS CATEGORÍAS'));
+   all.onclick=()=>setCategory(null);filters.append(all);
+   for(const cat of CATEGORIES){
+     const b=make('button','cat-'+cat.id);b.type='button';b.dataset.cat=cat.id;
+     const ic=make('span','navIcon');ic.setAttribute('aria-hidden','true');ic.innerHTML=ICONS[cat.id]||'';
+     b.append(ic,make('span','navText',cat.title));b.onclick=()=>setCategory(cat.id);filters.append(b)
+   }
+ }
+ for(const button of filters.querySelectorAll('button')){
+   const active=button.dataset.cat===(state.cat||'');
+   button.classList.toggle('active',active);
+   button.setAttribute('aria-pressed',String(active));
+ }
+ if(state.cat&&!q){const cat=CATEGORIES.find(c=>c.id===state.cat);if(!cat){setCategory(null);return}const back=make('button','back','← Todas las categorías');back.onclick=()=>setCategory(null);main.append(back);const head=make('div','mainheading');head.append(make('h2','',cat.title));head.append(make('span','count',count(cat.id)+' herramientas'));main.append(head);const intro=make('p','intro','Seleccione una herramienta para comenzar.');main.append(intro);const list=TOOLS.filter(t=>t.cat===state.cat);if(!list.length){const empty=make('div','empty');empty.append(make('strong','','Sin herramientas todavía'));empty.append(make('span','','Esta categoría está preparada para incorporaciones futuras.'));main.append(empty)}else addTools(main,list);return}
+ const head=make('div','mainheading');head.append(make('h2','',q?'RESULTADOS DE BÚSQUEDA':'ÁREAS DE TRABAJO'));main.append(head);
+ if(q){const list=TOOLS.filter(t=>clean(t.title+' '+t.desc+' '+CATEGORIES.find(c=>c.id===t.cat).title).includes(q));if(list.length)addTools(main,list);else{const empty=make('div','empty');empty.append(make('strong','','Sin resultados'));empty.append(make('span','','Pruebe otra palabra o seleccione una categoría.'));main.append(empty)}return}
+ const grid=make('div','cats');for(const c of CATEGORIES){const b=make('button','category cat-'+c.id);const ic=make('div','catIcon');ic.setAttribute('aria-hidden','true');ic.innerHTML=ICONS[c.id]||'';b.append(ic);b.append(make('strong','catName',c.title));b.append(make('div','catCount',count(c.id)+' '+(count(c.id)===1?'herramienta':'herramientas')));b.onclick=()=>setCategory(c.id);grid.append(b)}main.append(grid)
+}
+function addTools(target,list){const grid=make('div','tools');for(const t of list){const a=make('a','tool tool-'+t.cat);a.href=t.href;if(t.external){a.target='_blank';a.rel='noopener noreferrer'}const row=make('div','toolTop');row.append(make('span','tile',t.code));row.append(make('span','tag',t.label));a.append(row,make('strong','',t.title),make('p','',t.desc));grid.append(a)}target.append(grid)}
+function readHash(){
+  const match=location.hash.match(/^#\/categoria\/([\w-]+)$/);
+  state.cat=match&&CATEGORIES.some(c=>c.id===match[1])?match[1]:null;
+  state.term='';$('query').value='';render();
+}
+$('query').addEventListener('input',e=>{state.term=e.target.value;render()});
+addEventListener('popstate',readHash);addEventListener('hashchange',readHash);
+readHash();
+</script></body></html>
