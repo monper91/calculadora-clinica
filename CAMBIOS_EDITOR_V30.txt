@@ -1,0 +1,28 @@
+EDITOR DE ANALÍTICAS - CAMBIOS v30 (piloto)
+
+1. PDF local: carga PDF.js 6.5.438 mediante dos scripts clásicos
+   (vendor/pdfjs/build/pdf.worker.compat.js y pdf.compat.js), además de
+   pdf_local_reader.js. Evita las importaciones ES Modules que se bloqueaban
+   al abrir el editor como archivo local (file://). Trabaja con trabajador
+   simulado en el propio navegador, sin enviar archivos ni contenido.
+2. Interfaz: paso «3. Revisión»; eliminadas las etiquetas decorativas
+   «SIN ENVÍOS DE DATOS», «TEXTO PLANO» y «REVISIÓN OPCIONAL».
+   Se mantiene el aviso textual explícito de privacidad y uso piloto.
+3. Restricciones CSP para el editor: connect-src 'none', worker-src 'none',
+   form-action 'none'. Motor y dependencias incluidos en el ZIP.
+4. Pruebas funcionales con navegador Chromium: PDF ficticio de 1 página
+   (6 parámetros), informe SES de 4 páginas (66 parámetros) mediante
+   API File del navegador; se comprobó generación y borrado del resultado.
+   En la simulación HTML se inyectaron scripts localmente porque el entorno
+   de pruebas restringe abrir file:// y localhost; no es una validación
+   independiente de la instalación final ni una auditoría de seguridad.
+5. El PDF clínico compartido por el usuario NO se distribuye ni queda
+   dentro de este paquete. No hay datos de pacientes en los ejemplos.
+
+SEGURIDAD / LIMITACIONES:
+- Versión todavía experimental. No usar PDF con datos identificativos
+  antes de una auditoría de seguridad y autorización institucional.
+- Puede haber PDF con codificaciones y fuentes no admitidas; no incorpora OCR.
+- El procesamiento OCR e IA siguen desactivados/aparcados.
+- No incluye servicios externos de procesamiento ni telemetría.
+- Contrastar siempre el informe generado con la analítica original.

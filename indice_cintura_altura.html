@@ -1,9 +1,10 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="es">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="color-scheme" content="light">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="light" name="color-scheme"/>
 <title>Índice cintura-altura · Medicina Interna</title>
 <style>
 :root{color-scheme:light;--green:#6c992b;--deep:#365c19;--mint:#f0f8e8;--ink:#243c28;--muted:#60745c;--border:#dce8d0;--bg:#f5f8f1;--amber:#9a640c;--red:#b23837}
@@ -31,17 +32,31 @@
   @media print{header a.back-to-category{display:none!important}}
 
 </style>
-</head>
+<link href="favicon.ico" rel="icon" sizes="any"/>
+<link href="icons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="icons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="manifest.webmanifest" rel="manifest"/>
+<meta content="#004c19" name="theme-color"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="default" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="Portal Clínico" name="apple-mobile-web-app-title"/>
+<style>/* v40: la puntuación se muestra sola y la interpretación va en una tarjeta independiente */
+.scoreMeaning{border:1px solid #d9e5e8;background:#f7fafb;border-radius:12px;padding:14px 17px;margin:13px 0;color:#31515e;line-height:1.6}
+.scoreMeaningHeading{font-size:12px;letter-spacing:.035em;text-transform:uppercase;font-weight:800;color:#376773;margin-bottom:8px}
+.scoreMeaning h3{font-size:17px;margin:0 0 5px}.scoreMeaning p{font-size:13px;margin:0}
+#result, #verdict{text-align:center}.result .score,.result .bigscore,.verdict .stat{margin:0 auto;justify-content:center}
+</style></head>
 <body>
 <header><div class="wrap"><div class="top"><div class="brand">MEDICINA INTERNA · DIABETES, OBESIDAD Y NUTRICIÓN</div><a class="return back-to-category" href="calculadoras.html#/categoria/nutricion">← Volver a Diabetes, Obesidad y Nutrición</a></div><h1>Índice cintura-altura</h1><p>Estimación rápida de adiposidad central mediante la relación entre el perímetro de cintura y la altura.</p><div class="pills"><span>Índice cintura-altura</span><span>Interpretación NICE</span><span>Sin almacenamiento</span></div></div></header>
 <main class="wrap layout">
 <div class="stack">
-<section class="card"><h2>DATOS ANTROPOMÉTRICOS</h2><p class="lead">Introduce las dos medidas en centímetros. Se admite coma o punto decimal.</p><form id="form" autocomplete="off"><div class="fields"><div class="field"><label for="waist">Perímetro de cintura (cm)</label><input id="waist" type="text" inputmode="decimal" placeholder="Ej. 92" aria-describedby="validation"></div><div class="field"><label for="height">Altura (cm)</label><input id="height" type="text" inputmode="decimal" placeholder="Ej. 170" aria-describedby="validation"></div></div><p id="validation" class="helper" role="status" aria-live="polite">Rellena ambos campos para obtener el índice.</p></form><p class="tiny-note"><strong>Cómo medir la cintura:</strong> situar la cinta a mitad de camino entre el reborde costal inferior y la cresta ilíaca, tras una espiración normal.</p></section>
+<section class="card"><h2>DATOS ANTROPOMÉTRICOS</h2><p class="lead">Introduce las dos medidas en centímetros. Se admite coma o punto decimal.</p><form autocomplete="off" id="form"><div class="fields"><div class="field"><label for="waist">Perímetro de cintura (cm)</label><input aria-describedby="validation" id="waist" inputmode="decimal" placeholder="Ej. 92" type="text"/></div><div class="field"><label for="height">Altura (cm)</label><input aria-describedby="validation" id="height" inputmode="decimal" placeholder="Ej. 170" type="text"/></div></div><p aria-live="polite" class="helper" id="validation" role="status">Rellena ambos campos para obtener el índice.</p></form><p class="tiny-note"><strong>Cómo medir la cintura:</strong> situar la cinta a mitad de camino entre el reborde costal inferior y la cresta ilíaca, tras una espiración normal.</p></section>
 <section class="card"><h2>INTERPRETACIÓN</h2><table class="mini-table"><tbody><tr><td>Adiposidad central saludable</td><td>0,40 a &lt;0,50</td></tr><tr><td>Adiposidad central aumentada</td><td>0,50 a &lt;0,60</td></tr><tr><td>Adiposidad central elevada</td><td>≥0,60</td></tr></tbody></table><p class="formula">Índice = perímetro de cintura (cm) ÷ altura (cm)</p><p class="tiny-note">Regla práctica: mantener la cintura <strong>por debajo de la mitad de la altura</strong> (índice &lt;0,50). Interpretación NICE recomendada como complemento del IMC, especialmente si es &lt;35 kg/m².</p><details class="disclose"><summary>Consideraciones de uso</summary><p>Un valor inferior a 0,40 queda fuera de los intervalos de adiposidad central definidos por NICE y debe interpretarse según el contexto clínico. El índice no sustituye una valoración cardiometabólica integral.</p></details></section>
 </div>
-<aside class="summary" aria-label="Resultado del índice"><div class="summaryhead"><h2>Resultado cintura-altura</h2><p>Cálculo automático al completar las medidas.</p></div><div class="summarybody"><div class="big" id="score">—</div><p class="pendingtext" id="status">Evaluación pendiente</p><div class="bar" aria-hidden="true"><div id="barFill"></div></div><section class="result pending" id="result" role="status" aria-live="polite"><h3 id="resultTitle">Evaluación pendiente</h3><p id="resultDetail">Introduce la cintura y la altura.</p></section><div class="actions"><button id="copy" class="btn primary" type="button" disabled>Copiar resultado</button><button id="print" class="btn" type="button" disabled>Imprimir</button><button id="reset" class="btn" type="button">Limpiar</button></div><div class="reportlabel"><label for="report">Texto para el informe</label></div><textarea id="report" class="report" aria-label="Texto de resultado para copiar" readonly placeholder="Aparecerá cuando completes las dos medidas."></textarea><div class="notice" id="notice" aria-live="polite"></div></div></aside>
+<aside aria-label="Resultado del índice" class="summary"><div class="summaryhead"><h2>Resultado cintura-altura</h2><p>Cálculo automático al completar las medidas.</p></div><div class="summarybody"><p class="pendingtext" id="status">Evaluación pendiente</p><div aria-hidden="true" class="bar"><div id="barFill"></div></div><section aria-live="polite" class="result pending" id="result" role="status"><div class="big" id="score">—</div></section><section class="scoreMeaning"><div class="scoreMeaningHeading">Significado de la puntuación</div><h3 id="resultTitle">Evaluación pendiente</h3><p id="resultDetail">Introduce la cintura y la altura.</p></section><div class="actions"><button class="btn primary" disabled="" id="copy" type="button">Copiar resultado</button><button class="btn" disabled="" id="print" type="button">Imprimir</button><button class="btn" id="reset" type="button">Limpiar</button></div><div class="reportlabel"><label for="report">Texto para el informe</label></div><textarea aria-label="Texto de resultado para copiar" class="report" id="report" placeholder="Aparecerá cuando completes las dos medidas." readonly=""></textarea><div aria-live="polite" class="notice" id="notice"></div></div></aside>
 </main>
-<div class="wrap sources"><details><summary>Fuente y puntos de corte</summary><p>NICE. <em>Overweight and obesity management</em>, NG246, apartado 1.9.14–1.9.15. <a href="https://www.nice.org.uk/guidance/ng246/chapter/Identifying-and-assessing-overweight-obesity-and-central-adiposity" target="_blank" rel="noopener noreferrer">Consultar recomendaciones</a>. Se clasifica con el resultado sin redondear; la pantalla muestra tres decimales.</p></details></div>
+<div class="wrap sources"><details><summary>Fuente y puntos de corte</summary><p>NICE. <em>Overweight and obesity management</em>, NG246, apartado 1.9.14–1.9.15. <a href="https://www.nice.org.uk/guidance/ng246/chapter/Identifying-and-assessing-overweight-obesity-and-central-adiposity" rel="noopener noreferrer" target="_blank">Consultar recomendaciones</a>. Se clasifica con el resultado sin redondear; la pantalla muestra tres decimales.</p></details></div>
 <footer class="wrap footer">Herramienta de apoyo para valoración clínica. No sustituye el juicio profesional. No guarda ni transmite datos.</footer>
 <script>
 "use strict";

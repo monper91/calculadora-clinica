@@ -1,0 +1,42 @@
+CALCULADORA CLÍNICA · V38 · Actualización acumulada
+Fecha: 13 noviembre 2026
+Base REAL: Portal_Medicina_Interna_v37_Vademecum_Acumulado.zip.
+
+CONTENIDO Y NAVEGACIÓN
+- Nueva categoría DIGESTIVO Y HEPATOLOGÍA, color ámbar, icono SVG anatómico de hígado.
+- Cuatro accesos: Child-Pugh, MELD clásico, MELD-Na clásico y FIB-4.
+- FIB-4 continúa en Nutrición y su enlace es compartido, sin duplicar calculadora; al abrir desde Digestivo vuelve a Digestivo.
+- Nueva escala H₂FPEF (0-9 puntos) en Insuficiencia Cardíaca y FA.
+- Nuevas páginas HTML autónomas child_pugh.html, meld.html, meld_na.html y h2fpef.html.
+- MELD y MELD-Na mantienen su fórmula clásica; NO son MELD 3.0 ni sustituyen reglas actuales de asignación de trasplante.
+- Actualizada búsqueda global y descripciones del índice.
+
+VADEMÉCUM: 54 MEDICAMENTOS (v37: 52), 30 CON CONTENIDO REVISADO (v37: 24)
+- Nuevos: Verapamilo y Esmolol.
+- Revisadas/ampliadas: adenosina, digoxina, metoprolol, sulfato de magnesio IV, furosemida y levosimendán.
+- Adenosina: vía IV rápida 6 -> 12 mg (selección ERC 2025). Diferencia frente a ficha Adenocor española (3 -> 6 -> 12 mg) documentada en fuentes.
+- Digoxina: por fin incorporada la ficha completa. Ampolla 0,5 mg/2 ml, comprimido 0,25 mg; carga IV individualizada y mantenimiento VO.
+- Verapamilo: 2,5/5 mg IV seleccionables con copia individual; repetición opcional y oral retard 120/240 mg si indicada.
+- Metoprolol: 2,5/5 mg IV seleccionables; tartrato 25/50 mg cada 12 h si se precisa oral.
+- Esmolol: bolsa lista Brevibloc 2.500 mg/250 ml (10 mg/ml), carga 500 µg/kg en 1 min y tabla práctica 60-100 kg con mg/ml; perfusión 50-200 µg/kg/min.
+- Magnesio IV: exclusivamente ampolla sulfato de magnesio 1,5 g/10 ml; torsades, reposición y asma grave seleccionada; recomendación orientativa 3 g para reposición no urgente.
+- Furosemida: inicio 20-40 mg IV si no diurético; ajuste por dosis domiciliaria y respuesta (SEMI 2022). Perfusión continua 250 mg/250 ml finales de SF 0,9% con tabla 5-40 mg/h. Sin tabla rígida por función renal.
+- Furosemida + hipertónico en detalle desplegable: 150 ml finales por dosis, a pasar en 1 h, habitualmente cada 12 h según indicación; ampollas NaCl 20% de 10 ml: Na <125 -> 3 amp; 126-135 -> 2 amp; 136-145 -> 1 amp; >145 -> 1/2 amp, completando hasta 150 ml finales con SF0,9%. Las concentraciones (4,72%, 3,45%, 2,17%, 1,54%) difieren ligeramente del documento SEMI. NO existe dosis asignada para Na=125. Validación de Farmacia antes de habilitar la copia de la preparación. Monitorizar PA, diuresis, ionograma (incluido K/Mg/Cl), función renal, gasometría venosa según evolución y reposición individualizada de potasio.
+- Velocidad furosemida IV según AEMPS: máximo 4 mg/min; en IR grave definida en FT por creatinina >5 mg/dl, máximo 2,5 mg/min; presentación 250 mg/25 ml solo para perfusión controlada, NO bolo.
+- Levosimendán: una sola preparación inicial, 5 ml=12,5 mg en 250 ml finales SG5% (50 µg/ml); carga opcional de 6/12 µg/kg en 10 min o sin carga individualizado. Mantener 0,05/0,1/0,2 µg/kg/min 24 h, con tablas por peso y selección. Si total de carga + 24 h supera 12,5 mg muestra aviso de 10 ml=25 mg en 500 ml finales (50 µg/ml); si supera 25 mg, aviso de bolsas adicionales y bloqueo de copia simplificada. Reevaluar a 30-60 min, controlar PA/ECG/FC/diuresis/potasio y vigilancia tras finalizar. Mención breve a su utilidad en pacientes betabloqueados.
+- Dobutamina: NO añadir recomendaciones específicas sobre retirada de betabloqueantes.
+- Noradrenalina: dos opciones fijas 10 mg base/100 ml y 20 mg base/100 ml, sin libre modificación de concentraciones; diferencia base/bitartrato clara, enlaces a comunicado AEMPS 2022 en Fuentes.
+- Nitroglicerina: denominación genérica principal, Solinitrina Fuerte secundario.
+- Amiodarona: carga fija 300 mg/250 ml en 60 min; mantenimiento secuencial; sin calculadora independiente de ampollas ni selector de 30 min.
+- Se elimina el interruptor de equivalencias mg a ampollas/ml que no se deseaba. Presentaciones al principio y opciones Copiar junto a las pautas. Las referencias de cada ficha están dentro de su desplegable de Fuentes.
+
+PRUEBAS
+- node --check en JS principal y datos.
+- Chromium (contenido local autónomo): seis categorías y cuatro herramientas digestivas; Child-Pugh, MELD, MELD-Na, H₂FPEF y 11 fichas de fármacos probadas sin errores de ejecución; controles de vademécum y adaptabilidad móvil comprobados.
+- Las pruebas son de cálculo y presentación, NO validan usos asistenciales ni farmacotécnicos.
+
+AVISOS CLÍNICOS PENDIENTES
+- Validación institucional de nuevas preparaciones de suero hipertónico y asignación de natremia exacta 125 mEq/l.
+- Revisión local de dosis de isoprenalina, amiodarona secuencial y concentraciones altas de catecolaminas según el registro de v37.
+- Revisar estabilidad, compatibles en Y y formulaciones locales antes de prescribir; los enlaces pueden cambiar.
+- Confirmar escalas MELD clásicas para contexto de uso: MELD 3.0 se emplea en asignación de trasplante en algunos sistemas.

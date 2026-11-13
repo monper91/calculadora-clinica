@@ -1,0 +1,9 @@
+Versión 33 · Vademécum de hospitalización
+- Inicio sin fármaco seleccionado; sigue admitiendo URL directa con #id.
+- Favoritos con estrellas persistidos en localStorage (solo IDs de fármacos); filtro «Solo favoritos».
+- Resumen breve de dosis; detalle anterior preservado en sección desplegable.
+- Separación bicarbonato sódico 1 M / 1/6 M con concentraciones distintas y fichas AEMPS.
+- Incorporación Ferinject y Venofer con calculadoras independientes de requerimiento de hierro en fichas.
+- El resto del portal procede íntegro de la v32.
+- Fichas técnicas revisadas: https://cima.aemps.es/cima/dochtml/ft/69771/FichaTecnica_69771.html ; https://cima.aemps.es/cima/dochtml/ft/64000/ ; https://cima.aemps.es/cima/dochtml/ft/49811/FT_49811.html ; https://cima.aemps.es/cima/dochtml/ft/47517/FichaTecnica_47517.html
+- Las calculadoras son ayuda matemática; validar siempre prescripción y protocolo local.

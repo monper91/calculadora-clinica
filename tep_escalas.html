@@ -1,8 +1,9 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="es">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="color-scheme" content="light">
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="light" name="color-scheme"/>
 <title>Hestia · sPESI · PESI | Herramientas clínicas</title>
 <style>
 :root{--navy:#5a1829;--blue:#7a2136;--ink:#193550;--muted:#5e748a;--bg:#f4f7fb;--line:#ead8dd;--pale:#fbf0f3;--red:#9d3540;--green:#0e6f58;--orange:#976018}
@@ -30,41 +31,55 @@
   @media print{header a.back-to-category{display:none!important}}
 
 </style>
-</head>
+<link href="favicon.ico" rel="icon" sizes="any"/>
+<link href="icons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="icons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="manifest.webmanifest" rel="manifest"/>
+<meta content="#004c19" name="theme-color"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="default" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="Portal Clínico" name="apple-mobile-web-app-title"/>
+<style>/* v40: la puntuación se muestra sola y la interpretación va en una tarjeta independiente */
+.scoreMeaning{border:1px solid #d9e5e8;background:#f7fafb;border-radius:12px;padding:14px 17px;margin:13px 0;color:#31515e;line-height:1.6}
+.scoreMeaningHeading{font-size:12px;letter-spacing:.035em;text-transform:uppercase;font-weight:800;color:#376773;margin-bottom:8px}
+.scoreMeaning h3{font-size:17px;margin:0 0 5px}.scoreMeaning p{font-size:13px;margin:0}
+#result, #verdict{text-align:center}.result .score,.result .bigscore,.verdict .stat{margin:0 auto;justify-content:center}
+</style></head>
 <body>
 <header class="mast"><div class="wrap"><div class="headtop"><span class="brand">MEDICINA INTERNA · ENFERMEDAD TROMBOEMBÓLICA</span><a class="back back-to-category" href="calculadoras.html#/categoria/etev">← Volver a Enfermedad Tromboembólica</a></div><h1>Estratificación del tromboembolismo pulmonar</h1><p>Calculadoras independientes para pronóstico a 30 días y selección de pacientes candidatos a tratamiento ambulatorio.</p><div class="chips"><span>TEP confirmado · adultos</span><span>PESI y sPESI: pronóstico</span><span>Hestia: criterios de exclusión</span><span>Funciona sin conexión</span></div></div></header>
 <div class="wrap intro"><div><h2>SELECCIONAR HERRAMIENTA</h2><p>Puedes utilizar cada escala por separado o pasar los datos de PESI a sPESI.</p></div></div>
-<nav class="wrap tabbar" role="tablist" aria-label="Seleccionar escala">
-<button class="tab" id="tab-pesi" role="tab" data-tab="pesi" aria-controls="form-pesi" aria-selected="true"><span><b>PESI</b><small>Índice original · 11 variables</small></span><span class="abbr">01</span></button>
-<button class="tab" id="tab-spesi" role="tab" data-tab="spesi" aria-controls="form-spesi" aria-selected="false"><span><b>sPESI</b><small>Índice simplificado · 6 criterios</small></span><span class="abbr">02</span></button>
-<button class="tab" id="tab-hestia" role="tab" data-tab="hestia" aria-controls="form-hestia" aria-selected="false"><span><b>Hestia</b><small>Tratamiento en domicilio · 11 criterios</small></span><span class="abbr">03</span></button>
+<nav aria-label="Seleccionar escala" class="wrap tabbar" role="tablist">
+<button aria-controls="form-pesi" aria-selected="true" class="tab" data-tab="pesi" id="tab-pesi" role="tab"><span><b>PESI</b><small>Índice original · 11 variables</small></span><span class="abbr">01</span></button>
+<button aria-controls="form-spesi" aria-selected="false" class="tab" data-tab="spesi" id="tab-spesi" role="tab"><span><b>sPESI</b><small>Índice simplificado · 6 criterios</small></span><span class="abbr">02</span></button>
+<button aria-controls="form-hestia" aria-selected="false" class="tab" data-tab="hestia" id="tab-hestia" role="tab"><span><b>Hestia</b><small>Tratamiento en domicilio · 11 criterios</small></span><span class="abbr">03</span></button>
 </nav>
 <main class="wrap workspace">
- <div id="formArea">
-  <section class="panel" id="form-pesi" role="tabpanel" aria-labelledby="tab-pesi"><div class="section"><h2>PESI · Pulmonary Embolism Severity Index</h2><p>Edad en años, sexo y nueve antecedentes o hallazgos. Se calcula la clase pronóstica I–V y la mortalidad a 30 días descrita en las cohortes originales.</p></div>
-   <div class="sectionnote">En parada cardiaca, shock o hipotensión persistente, el paciente es de alto riesgo hemodinámico independientemente de PESI o sPESI.</div>
-   <div class="inline-section"><div class="numeric"><label for="pesi-age">Edad en años</label><input id="pesi-age" type="number" min="18" max="120" step="1" inputmode="numeric" placeholder="p. ej., 72" aria-describedby="pesi-age-help"><small id="pesi-age-help">Se suman tantos puntos como años.</small></div><div><span class="field-label">Sexo</span><div class="answer" id="pesi-sex"></div></div></div>
-   <div class="rowgroup"><h3>Antecedentes</h3><div id="pesi-antecedentes"></div></div>
-   <div class="rowgroup"><h3>Constantes y exploración</h3><div id="pesi-constantes"></div></div>
-   <div class="foot-actions"><button class="action" type="button" data-reset="pesi">↺ Nueva evaluación PESI</button></div>
-  </section>
-  <section class="panel" id="form-spesi" role="tabpanel" aria-labelledby="tab-spesi" hidden><div class="section"><h2>sPESI · índice simplificado</h2><p>Seis factores, un punto cada uno. Un resultado de 0 identifica un grupo de bajo riesgo de mortalidad a 30 días.</p></div>
-   <div class="sectionnote">Solo para TEP confirmado y sin inestabilidad hemodinámica. El sPESI no sustituye la valoración de ventrículo derecho, biomarcadores ni criterios clínicos para el alta.</div>
-   <div class="import"><p><strong>Evita repetir preguntas:</strong> si ya completaste PESI, puedes trasladar automáticamente sus respuestas a sPESI.</p><button type="button" class="action" id="importSpesi" disabled>Importar desde PESI</button></div>
-   <div class="rowgroup"><h3>Seis criterios</h3><div id="spesi-criterios"></div></div>
-   <div class="foot-actions"><button class="action" type="button" data-reset="spesi">↺ Nueva evaluación sPESI</button></div>
-  </section>
-  <section class="panel" id="form-hestia" role="tabpanel" aria-labelledby="tab-hestia" hidden><div class="section"><h2>Hestia · idoneidad para tratamiento ambulatorio</h2><p>Once criterios de exclusión. Una sola respuesta «Sí» hace que Hestia sea positiva; para confirmar Hestia negativa deben responderse los once apartados.</p></div>
-   <div class="sectionnote">Hestia negativa no significa alta automática: comprobar seguridad, diagnóstico, estabilidad, tratamiento, adherencia y seguimiento.</div>
-   <div class="rowgroup"><h3>Criterios de exclusión</h3><div id="hestia-criterios"></div></div>
-   <div class="foot-actions"><button class="action" type="button" data-reset="hestia">↺ Nueva evaluación Hestia</button></div>
-  </section>
- </div>
- <aside class="scorecard" aria-label="Resultado calculado"><div class="cardhead"><h2 id="scoreTitle">Resultado PESI</h2><p id="scoreSubtitle">Actualización automática con cada respuesta</p></div><div class="scorebody"><div class="score"><b id="score">—</b><span id="unit">puntos</span></div><div class="metrics" id="completion" aria-live="polite">0/11 variables completadas</div><div class="progress" aria-hidden="true"><div id="progressFill"></div></div><div class="result" id="result" role="status" aria-live="polite"><h3 id="resultTitle">Evaluación pendiente</h3><p id="resultDetail">Responde los criterios para calcular el resultado.</p></div><div class="metrics" id="riskNote"></div><label for="report" class="report-label">Texto para historia clínica</label><textarea id="report" class="report" readonly placeholder="Se generará al completar la evaluación."></textarea><div class="bar"><button type="button" class="action primary" id="copy" disabled>Copiar resultado</button><button type="button" class="action" id="print" disabled>Imprimir</button></div><div class="status" id="message" role="status"></div></div></aside>
+<div id="formArea">
+<section aria-labelledby="tab-pesi" class="panel" id="form-pesi" role="tabpanel"><div class="section"><h2>PESI · Pulmonary Embolism Severity Index</h2><p>Edad en años, sexo y nueve antecedentes o hallazgos. Se calcula la clase pronóstica I–V y la mortalidad a 30 días descrita en las cohortes originales.</p></div>
+<div class="sectionnote">En parada cardiaca, shock o hipotensión persistente, el paciente es de alto riesgo hemodinámico independientemente de PESI o sPESI.</div>
+<div class="inline-section"><div class="numeric"><label for="pesi-age">Edad en años</label><input aria-describedby="pesi-age-help" id="pesi-age" inputmode="numeric" max="120" min="18" placeholder="p. ej., 72" step="1" type="number"/><small id="pesi-age-help">Se suman tantos puntos como años.</small></div><div><span class="field-label">Sexo</span><div class="answer" id="pesi-sex"></div></div></div>
+<div class="rowgroup"><h3>Antecedentes</h3><div id="pesi-antecedentes"></div></div>
+<div class="rowgroup"><h3>Constantes y exploración</h3><div id="pesi-constantes"></div></div>
+<div class="foot-actions"><button class="action" data-reset="pesi" type="button">↺ Nueva evaluación PESI</button></div>
+</section>
+<section aria-labelledby="tab-spesi" class="panel" hidden="" id="form-spesi" role="tabpanel"><div class="section"><h2>sPESI · índice simplificado</h2><p>Seis factores, un punto cada uno. Un resultado de 0 identifica un grupo de bajo riesgo de mortalidad a 30 días.</p></div>
+<div class="sectionnote">Solo para TEP confirmado y sin inestabilidad hemodinámica. El sPESI no sustituye la valoración de ventrículo derecho, biomarcadores ni criterios clínicos para el alta.</div>
+<div class="import"><p><strong>Evita repetir preguntas:</strong> si ya completaste PESI, puedes trasladar automáticamente sus respuestas a sPESI.</p><button class="action" disabled="" id="importSpesi" type="button">Importar desde PESI</button></div>
+<div class="rowgroup"><h3>Seis criterios</h3><div id="spesi-criterios"></div></div>
+<div class="foot-actions"><button class="action" data-reset="spesi" type="button">↺ Nueva evaluación sPESI</button></div>
+</section>
+<section aria-labelledby="tab-hestia" class="panel" hidden="" id="form-hestia" role="tabpanel"><div class="section"><h2>Hestia · idoneidad para tratamiento ambulatorio</h2><p>Once criterios de exclusión. Una sola respuesta «Sí» hace que Hestia sea positiva; para confirmar Hestia negativa deben responderse los once apartados.</p></div>
+<div class="sectionnote">Hestia negativa no significa alta automática: comprobar seguridad, diagnóstico, estabilidad, tratamiento, adherencia y seguimiento.</div>
+<div class="rowgroup"><h3>Criterios de exclusión</h3><div id="hestia-criterios"></div></div>
+<div class="foot-actions"><button class="action" data-reset="hestia" type="button">↺ Nueva evaluación Hestia</button></div>
+</section>
+</div>
+<aside aria-label="Resultado calculado" class="scorecard"><div class="cardhead"><h2 id="scoreTitle">Resultado PESI</h2><p id="scoreSubtitle">Actualización automática con cada respuesta</p></div><div class="scorebody"><div aria-live="polite" class="metrics" id="completion">0/11 variables completadas</div><div aria-hidden="true" class="progress"><div id="progressFill"></div></div><div aria-live="polite" class="result" id="result" role="status"><div class="score"><b id="score">—</b><span id="unit">puntos</span></div></div><section class="scoreMeaning"><div class="scoreMeaningHeading">Significado de la puntuación</div><h3 id="resultTitle">Evaluación pendiente</h3><p id="resultDetail">Responde los criterios para calcular el resultado.</p></section><div class="metrics" id="riskNote"></div><label class="report-label" for="report">Texto para historia clínica</label><textarea class="report" id="report" placeholder="Se generará al completar la evaluación." readonly=""></textarea><div class="bar"><button class="action primary" disabled="" id="copy" type="button">Copiar resultado</button><button class="action" disabled="" id="print" type="button">Imprimir</button></div><div class="status" id="message" role="status"></div></div></aside>
 </main>
 <div class="wrap"><details class="sources"><summary>Fuentes, interpretación y limitaciones</summary>
 <p>Herramienta digital independiente, no oficial, basada en los índices publicados y en las guías. No se transmiten ni guardan los datos introducidos. El riesgo poblacional estimado por PESI/sPESI no es una probabilidad individual exacta.</p>
-<ul><li><a href="https://academic.oup.com/eurheartj/article/41/4/543/5556136" target="_blank" rel="noopener noreferrer">Guía ESC/ERS 2019 para tromboembolismo pulmonar</a>: tabla de PESI y sPESI y evaluación del riesgo.</li><li><a href="https://www.jacc.org/doi/10.1016/j.jacc.2025.11.005" target="_blank" rel="noopener noreferrer">Guía multisociedad AHA/ACC 2026</a>: estratificación y Hestia.</li><li><a href="https://academic.oup.com/eurheartj/article/42/33/3146/6345003" target="_blank" rel="noopener noreferrer">Ensayo HOME-PE 2021</a>: criterios Hestia.</li><li><a href="https://www.cardioteca.com/cardioapp.html" target="_blank" rel="noopener noreferrer">CardioApp (CardioTeca)</a>: referencia de experiencia de uso (sin reutilizar código).</li></ul>
+<ul><li><a href="https://academic.oup.com/eurheartj/article/41/4/543/5556136" rel="noopener noreferrer" target="_blank">Guía ESC/ERS 2019 para tromboembolismo pulmonar</a>: tabla de PESI y sPESI y evaluación del riesgo.</li><li><a href="https://www.jacc.org/doi/10.1016/j.jacc.2025.11.005" rel="noopener noreferrer" target="_blank">Guía multisociedad AHA/ACC 2026</a>: estratificación y Hestia.</li><li><a href="https://academic.oup.com/eurheartj/article/42/33/3146/6345003" rel="noopener noreferrer" target="_blank">Ensayo HOME-PE 2021</a>: criterios Hestia.</li><li><a href="https://www.cardioteca.com/cardioapp.html" rel="noopener noreferrer" target="_blank">CardioApp (CardioTeca)</a>: referencia de experiencia de uso (sin reutilizar código).</li></ul>
 <p>PESI: clases I ≤65, II 66–85, III 86–105, IV 106–125, V &gt;125 puntos; mortalidad a 30 días publicada en las cohortes de derivación/validación. sPESI: 0 puntos (bajo riesgo); ≥1 (riesgo pronóstico aumentado). Hestia: negativo solo con las 11 respuestas negativas. La clasificación pronóstica no reemplaza la valoración hemodinámica (alto riesgo ESC), función del ventrículo derecho, troponina, condiciones sociales y criterio clínico. No es una herramienta diagnóstica de TEP.</p>
 </details></div>
 <footer class="wrap footer">Portal de Medicina Interna · Calculadora clínica local · Sin registro de datos ni conexiones externas para calcular · Fuentes externas solo al pulsar sus enlaces.</footer>

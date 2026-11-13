@@ -1,0 +1,19 @@
+Editor de analíticas v32 · Orden de apartados (12/11/2026)
+
+1. Orden fijo de informe:
+   Hemograma, VSG, Frotis de sangre periférica, Coagulación, Bioquímica,
+   PCR, Marcadores cardíacos, Gasometría, Orina, Perfil diabético,
+   Perfil lipídico, Perfil férrico, Vitaminas, Hormonas, Proteinograma,
+   Autoinmunidad, Cultivos, Microbiología, Serologías y Otros resultados.
+2. No se muestran apartados vacíos.
+3. Bioquímica urinaria, sistemático, sedimento, cociente albúmina/creatinina
+   e índices renales calculados se agrupan en un único apartado Orina.
+4. Cálculos opcionales integrados en sus apartados: RNL y reticulocitos
+   (Hemograma), FeNa/FeUrea/IFR y cocientes (Orina), anion gap y delta-delta
+   (Gasometría), TIBC (Perfil férrico), no-HDL (Perfil lipídico).
+5. Cultivos separados de pruebas microbiológicas no culturales y serologías.
+6. 'Otros resultados' para determinaciones válidas reconocidas sin perfil.
+7. Conservado PDF.js local, diseño lateral y resto del portal.
+
+Nota: sigue siendo un piloto sin validación institucional ni auditoría completa
+para uso con datos clínicos identificativos.

@@ -1,0 +1,73 @@
+REGISTRO PARA CONTINUAR EL VADEMÉCUM DESDE V37
+
+Versión de referencia actual: v37. Base original comprobable: v36.
+Generar un nuevo ZIP solo cuando el usuario pida revisar cambios acumulados.
+No usar como base v30/v31/v32/v34/v35 salvo recuperación excepcional.
+
+DECISIONES DEFINITIVAS DEL USUARIO
+1) Una preparación habitual por defecto. Añadir pocas alternativas justificadas;
+   nunca ofrecer todas las diluciones publicadas si confunden la consulta.
+2) Referencias a AEMPS, ESC, ERC, Prontuario u otras fuentes exclusivamente
+   dentro de «Ficha técnica y fuentes» en fichas; no junto a dosis/preparaciones.
+3) Datos farmacocinéticos breves, orientados al manejo real: inicio, pico
+   clínico si sirve, semivida, duración/retirada; NO exigir Tmax en todos.
+4) No crear calculadoras por sistema. Tabla por peso donde aporta utilidad;
+   tabla fija con selección de concentración donde peso no interviene.
+5) Las cifras de preparación siempre se expresan sobre VOLUMEN FINAL,
+   incluyendo volumen aportado por medicamento.
+6) Función «Copiar tratamiento» para TODO el vademécum, progresivamente
+   adaptada a todas las fichas VALIDADAS. En tablas, pulsar celda y copiar
+   con concentración, dosis, peso, vía y velocidad exacta.
+7) El texto copiado debe priorizar siempre cantidad activa en mg/µg;
+   no sustituir por «n ampollas» a secas.
+8) QUITAR la calculadora independiente de mg↔ampollas/ml, ideada antes para
+   amiodarona. Mostrar opcionalmente equivalencias en contexto mediante
+   selector de presentación; mantener visible dosis farmacológica original.
+9) No convertir el portal en tratado de urgencias; centrarse en farmacología.
+10) Editor de analíticas: sin mensaje «Versión de pruebas» (ya conservado).
+
+PUNTOS A VALIDAR ANTES DE USAR EN EL HOSPITAL
+A) Aleudrina 1 mg/100 ml, inicio 2 µg/min: seleccionado por usuario;
+   DISCREPA DE FT ALEUDRINA 2026 (2 mg/500 ml, 0,01 µg/kg/min) y
+   algoritmo ERC 2025 (5 µg/min). Farmacia/protocolo local imprescindible.
+B) Amiodarona mantenimiento secuencial 600 mg/250 ml durante 12 h y luego
+   600 mg/250 ml durante 24 h: pauta aportada del prontuario, distinta del
+   esquema de ESC 2024 (900–1.200 mg/24 h). Validar indicación y protocolo.
+C) Adrenalina perfusión 3 mg/250 o 2 mg/100: diluciones seleccionadas por
+   usuario; consultar estabilidad/condiciones y protocolo institucional.
+D) Dopamina 1 g/250 ml: preparación concentrada. Asegurar protocolo y acceso.
+E) Dobutamina 1 g/250 ml: preparación concentrada; supervisión apropiada.
+F) Las calculadoras/copias son conversiones aritméticas, NO sustituyen
+   indicación, límites de dosis ni validación individual de prescripción.
+
+PENDIENTES DE DESARROLLO
+- Completar farmacocinética clínica de otras fichas, solo cuando existan
+  datos oficiales útiles (hay 8 fichas con resumen contrastado en v37).
+- Convertir las fichas revisadas restantes en pautas copiables específicas
+  por indicación cuando sus dosis no sean inequívocas. Por ahora tienen
+  un botón «Copiar pauta orientativa» cuando están revisadas, no una orden
+  automática prescriptiva.
+- Revisar y validar restantes medicamentos marcados «Pendiente de revisión»:
+  el sistema NO permite copiar órdenes de esas fichas.
+- Continuar con el siguiente medicamento escogido por el usuario.
+
+INFORMACIÓN POR MEDICAMENTO
+- Solinitrina: 50 mg/250 ml inicial (200 mcg/ml); alternativa 50/500 (100 mcg/ml),
+  equivalencia de 100/500 (200 mcg/ml); tabla fija.
+- Dobutamina: 1 g/250 inicial, 500/250, 250/250, 250/50 (jeringa),
+  recalculable por peso.
+- Dopamina: 1 g/250 inicial y 400/250 alternativa; amar/rojo/violeta
+  para efectos D, beta, alfa, solapados; NO dosis renal nefroprotectora.
+- Noradrenalina: B. Braun, diferencias base/bitartrato, envases 10/50 ml,
+  volumen final editable, tabla por peso, sin preparación inventada.
+- Adrenalina: 1 mg/ml B. Braun. Anafilaxia 0,5 mg IM, RCP 1 mg IV/IO,
+  perfusión 3/250 y 2/100 con SG5% o SF0,9%, tabla dinámica.
+- Atropina: 0,5 mg IV en bradicardia (ERC), máximo 3 mg;
+  1–2 mg IV iniciales en intoxicación con escalada según respuesta.
+- Isoprenalina: 5 amp de 0,2 mg/1 ml hasta 100 ml finales SF0,9%,
+  2 mcg/min de inicio (12 ml/h), objetivo orientativo FC ~60.
+- Amiodarona: carga 300 mg/250 ml SG5% 30–60 min;
+  600 mg/250 ml 12 h, luego 600 mg/250 ml 24 h;
+  transición VO 200 mg/8 h orientativa con ajuste de carga;
+  FV/TV sin pulso 300 mg IV/IO, después 150 mg según algoritmo;
+  calculadora desplegable de 5mg/kg, SIN calculadora ampollas independiente.

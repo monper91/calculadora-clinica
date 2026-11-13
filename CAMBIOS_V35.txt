@@ -1,0 +1,8 @@
+V35 · Vademécum: acuerdos recuperados tras la versión v34.
+- Añadida Solinitrina Fuerte con tabla 1–6 mg/h y selector 200/100 µg/ml.
+- Actualizada dobutamina: tres preparaciones, calculadora peso/tabla completa.
+- Actualizada dopamina: preparación 1 g/250 ml, calculadora y tramos coloreados.
+- Contenido complementario plegado y bibliografía exclusivamente en «Ficha
+  técnica y fuentes» para estas tres fichas.
+- Conservado el resto de la versión v34.
+- Véase DECISIONES_VADEMECUM_V35.txt para detalles, fuentes y pruebas.

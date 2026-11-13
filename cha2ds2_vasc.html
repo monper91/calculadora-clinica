@@ -1,5 +1,6 @@
-<!doctype html>
-<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><title>CHA₂DS₂-VASc · Riesgo tromboembólico · Herramientas clínicas</title>
+<!DOCTYPE html>
+
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><meta content="light" name="color-scheme"/><title>CHA₂DS₂-VASc · Riesgo tromboembólico · Herramientas clínicas</title>
 <style>
 :root{--accent:#d62935;--accent-dark:#a71729;--accent-pale:#fff0f1;--text:#26374a;--muted:#62758b;--border:#e2e8ee;--bg:#f7f8fb;--green:#147253;--amber:#956213;--blue:#245b8f}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font:15px/1.5 system-ui,-apple-system,'Segoe UI',Arial,sans-serif;color:var(--text);background:var(--bg)}.wrap{max-width:1180px;padding:0 24px;margin:auto}
@@ -29,11 +30,25 @@ a{color:var(--accent-dark)}a:focus-visible,button:focus-visible,input:focus-visi
   @media(max-width:600px){header a.back-to-category{font-size:13.5px!important;padding:9px 11px!important}}
   @media print{header a.back-to-category{display:none!important}}
 
+</style><link href="favicon.ico" rel="icon" sizes="any"/>
+<link href="icons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="icons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="manifest.webmanifest" rel="manifest"/>
+<meta content="#004c19" name="theme-color"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="default" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="Portal Clínico" name="apple-mobile-web-app-title"/>
+<style>/* v40: la puntuación se muestra sola y la interpretación va en una tarjeta independiente */
+.scoreMeaning{border:1px solid #d9e5e8;background:#f7fafb;border-radius:12px;padding:14px 17px;margin:13px 0;color:#31515e;line-height:1.6}
+.scoreMeaningHeading{font-size:12px;letter-spacing:.035em;text-transform:uppercase;font-weight:800;color:#376773;margin-bottom:8px}
+.scoreMeaning h3{font-size:17px;margin:0 0 5px}.scoreMeaning p{font-size:13px;margin:0}
+#result, #verdict{text-align:center}.result .score,.result .bigscore,.verdict .stat{margin:0 auto;justify-content:center}
 </style></head><body>
 <header class="hero"><div class="wrap"><div class="top"><div class="brand">MEDICINA INTERNA · INSUFICIENCIA CARDIACA Y FIBRILACIÓN AURICULAR</div><a class="back back-to-category" href="calculadoras.html#/categoria/cardiologia">← Volver a Insuficiencia Cardiaca y Fibrilación Auricular</a></div>
 <h1>CHA₂DS₂-VASc · Riesgo tromboembólico</h1><p>Escala clásica de riesgo tromboembólico en fibrilación auricular. Incorpora sexo femenino como modificador de riesgo.</p><div class="chips"><span class="chip">Fibrilación auricular · escala clásica</span><span class="chip">Puntuación automática</span><span class="chip">Sin conexión</span></div></div></header>
-<main class="wrap layout"><section class="maincol"><div class="card"><div class="section-heading"><h2>Cuestionario clínico</h2><p>Seleccione una respuesta por apartado. No hay valores preseleccionados.</p></div><form id="questionForm" autocomplete="off"><div id="questions"></div></form><p class="note">El sexo femenino no se interpreta como factor de riesgo suficiente por sí solo. ESC 2024 recomienda utilizar preferentemente CHA₂DS₂-VA.</p></div></section>
-<aside class="sidebar" aria-label="Resultados"><div class="score-head"><h2>Resultado · CHA₂DS₂-VASc</h2><p>Interpretación automática tras completar todos los apartados</p></div><div class="body"><div class="stat"><strong id="score" aria-live="polite">—</strong><span>/ 9 puntos</span></div><div id="progressText" class="progressinfo">0 apartados completados</div><div class="track" aria-hidden="true"><div id="fill" class="fill"></div></div><div id="verdict" class="verdict" role="status" aria-live="polite"><h3 id="resultTitle">Valoración pendiente</h3><p id="resultText">Complete los criterios para calcular el resultado.</p></div><label class="reportlabel" for="report">Texto para la historia clínica</label><textarea class="report" id="report" readonly placeholder="Complete el cuestionario para generar el informe."></textarea><div class="actions"><button id="copy" class="btn primary" type="button" disabled>Copiar informe</button><button id="print" class="btn" type="button" disabled>Imprimir</button><button id="reset" class="btn" type="button">Nueva evaluación</button></div><div id="status" class="status" role="status" aria-live="polite"></div></div></aside></main>
+<main class="wrap layout"><section class="maincol"><div class="card"><div class="section-heading"><h2>Cuestionario clínico</h2><p>Seleccione una respuesta por apartado. No hay valores preseleccionados.</p></div><form autocomplete="off" id="questionForm"><div id="questions"></div></form><p class="note">El sexo femenino no se interpreta como factor de riesgo suficiente por sí solo. ESC 2024 recomienda utilizar preferentemente CHA₂DS₂-VA.</p></div></section>
+<aside aria-label="Resultados" class="sidebar"><div class="score-head"><h2>Resultado · CHA₂DS₂-VASc</h2><p>Interpretación automática tras completar todos los apartados</p></div><div class="body"><div class="progressinfo" id="progressText">0 apartados completados</div><div aria-hidden="true" class="track"><div class="fill" id="fill"></div></div><div aria-live="polite" class="verdict" id="verdict" role="status"><div class="stat"><strong aria-live="polite" id="score">—</strong><span>/ 9 puntos</span></div></div><section class="scoreMeaning"><div class="scoreMeaningHeading">Significado de la puntuación</div><h3 id="resultTitle">Valoración pendiente</h3><p id="resultText">Complete los criterios para calcular el resultado.</p></section><label class="reportlabel" for="report">Texto para la historia clínica</label><textarea class="report" id="report" placeholder="Complete el cuestionario para generar el informe." readonly=""></textarea><div class="actions"><button class="btn primary" disabled="" id="copy" type="button">Copiar informe</button><button class="btn" disabled="" id="print" type="button">Imprimir</button><button class="btn" id="reset" type="button">Nueva evaluación</button></div><div aria-live="polite" class="status" id="status" role="status"></div></div></aside></main>
 <section class="wrap sources"><details><summary>Fuentes y limitaciones</summary><p>Herramienta orientativa de apoyo clínico. Las puntuaciones e interpretaciones requieren confirmar la situación del paciente y el contexto de aplicación. No almacena ni envía respuestas a servidores.</p><ul id="sourcesList"></ul></details></section>
 <footer class="wrap footer">Aplicación HTML local · Medicina Interna · Diseño no afiliado oficialmente a sociedades científicas.</footer>
 <script>

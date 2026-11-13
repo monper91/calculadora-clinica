@@ -1,0 +1,67 @@
+CALCULADORA CLÍNICA · V37 · Vademécum acumulado
+13 de noviembre de 2026
+Base: Portal_Medicina_Interna_v36_Noradrenalina_Tabla_Editor.zip.
+
+RESUMEN
+- 52 medicamentos (v36 tenía 51). Nuevo: isoprenalina (Aleudrina).
+- Incorporadas/revisadas las fichas de adrenalina, atropina, isoprenalina y amiodarona.
+- Dobutamina: 500 mg en 250 ml finales (2 mg/ml), segunda preparación de cuatro.
+- Dopamina: 400 mg en 250 ml finales (1,6 mg/ml), alternativa a 1 g/250 ml.
+- Adrenalina B. Braun 1 mg/ml: anafilaxia IM, RCP IV/IO y perfusión IV.
+  Preparaciones de perfusión: 3 mg/250 ml (12 microgramos/ml) y 2 mg/100 ml
+  (20 microgramos/ml); SG 5% o SF 0,9%. Tabla dinámica por peso.
+- Atropina: 0,5 mg IV en bradicardia (ERC, hasta 3 mg acumulados),
+  intoxicación por organofosforados (1-2 mg IV de inicio con escalada según respuesta).
+- Isoprenalina: 5 ampollas de 0,2 mg en 100 ml finales de SF 0,9% (10 mcg/ml).
+  Inicio orientativo 2 mcg/min, objetivo de FC aproximada 60 lpm; tabla fija
+  de 2-10 mcg/min y selección para copiar velocidad.
+- Amiodarona: carga 300 mg/250 ml finales de SG 5%, 30 o 60 min;
+  mantenimiento secuencial 600 mg/250 ml en 12 h, después 600 mg/250 ml
+  en 24 h; RCP, transición oral y calculadora opcional de carga 5 mg/kg.
+  Se ELIMINA la idea de calculadora independiente de mg a ampollas/ml.
+- Visualización opcional de equivalencias contextuales a ampollas y ml
+  en 8 fichas con presentaciones explícitas; la dosis en mg/µg no desaparece.
+- Copia de pauta para todas las fichas CON PAUTA REVISADA (24 de 52).
+  Fichas con dosis aún pendiente (28) NO generan órdenes automáticas.
+- En las tablas de perfusión se puede seleccionar una celda y copiar la orden
+  que incluye fármaco, dosis, peso (si procede), concentración, dilución y ritmo.
+- Farmacocinética clínica breve contrastada para 8 medicamentos;
+  para los restantes está pendiente de revisión, no se inventan cifras.
+
+CRITERIOS REAFIRMADOS
+- Pocas preparaciones, estándar claro y alternativas solo cuando aportan valor.
+- Los volúmenes mencionados son finales incluyendo el medicamento.
+- Las fuentes se guardan en el desplegable de cada ficha, no en las dosis.
+- Las instrucciones copiadas priorizan la dosis en mg/µg (nunca solo ampollas).
+- No se crea calculadora dinámica en todos los medicamentos.
+- Datos con discrepancias o preparaciones locales pendientes de validación:
+  consignados en los desplegables de fuentes y en continuidad.
+
+PRUEBAS AUTOMATIZADAS
+- Sintaxis JS verificada con node --check.
+- Chromium: interacciones de vademécum verificadas en escritorio y móvil.
+  Dobutamina 500/250 con 70 kg y 2 mcg/kg/min = 4,2 ml/h.
+  Dopamina 400/250 con 70 kg y 2 mcg/kg/min = 5,25 ml/h.
+  Adrenalina 3/250 con 70 kg y 0,1 mcg/kg/min = 35 ml/h;
+  adrenalina 2/100 con la misma pauta = 21 ml/h.
+  Aleudrina 1mg/100ml: 2 mcg/min = 12 ml/h.
+  Amiodarona 300/250 en 60 min = 250 ml/h; 30 min = 500 ml/h;
+  600/250 en 12 h = 20,83 ml/h; 24 h = 10,42 ml/h.
+  Solinitrina 50/250, 1 mg/h = 5 ml/h; 50/500 = 10 ml/h.
+  Noradrenalina B. Braun: comprobada tabla y selector.
+  Fibrinólisis y hierro: comprobada presencia de módulos.
+  Sin errores de ejecución JS y sin desbordamiento horizontal móvil.
+- Estas pruebas NO son validación asistencial ni farmacotécnica.
+
+ARCHIVOS MODIFICADOS DE LA V36
+- vademecum_datos.js
+- vademecum_app.js
+- vademecum_clinico.html
+Ningún otro archivo de aplicación ha cambiado.
+
+FUENTES PRINCIPALES A CONSULTAR
+- CIMA/AEMPS: fichas técnicas de Trangorex, Adrenalina B. Braun,
+  Atropina Noridem/B. Braun y Aleudrina.
+- European Resuscitation Council 2025 (ALS y situaciones especiales).
+- European Society of Cardiology 2024 (fibrilación auricular).
+Todas están enlazadas en las fichas correspondientes.

@@ -1,8 +1,9 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="es">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="color-scheme" content="light"><title>Villalta · Síndrome postrombótico | Medicina Interna</title>
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="light" name="color-scheme"/><title>Villalta · Síndrome postrombótico | Medicina Interna</title>
 <style>
 :root{--wine:#7a2136;--wine-dark:#551627;--wine-mid:#9b3651;--pale:#faedf1;--bg:#f6f7fa;--paper:#fff;--ink:#273544;--muted:#617180;--border:#e4d8dd;--green:#207251;--amber:#9b641c;--danger:#a52e3d;--focus:#1565bd}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,-apple-system,Segoe UI,Arial,sans-serif}button,input,textarea{font:inherit}button{cursor:pointer}a{color:var(--wine)}:is(button,input,textarea,a,summary):focus-visible{outline:3px solid var(--focus);outline-offset:2px}.wrap{max-width:1170px;margin:auto;padding:0 22px}
@@ -29,17 +30,31 @@
   @media print{header a.back-to-category{display:none!important}}
 
 </style>
-</head>
+<link href="favicon.ico" rel="icon" sizes="any"/>
+<link href="icons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="icons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="manifest.webmanifest" rel="manifest"/>
+<meta content="#004c19" name="theme-color"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="default" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="Portal Clínico" name="apple-mobile-web-app-title"/>
+<style>/* v40: la puntuación se muestra sola y la interpretación va en una tarjeta independiente */
+.scoreMeaning{border:1px solid #d9e5e8;background:#f7fafb;border-radius:12px;padding:14px 17px;margin:13px 0;color:#31515e;line-height:1.6}
+.scoreMeaningHeading{font-size:12px;letter-spacing:.035em;text-transform:uppercase;font-weight:800;color:#376773;margin-bottom:8px}
+.scoreMeaning h3{font-size:17px;margin:0 0 5px}.scoreMeaning p{font-size:13px;margin:0}
+#result, #verdict{text-align:center}.result .score,.result .bigscore,.verdict .stat{margin:0 auto;justify-content:center}
+</style></head>
 <body>
 <header class="hero"><div class="wrap"><div class="top"><span class="brand">MEDICINA INTERNA · ENFERMEDAD TROMBOEMBÓLICA</span><a class="back back-to-category" href="calculadoras.html#/categoria/etev">← Volver a Enfermedad Tromboembólica</a></div><h1>Escala de Villalta</h1><p>Valoración de la presencia y gravedad del síndrome postrombótico (SPT) en una extremidad inferior tras trombosis venosa profunda.</p><div class="chips"><span>5 síntomas</span><span>6 signos</span><span>0–33 puntos</span><span>Úlcera venosa</span><span>Sin conexión</span></div></div></header>
 <main class="wrap layout">
 <div class="fields">
-<section class="card" aria-labelledby="symptoms-h"><div class="sectionhead"><span class="ordinal" aria-hidden="true">01</span><div><h2 id="symptoms-h">SÍNTOMAS REFERIDOS</h2><p>Seleccione la intensidad de cada síntoma en la extremidad evaluada.</p></div></div><div class="legend" aria-hidden="true"><span>Intensidad</span><span>0<br>Ausente</span><span>1<br>Leve</span><span>2<br>Mod.</span><span>3<br>Grave</span></div><div id="symptoms"></div></section>
-<section class="card" aria-labelledby="signs-h"><div class="sectionhead"><span class="ordinal" aria-hidden="true">02</span><div><h2 id="signs-h">SIGNOS CLÍNICOS</h2><p>Valore los hallazgos en la exploración de la extremidad afectada.</p></div></div><div class="legend" aria-hidden="true"><span>Intensidad</span><span>0<br>Ausente</span><span>1<br>Leve</span><span>2<br>Mod.</span><span>3<br>Grave</span></div><div id="signs"></div><div class="ulcer"><strong>¿Presenta úlcera venosa en la extremidad evaluada?</strong><div class="opts" id="ulcer"></div></div><p class="note">La presencia de úlcera venosa clasifica el SPT como grave, independientemente de los puntos.</p></section>
+<section aria-labelledby="symptoms-h" class="card"><div class="sectionhead"><span aria-hidden="true" class="ordinal">01</span><div><h2 id="symptoms-h">SÍNTOMAS REFERIDOS</h2><p>Seleccione la intensidad de cada síntoma en la extremidad evaluada.</p></div></div><div aria-hidden="true" class="legend"><span>Intensidad</span><span>0<br/>Ausente</span><span>1<br/>Leve</span><span>2<br/>Mod.</span><span>3<br/>Grave</span></div><div id="symptoms"></div></section>
+<section aria-labelledby="signs-h" class="card"><div class="sectionhead"><span aria-hidden="true" class="ordinal">02</span><div><h2 id="signs-h">SIGNOS CLÍNICOS</h2><p>Valore los hallazgos en la exploración de la extremidad afectada.</p></div></div><div aria-hidden="true" class="legend"><span>Intensidad</span><span>0<br/>Ausente</span><span>1<br/>Leve</span><span>2<br/>Mod.</span><span>3<br/>Grave</span></div><div id="signs"></div><div class="ulcer"><strong>¿Presenta úlcera venosa en la extremidad evaluada?</strong><div class="opts" id="ulcer"></div></div><p class="note">La presencia de úlcera venosa clasifica el SPT como grave, independientemente de los puntos.</p></section>
 </div>
-<aside class="summary" aria-label="Resultados de Villalta"><div class="summary-title"><h2>Resultado de Villalta</h2><p>Actualización automática al responder</p></div><div class="summarybody"><div class="score"><strong id="score">—</strong><small>/ 33 puntos</small></div><div><span id="completed">0 de 12 apartados completados</span></div><div class="progress"><div id="bar"></div></div><div id="result" class="result" role="status" aria-live="polite"><h3 id="level">Evaluación pendiente</h3><p id="interpret">Seleccione la intensidad de los 11 ítems y la presencia o ausencia de úlcera.</p></div><div class="breakdown"><div><span>Síntomas</span><strong id="sym-score">— / 15</strong></div><div><span>Signos</span><strong id="sig-score">— / 18</strong></div><div><span>Úlcera venosa</span><strong id="ulcer-score">Pendiente</strong></div></div><label class="report-label" for="report">Texto para historia clínica</label><textarea id="report" class="report" readonly placeholder="Complete los 12 apartados para generar el informe."></textarea><div class="actions"><button type="button" class="btn primary" id="copy" disabled>Copiar informe</button><button type="button" class="btn" id="print" disabled>Imprimir</button><button type="button" class="btn" id="reset">Nueva valoración</button></div><div class="status" id="status" role="status" aria-live="polite"></div></div></aside>
+<aside aria-label="Resultados de Villalta" class="summary"><div class="summary-title"><h2>Resultado de Villalta</h2><p>Actualización automática al responder</p></div><div class="summarybody"><div><span id="completed">0 de 12 apartados completados</span></div><div class="progress"><div id="bar"></div></div><div aria-live="polite" class="result" id="result" role="status"><div class="score"><strong id="score">—</strong><small>/ 33 puntos</small></div></div><section class="scoreMeaning"><div class="scoreMeaningHeading">Significado de la puntuación</div><h3 id="level">Evaluación pendiente</h3><p id="interpret">Seleccione la intensidad de los 11 ítems y la presencia o ausencia de úlcera.</p></section><div class="breakdown"><div><span>Síntomas</span><strong id="sym-score">— / 15</strong></div><div><span>Signos</span><strong id="sig-score">— / 18</strong></div><div><span>Úlcera venosa</span><strong id="ulcer-score">Pendiente</strong></div></div><label class="report-label" for="report">Texto para historia clínica</label><textarea class="report" id="report" placeholder="Complete los 12 apartados para generar el informe." readonly=""></textarea><div class="actions"><button class="btn primary" disabled="" id="copy" type="button">Copiar informe</button><button class="btn" disabled="" id="print" type="button">Imprimir</button><button class="btn" id="reset" type="button">Nueva valoración</button></div><div aria-live="polite" class="status" id="status" role="status"></div></div></aside>
 </main>
-<section class="wrap sources"><details><summary>Fuentes y consideraciones de uso</summary><p>Basada en los criterios de Villalta: 5 síntomas y 6 signos, puntuados de 0 a 3; la úlcera venosa se registra por separado. Interpretación: 0–4 sin SPT, 5–9 leve, 10–14 moderado, ≥15 o úlcera venosa grave.</p><p>Esta escala está orientada a la valoración de secuelas tras TVP y debe interpretarse fuera de la fase aguda y en el contexto clínico; los síntomas pueden tener otras causas.</p><p><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4715836/" target="_blank" rel="noopener noreferrer">Guía de prevención y tratamiento del síndrome postrombótico</a> · <a href="https://www.sehh.es/images/stories/recursos/manuales/Manual-practico-de-escalas-y-algoritmos-en-Hemostasia-y-Trombosis-2013-ENGLISH.PDF" target="_blank" rel="noopener noreferrer">Manual de escalas en hemostasia y trombosis</a>.</p></details></section>
+<section class="wrap sources"><details><summary>Fuentes y consideraciones de uso</summary><p>Basada en los criterios de Villalta: 5 síntomas y 6 signos, puntuados de 0 a 3; la úlcera venosa se registra por separado. Interpretación: 0–4 sin SPT, 5–9 leve, 10–14 moderado, ≥15 o úlcera venosa grave.</p><p>Esta escala está orientada a la valoración de secuelas tras TVP y debe interpretarse fuera de la fase aguda y en el contexto clínico; los síntomas pueden tener otras causas.</p><p><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4715836/" rel="noopener noreferrer" target="_blank">Guía de prevención y tratamiento del síndrome postrombótico</a> · <a href="https://www.sehh.es/images/stories/recursos/manuales/Manual-practico-de-escalas-y-algoritmos-en-Hemostasia-y-Trombosis-2013-ENGLISH.PDF" rel="noopener noreferrer" target="_blank">Manual de escalas en hemostasia y trombosis</a>.</p></details></section>
 <footer class="wrap footer">Aplicación local independiente · Criterios originales de la escala Villalta · Uso orientativo; guardado local opcional solo en expedientes ficticios</footer>
 <script>
 'use strict';
@@ -57,6 +72,5 @@ async function copy(){const value=$('report').value;if(!value)return;try{if(navi
 function reset(){const s=getState();if(s.answered>0&&!window.confirm('¿Borrar las respuestas e iniciar una nueva valoración?'))return;document.querySelectorAll('input[type="radio"]').forEach(x=>x.checked=false);$('status').textContent='Nueva valoración iniciada.';render();window.scrollTo({top:0,behavior:'smooth'})}
 build(SYMPTOMS,'symptoms');build(SIGNS,'signs');$('ulcer').append(radio('ulcer','yes','Sí'),radio('ulcer','no','No'));$('copy').addEventListener('click',copy);$('print').addEventListener('click',()=>{if(getState().complete)window.print()});$('reset').addEventListener('click',reset);render();
 </script>
-
 </body>
 </html>

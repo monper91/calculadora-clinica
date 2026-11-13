@@ -1,0 +1,11 @@
+Versión 27: diseño lateral y preferencias agrupadas.
+
+- En ordenador, trabajo a la izquierda y preferencias en panel lateral fijo, con desplazamiento propio.
+- En móvil, las preferencias aparecen debajo del informe editable y encima de la revisión.
+- General visible: perfil, unidades, «normal», completar unidades e intervalos orientativos.
+- Desplegables: Hemograma, Perfil lipídico, Perfil férrico, Perfil urinario, Ácido-base, Cultivos, Seleccionar apartados.
+- Perfiles: Todos los resultados / Resultados alterados. El segundo añade «resto normal» solo cuando los resultados omitidos tienen referencias válidas; no da por normales valores desconocidos.
+- Cifras celulares SIEMPRE en /mm3 para evitar problemas de impresión en JARA. Se excluye el recuento de hematíes.
+- PDF sigue siendo experimental como en v26; no se ha sustituido aún por PDF.js. El PDF real del SES que se adjuntó a la conversación NO forma parte de esta entrega.
+- Modo IA local sigue siendo solo vista previa, sin modelo.
+- No usar con documentos clínicos identificados hasta completar validación de seguridad e implementación.

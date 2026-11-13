@@ -1,0 +1,33 @@
+BIBLIOTECA DE LABORATORIO · VERSION 28 (INICIAL)
+
+Fuente principal:
+  Catálogo de pruebas de laboratorios para extracción de muestras,
+  Complejo Hospitalario Universitario de Badajoz, Unidad de Preanalítica ACL,
+  abril de 2016 (134 páginas).
+  https://areasaludbadajoz.com/wp-content/uploads/2021/11/catalogo-de_pruebas_de_laboratorios_para_su_extraccion_abril_16.pdf
+
+CONTENIDO
+- biblioteca_laboratorio.html: página de búsqueda y fichas sin conexión.
+- laboratorio_catalogo_datos.js: registros y metadatos consumidos por el editor.
+- laboratorio_catalogo.json: los mismos registros en formato editable e importable.
+- laboratorio_catalogo_ui.js: buscador y fichas.
+
+IMPORTANTE
+- Es una SELECCIÓN INICIAL de filas verificadas del documento, NO una extracción
+  exhaustiva de las 134 páginas. Incluye su página y código.
+- El PDF histórico NO aporta unidades de resultados ni intervalos de referencia.
+- Algunas unidades provienen exclusivamente de informes anonimizados aportados
+  como ejemplos; NO se presentan como unidades del catálogo oficial.
+- Los intervalos se dejan nulos hasta obtener documentos verificables y vigentes.
+- Las unidades/rangos de esta biblioteca NO se aplican automáticamente para
+  clasificar resultados normales o alterados en el editor.
+- El vocabulario del catálogo se usa para ampliar el reconocimiento de nombres
+  explícitos, sin utilizar códigos ambiguos como equivalencias.
+- No se incluye el PDF histórico dentro del portal ni ningún informe de paciente.
+- La aplicación no consulta una API para leer el catálogo.
+- La lectura de PDF clínicos sigue siendo experimental y NO está validada para
+  documentos identificativos, igual que la versión anterior.
+
+FUTURA AMPLIACIÓN
+Se puede añadir el catálogo oficial vigente si se facilita en PDF, CSV o XLSX,
+previa validación de campos y verificación de condiciones de uso.

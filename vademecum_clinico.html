@@ -26,5 +26,149 @@
 .calcAttachment .calcAccordion>summary{background:#eaf5f7}
 #calculator.toolbox{padding:16px;margin-top:16px}
 @media(max-width:520px){.dosePanel{padding:15px}.dosePanel p{font-size:15px}.calcAccordionBody{padding:13px}.calcAccordion>summary{padding:13px;align-items:flex-start}.calcAccordion>summary .accordionSide{font-size:11px}}
-</style></head><body><header class="hero"><div class="wrap"><div class="top"><span class="brand">MEDICINA INTERNA · FARMACOLOGÍA CLÍNICA</span><a class="back" href="vademecum.html">← Volver a Vademécum y equivalencias</a></div><h1>Vademécum de hospitalización</h1><p>Medicamentos habituales en planta, especialmente intravenosos. Fichas por indicación, preparación, seguridad y calculadoras de administración; referencias españolas cuando están disponibles.</p></div></header>
-<main class="wrap"><p class="intro">Versión piloto de revisión: fichas con información contrastada y otras pendientes. Las dosis de referencia se destacan en cada ficha. Las calculadoras de administración están plegadas por defecto; la de trombólisis solo figura en las fichas de alteplasa y tenecteplasa. Verifica siempre pauta, dilución y protocolo de Farmacia.</p><div class="workarea"><aside aria-label="Lista de medicamentos" class="panel catalog"><div class="panelHead"><h2>Buscar medicamento</h2><div class="small">Nombre genérico, comercial, indicación o grupo.</div><label class="srOnly" for="drugSearch">Buscar en el vademécum</label><input autocomplete="off" class="search" id="drugSearch" placeholder="Ej. noradrenalina, Metalyse, antiagregante"/><div class="filterRow"><select aria-label="Filtrar por grupo" id="drugGroup"><option value="">Todos los grupos</option></select><select aria-label="Filtrar por revisión" id="drugStatus"><option value="">Todas las fichas</option><option value="ready">Con contenido cotejado</option><option value="pending">Pendientes</option></select></div><div class="count" id="drugCount"></div></div><div class="drugList" id="drugList"></div></aside><div><article aria-live="polite" class="panel detail" id="drugDetail"></article><section class="panel toolbox" id="calculator"><details class="calcAccordion" id="genericAccordion"><summary><span><span class="accordionName">Calculadora universal de administración</span><span class="accordionSub">Dosis prescrita + concentración final → ml/h</span></span><span class="accordionSide"></span></summary><div class="calcAccordionBody"><p class="small">Calcula únicamente la conversión de una <strong>prescripción ya establecida</strong> a cantidad administrada y, si procede, velocidad en ml/h. Introduce la cantidad de principio activo y el <strong>volumen final</strong> de la preparación; no confundir con el volumen de diluyente.</p><div class="calcgrid"><div class="inputgroup"><label for="patientWeight">Peso (kg)</label><input class="control" id="patientWeight" inputmode="decimal" max="350" min="1" placeholder="Solo si /kg" step="0.1" type="number"/></div><div class="inputgroup"><label for="doseKind">Unidad de dosis prescrita</label><select class="control" id="doseKind"><option value="mcgkgmin">µg/kg/min</option><option value="mgkgh">mg/kg/h</option><option value="mgkgdose">mg/kg/dosis</option><option value="mgh">mg/h</option><option value="mcgmin">µg/min</option><option value="mgmin">mg/min</option><option value="UIh">UI/h</option><option value="UIkgh">UI/kg/h</option><option value="mmolh">mmol/h</option><option value="mEqh">mEq/h</option></select></div><div class="inputgroup"><label for="orderedDose">Dosis prescrita</label><input class="control" id="orderedDose" inputmode="decimal" min="0" placeholder="Sin dosis por defecto" step="any" type="number"/></div><div class="inputgroup"><label for="drugAmount">Cantidad en preparado</label><input class="control" id="drugAmount" inputmode="decimal" min="0" step="any" type="number"/></div><div class="inputgroup"><label for="drugAmountUnit">Unidad del preparado</label><select class="control" id="drugAmountUnit"><option value="mg">mg</option><option value="UI">UI</option><option value="mmol">mmol</option><option value="mEq">mEq</option></select></div><div class="inputgroup"><label for="finalVolume">Volumen FINAL (ml)</label><input class="control" id="finalVolume" inputmode="decimal" min="0" step="any" type="number"/></div></div><div aria-live="polite" class="calcresult" id="genericResult">Introduce la pauta y la concentración final para calcular.</div><div class="buttons"><button class="action" id="resetCalc" type="button">Limpiar campos</button><button class="action" id="copyCalc" type="button">Copiar cálculo</button></div><div class="warn">Verificar concentración y unidades con la ampolla real, monitorización, compatibilidades, vía y límites de la bomba. La aplicación no elige la dosis ni confirma que una perfusión sea apropiada para la planta.</div></div></details></section><div hidden="" id="lyticHome"><section class="calcAttachment" id="lyticBox"><details class="calcAccordion" id="lyticAccordion"><summary><span><span class="accordionName">Calculadora de fibrinólisis</span><span class="accordionSub">Solo para este fármaco y la indicación seleccionada</span></span><span class="accordionSide"></span></summary><div class="calcAccordionBody"><p class="small">Solo para la indicación seleccionada y bajo protocolo asistencial de trombólisis. No validan tiempos, pruebas de imagen ni contraindicaciones.</p><div class="calcgrid"><div class="inputgroup wide"><label for="lyticType">Medicamento e indicación</label><select class="control" id="lyticType"><option value="alteplase_stroke">Alteplasa · ictus isquémico</option><option value="tenecteplase_stroke">Tenecteplasa · ictus isquémico (vial 25 mg)</option><option value="tenecteplase_mi">Tenecteplasa · IAM (presentación para IAM)</option></select></div><div class="inputgroup"><label for="lyticWeight">Peso (kg)</label><input class="control" id="lyticWeight" inputmode="decimal" max="250" min="20" placeholder="Peso" step="0.1" type="number"/></div></div><div aria-live="polite" class="calcresult" id="lyticResult">Selecciona indicación e introduce peso.</div><div class="warn">Tenecteplasa: <strong>el vial y las bandas son diferentes para ictus e IAM</strong>. Revisar criterios de elegibilidad, edad, anticoagulación y ficha técnica actual antes de utilizar cualquier resultado.</div></div></details></section></div></div></div><p class="intro">Fuentes generales: fichas técnicas oficiales de <a href="https://cima.aemps.es/cima/publico/home.html" rel="noopener" target="_blank">CIMA/AEMPS</a>, protocolos SEMI cuando se señalan expresamente y guías citadas en cada ficha. El <em>Prontuario de fármacos de uso en urgencias</em> del SES (Cáceres, 2019) sirvió como referencia histórica de selección, pero sus dosis no se han trasvasado automáticamente. La disponibilidad concreta en Hospital de Mérida no está acreditada.</p><section class="panel" style="padding:18px;margin-bottom:20px"><h2 style="font-size:17px">Lecturas complementarias</h2><p class="small">Para fisiopatología y estrategias de tratamiento. No sustituyen fichas técnicas españolas ni el protocolo local:</p><div class="refs"><a href="https://emcrit.org/ibcc/htn/#top" rel="noopener" target="_blank">EMCrit · Emergencias hipertensivas</a><a href="https://emcrit.org/ibcc/antiarrhythmic/#top" rel="noopener" target="_blank">Antiarrítmicos</a><a href="https://emcrit.org/ibcc/hypophos/#top" rel="noopener" target="_blank">Hipofosfatemia</a><a href="https://emcrit.org/ibcc/hypocalcemia/#top" rel="noopener" target="_blank">Hipocalcemia</a></div></section></main><footer class="wrap foot">Portal de Medicina Interna · Consulta de apoyo, sin datos identificativos y sin almacenamiento de datos del paciente. Requiere validación institucional y actualización antes de uso asistencial.</footer><script src="vademecum_datos.js"></script><script src="vademecum_app.js"></script></body></html>
+
+/* v33: favoritos, posología abreviada y calculadoras de hierro */
+.filterRow .favFilter{background:#fff;border:1px solid #cbdbe1;border-radius:9px;color:#355c69;padding:9px 11px;font-size:12px;font-weight:750;width:100%;text-align:left}
+.filterRow .favFilter[aria-pressed="true"]{background:#fff8e6;border-color:#e0c581;color:#7c5305}
+.drugRow{display:flex;align-items:stretch;border-radius:9px;gap:3px}.drugRow .drugBtn{flex:1;min-width:0;margin:2px 0}.starBtn{flex:0 0 39px;align-self:center;display:grid;place-items:center;min-height:39px;border:1px solid transparent;background:transparent;color:#9aa9b1;font-size:26px;border-radius:9px;line-height:1}.starBtn:hover,.starBtn:focus-visible{border-color:#e8d5a8;background:#fff9ed}.starBtn.isFav{color:#e3a226}.drugHead{display:flex;align-items:start;justify-content:space-between;gap:12px}.drugHead .starBtn{margin-top:2px}
+.emptyDetail{min-height:320px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#607987;gap:8px}.emptyDetail h2{margin:0;color:#294d5e;font-size:20px}.emptyDetail p{margin:0;font-size:13px;line-height:1.6;max-width:360px}
+.dosePanel p{font-size:15px;font-weight:700;line-height:1.48}.dosePanel{padding:14px 17px;margin:14px 0 17px}.dosePanel h3{margin-bottom:7px;font-size:12px}.detailDose{margin:13px 0;border:1px solid #dce8e9;border-radius:10px;background:#fff;overflow:hidden}.detailDose summary{cursor:pointer;font-size:13px;font-weight:750;padding:12px 14px;color:#27616d;background:#f7fbfb}.detailDose .doseBody{padding:12px 14px;white-space:pre-wrap;font-size:13px;line-height:1.65;color:#456271}
+.ironCalc{margin-top:20px}.ironCalc .calcgrid{margin-top:12px}.ironCalc .checkline{font-size:13px;display:flex;align-items:center;gap:7px;margin-top:10px}.ironCalc .checkline input{width:17px;height:17px}.ironCalc .calcresult strong{font-size:18px}
+@media(max-width:520px){.starBtn{flex-basis:37px}.emptyDetail{min-height:220px}.ironCalc .calcgrid{grid-template-columns:1fr 1fr}}
+/* v35 · Solinitrina y catecolaminas: preparación seleccionable y tablas legibles */
+.specialInfusion{border:1px solid #d5e4e8;border-radius:13px;background:#fbfdfd;padding:17px;margin:15px 0 18px}
+.specialTitle{font-size:14px;text-transform:uppercase;letter-spacing:.03em;color:#205a64;margin:0 0 12px}
+.preparationOptions{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:12px}
+.preparationButton,.viewButton{background:#fff;border:1px solid #bcd1d8;color:#315b68;border-radius:9px;font-weight:750;font-size:12px;padding:10px 12px;text-align:center;line-height:1.4}
+.preparationButton:hover,.viewButton:hover{background:#eff8f6}
+.preparationButton.active,.viewButton.active{color:#075f5c;border-color:#098b80;background:#e6f6f2;box-shadow:inset 0 0 0 1px #098b80}
+.selectedPreparation{border:1px solid #c4dfdf;border-radius:10px;background:#eaf6f4;padding:13px;margin:11px 0 16px}
+.selectedPreparation strong{display:block;color:#114f51;font-size:16px;margin-bottom:5px}
+.selectedConcentration{font-size:14px;font-weight:800;color:#087367;display:block}
+.selectedPreparation p{margin:8px 0 0}
+.weightControls{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:14px 0}
+.weightInputGroup{width:220px;max-width:100%}.weightInputGroup label{display:block;font-size:12px;font-weight:800;margin-bottom:6px;color:#275768}
+.weightInputGroup .control{max-width:150px;font-weight:750;font-size:16px}
+.weightInputGroup .small{display:block;margin-top:5px}
+.viewSelector{display:flex;flex-wrap:wrap;gap:5px}
+.infusionTableArea h4{font-size:14px;margin:12px 0 6px;color:#244e60}
+.specialUnitLabel{font-size:12px;color:#6d7f88;margin:0 0 9px}
+.specialTableScroll{overflow-x:auto;max-width:100%;border:1px solid #d6e2e7;border-radius:9px;background:white}
+.specialTable{border-collapse:collapse;width:100%;min-width:0;font-variant-numeric:tabular-nums;font-size:13px}
+.specialTable th,.specialTable td{padding:11px 8px;text-align:center;border-right:1px solid #e1ebed;border-bottom:1px solid #e5edef;white-space:nowrap}
+.specialTable thead th{background:#eaf4f5;color:#295966;font-weight:850}
+.specialTable tbody tr:nth-child(even){background:#f8fafb}
+.specialTable tbody tr.selectedWeightRow{background:#e8f6f2}
+.specialTable tbody th{background:#f2f8f8;text-align:left;color:#275d67}
+.specialTable td:last-child,.specialTable th:last-child{border-right:0}
+.specialTable tr:last-child td,.specialTable tr:last-child th{border-bottom:0}
+.specialTable .doseHead.dopaminergic{background:#fff2bf;color:#745400}
+.specialTable .doseHead.beta{background:#fce4e6;color:#a32939}
+.specialTable .doseHead.alpha{background:#eee5fd;color:#653aa0}
+.dopamineLegend{display:flex;flex-wrap:wrap;gap:7px;margin:13px 0 6px}
+.doseLegend{display:inline-flex;align-items:center;border-radius:7px;padding:7px 9px;font-size:11px;font-weight:750}
+.doseLegend.dopaminergic{background:#fff0b8;color:#6e5100}
+.doseLegend.beta{background:#fae1e3;color:#982d36}
+.doseLegend.alpha{background:#ede0ff;color:#613b89}
+.pharmacologyCaution{margin:5px 0 12px;line-height:1.55}
+.dopamineKidneyWarning{font-size:12px;line-height:1.5;background:#fff7df;border-left:3px solid #daa33c;color:#735015;padding:10px 13px;border-radius:7px;margin-top:12px}
+.weightWarning{color:#a73333;font-weight:750;font-size:13px}
+.infusionCaution{margin-top:13px;line-height:1.65}
+.equivalentPreparation{margin:12px 0;line-height:1.55}
+.specialDetails{display:grid;gap:7px;margin:15px 0 19px}
+.specialDisclosure{border:1px solid #dce8ea;border-radius:9px;background:#fff;overflow:hidden}
+.specialDisclosure summary{background:#f5fafb;list-style:none;cursor:pointer;font-size:13px;font-weight:750;color:#315c68;padding:12px 14px;display:flex;align-items:center;justify-content:space-between}
+.specialDisclosure summary::-webkit-details-marker{display:none}
+.specialDisclosure summary::after{content:'▾';font-size:16px;color:#60838d}
+.specialDisclosure[open] summary::after{content:'▴'}
+.specialDisclosure[open] summary{border-bottom:1px solid #e3edf0}
+.specialDisclosureBody{padding:11px 14px;font-size:13px;line-height:1.6;color:#3c5968}
+.specialDisclosureBody p{margin:0}
+.specialDisclosureBody .sourceLinks{display:flex;flex-direction:column;gap:8px}
+.sourceLinks{display:flex;flex-direction:column;gap:8px}
+.sourcesDisclosure{border-color:#b8dcda}
+@media(max-width:680px){.specialInfusion{padding:12px}.preparationButton{flex-grow:1}.weightControls{align-items:stretch}.weightInputGroup{width:100%}.viewSelector{width:100%}.viewButton{flex:1}.specialTable{min-width:590px;font-size:12px}.specialTable th,.specialTable td{padding:10px 7px}.specialTable:has(th:nth-child(2):last-child){min-width:0}}
+
+
+/* v36 Noradrenalina: envases B. Braun y volumen final modificable */
+.noradInputs{display:grid;grid-template-columns:minmax(170px,1.8fr) minmax(110px,1fr) minmax(150px,1.2fr);gap:10px;margin:13px 0 4px}
+.noradField{min-width:0}.noradField label{display:block;font-size:12px;font-weight:800;color:#275768;margin-bottom:6px}
+.noradField .control{width:100%;max-width:100%;min-width:0;box-sizing:border-box;font-size:14px}
+.noradNotice{line-height:1.6;margin:0 0 9px}
+@media(max-width:700px){.noradInputs{grid-template-columns:minmax(0,1fr)}}
+
+/* Ajuste de anchura v35 */
+.workarea>div,.detail,.specialInfusion,.infusionTableArea,.specialTableScroll{min-width:0}
+@media(max-width:800px){.workarea{grid-template-columns:minmax(0,1fr)}}
+
+/* v37: acciones de copia y equivalencias sin sobrecargar las fichas */
+.copyPautas{border:1px solid #d7e8e7;border-radius:11px;padding:12px 14px;margin:12px 0;background:#fbfefe}
+.copyPautasTitle{font-size:12px;font-weight:800;text-transform:uppercase;color:#23636a;margin-bottom:7px}
+.copyPautaRow{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;border-top:1px solid #e7eeee;padding:8px 0;font-size:13px}
+.copyPautaRow:first-of-type{border-top:none}.v37CopyButton{font-size:12px;padding:7px 11px}
+.presentationSwitch{display:flex;align-items:center;flex-wrap:wrap;gap:9px;border-top:1px solid #d4e6e0;margin-top:11px;padding-top:11px;color:#1d5c60;font-size:12px;font-weight:500}
+.presentationSwitch>label:first-child{font-weight:750}.presentationSelector{max-width:230px;min-height:33px;padding:5px 7px;font-size:12px}.presentationOne{font-weight:750}
+.equivSwitch{display:inline-flex;align-items:center;gap:6px;font-weight:600;cursor:pointer}.equivSwitch input{width:17px;height:17px}.doseEq{font-size:.87em;color:#087b79;font-weight:650}
+.cellChoice{background:transparent;border:1px solid transparent;color:inherit;border-radius:6px;padding:7px 5px;min-width:43px;font-size:inherit;font-weight:650}
+.cellChoice:hover,.cellChoice:focus-visible{border-color:#76b6bd;background:#eaf7f6;outline:0}.cellChoice.chosen{background:#d9f2ed;border:2px solid #16837d;color:#035c57}
+.selectedOrder{margin-top:12px;padding:12px 13px;border:1px solid #c3dadb;background:#f5fbfa;border-radius:10px;font-size:13px;line-height:1.5}
+.selectedOrder p{white-space:pre-wrap;margin:8px 0}.selectedOrder .v37CopyButton:disabled{opacity:.55;cursor:not-allowed}
+.amiodaroneProgram .amioStage{background:#fff;border:1px solid #dce8eb;border-radius:10px;padding:13px;margin:10px 0;display:grid;gap:7px}
+.amioStage strong{font-size:15px;color:#20566a}.amioStageActions{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;font-size:13px}.amioStageActions span:last-child{font-weight:800;color:#126971}
+.amioTimeLabel{display:flex;align-items:center;gap:8px}.amioTimeLabel select{width:auto;padding:5px 7px;min-height:34px;font-size:13px}
+.amioCalc{margin:12px 0}.amioCalcGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.amioCalcGrid label{font-size:12px;font-weight:750;display:grid;gap:5px}.amioCalcGrid .control{max-width:100%}
+@media(max-width:550px){.amioCalcGrid{grid-template-columns:1fr}.presentationSelector{width:100%;max-width:100%}.copyPautaRow{align-items:flex-start}}
+
+/* V38 – fichas más sobrias y acciones en contexto */
+.v38PresentationHeader{border:1px solid #d9e5e7;background:#fff;border-radius:10px;margin:0 0 12px;padding:12px 15px}
+.v38PresentationHeader b{font-size:12px;text-transform:uppercase;color:#456674}.v38PresentationHeader p{font-size:13px;margin:4px 0 0;line-height:1.55}
+.v38DoseLine{display:flex;align-items:center;gap:9px;justify-content:space-between;flex-wrap:wrap;min-width:0}
+.v38DoseText{font-size:15px;font-weight:780;display:block;color:#155d64}
+.v38DoseChoices{display:flex;flex-wrap:wrap;gap:7px;margin:8px 0}
+.clinicalStage{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.clinicalStage .v38DoseLine{flex:1}.clinicalStage .v37CopyButton{flex-shrink:0}
+.v38SelectedPlan{margin:14px 0;padding:13px;border-radius:12px;border:1px solid #d5e7e6;background:#fbfefe}
+.v38BagWarning{margin:12px 0;padding:10px 13px;border:1px solid #e9d1a4;background:#fff8e8;border-radius:9px;color:#755113;font-size:13px}
+.v38BagWarning p{margin:4px 0}.v38SelectedPlan .selectedPreparation{margin-top:8px}
+.v38IntegratedCopies{background:transparent;border:0;padding:0;border-top:1px solid #e4eded;border-radius:0}
+.doseCards .amioStage{margin:7px 0;padding:12px}
+@media(max-width:680px){.clinicalStage{align-items:stretch}.clinicalStage .v37CopyButton{align-self:flex-start}.v38DoseChoices .preparationButton{flex-grow:0}.furosemideProgram .specialTableScroll{overflow-x:auto}}
+
+/* v40 · clinical essentials, explicit solubility, separated dose rows */
+.mechanismBrief{font-size:13px;color:#2d6875;margin:6px 0 10px;font-weight:650}
+.diluentTop{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:baseline;margin:10px 0;background:#f1f7fb;border:1px solid #cddfe9;border-left:4px solid #3f899b;border-radius:9px;padding:11px 13px;font-size:13px;line-height:1.5;color:#355568}
+.diluentTop b{color:#124d5a}
+.clinicalEssentials{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin:11px 0 15px}
+.clinicalEssentials>.field:first-child{grid-column:1/-1;background:#f0f8f5;border-color:#c7e4d8}
+.clinicalEssentials>.field:nth-child(2){background:#fffdf6}
+.clinicalEssentials>.field:nth-child(3){background:#fff7f5;border-color:#f0dfd8}
+.doseRows{display:grid;gap:0}.doseRow{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 0;border-top:1px solid #baded3}
+.doseRow:first-child{border-top:0;padding-top:0}.doseRow:last-child{padding-bottom:0}.doseRowText{display:grid;gap:4px;min-width:0}
+.doseRowText b{font-size:13px;color:#155e53}.doseRowText span{font-size:14px;line-height:1.55;color:#173f36;font-weight:600}
+.doseRow .v37CopyButton{white-space:nowrap;flex-shrink:0}
+.phosphateLink{display:block;margin:12px 0}
+.phosphateCalc .phosphateControls{margin:12px 0}
+.phosphateControls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+.phosLabel{font-weight:700;font-size:12px;color:#26586a;display:grid;gap:4px;min-width:0}
+.phosCheck{display:flex;gap:9px;align-items:center;font-size:12px;line-height:1.4;margin:12px 0}
+.phosCheck input{width:18px;height:18px;flex-shrink:0}
+.phosMetrics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.phosMetric{border:1px solid #d8e7e9;border-radius:9px;background:#f7fbfb;padding:12px;min-width:0;display:grid;gap:6px}
+.phosMetric span{color:#647988;font-size:12px}.phosMetric strong{font-size:20px;color:#155a63;font-variant-numeric:tabular-nums}
+.phosMetric.isOver{border-color:#de9b9b;background:#fff0f0}.phosMetric.isOver strong{color:#c21d25}
+.phosAlerts{margin:12px 0;display:grid;gap:8px}.phosAlert{padding:11px 13px;border-radius:9px;background:#fff2f0;border:1px solid #e8b1ac;color:#a32524;font-size:13px;line-height:1.55}
+.phosAlert strong{display:block}.phosAlert p{margin:3px 0 0}.phosInfo{margin:0;background:#fff8ea;padding:10px;border-left:3px solid #dbac54;font-size:12px}
+.phosOk{color:#336a57;font-size:12px;margin:0}
+@media(max-width:620px){.clinicalEssentials,.phosphateControls,.phosMetrics{grid-template-columns:1fr}.doseRow{align-items:flex-start;flex-wrap:wrap}}
+.bolusPill{display:inline-block;padding:7px 11px;border-radius:8px;background:#edf5f4;color:#235865;font-size:13px;font-weight:750;border:1px solid #cde0dd}
+</style><link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#004c19">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Portal Clínico">
+</head><body><header class="hero"><div class="wrap"><div class="top"><span class="brand">MEDICINA INTERNA · FARMACOLOGÍA CLÍNICA</span><a class="back" href="vademecum.html">← Volver a Vademécum y equivalencias</a></div><h1>Vademécum de hospitalización</h1><p>Medicamentos habituales en planta, especialmente intravenosos. Fichas por indicación, preparación, seguridad y calculadoras de administración; referencias españolas cuando están disponibles.</p></div></header>
+<main class="wrap"><p class="intro">Fichas con información revisada y otras pendientes de completar. Las dosis de referencia se muestran en formato breve; el detalle completo permanece desplegable en cada ficha. Las fichas revisadas incluyen tablas de administración cuando aportan utilidad. La calculadora de trombólisis solo figura en las fichas de alteplasa y tenecteplasa. Verifica siempre pauta, dilución y protocolo de Farmacia.</p><div class="workarea"><aside aria-label="Lista de medicamentos" class="panel catalog"><div class="panelHead"><h2>Buscar medicamento</h2><div class="small">Nombre genérico, comercial, indicación o grupo. Marca ☆ para guardar favoritos.</div><label class="srOnly" for="drugSearch">Buscar en el vademécum</label><input autocomplete="off" class="search" id="drugSearch" placeholder="Ej. noradrenalina, Metalyse, antiagregante"/><div class="filterRow"><button aria-pressed="false" class="favFilter" id="onlyFaves" type="button" title="Mostrar solo favoritos">☆ Solo favoritos</button><select aria-label="Filtrar por grupo" id="drugGroup"><option value="">Todos los grupos</option></select><select aria-label="Filtrar por revisión" id="drugStatus"><option value="">Todas las fichas</option><option value="ready">Con contenido cotejado</option><option value="pending">Pendientes</option></select></div><div class="count" id="drugCount"></div></div><div class="drugList" id="drugList"></div></aside><div><article aria-live="polite" class="panel detail" id="drugDetail"></article><section class="panel toolbox" id="calculator"><details class="calcAccordion" id="genericAccordion"><summary><span><span class="accordionName">Calculadora universal de administración</span><span class="accordionSub">Dosis prescrita + concentración final → ml/h</span></span><span class="accordionSide"></span></summary><div class="calcAccordionBody"><p class="small">Calcula únicamente la conversión de una <strong>prescripción ya establecida</strong> a cantidad administrada y, si procede, velocidad en ml/h. Introduce la cantidad de principio activo y el <strong>volumen final</strong> de la preparación; no confundir con el volumen de diluyente.</p><div class="calcgrid"><div class="inputgroup"><label for="patientWeight">Peso (kg)</label><input class="control" id="patientWeight" inputmode="decimal" max="350" min="1" placeholder="Solo si /kg" step="0.1" type="number"/></div><div class="inputgroup"><label for="doseKind">Unidad de dosis prescrita</label><select class="control" id="doseKind"><option value="mcgkgmin">µg/kg/min</option><option value="mgkgh">mg/kg/h</option><option value="mgkgdose">mg/kg/dosis</option><option value="mgh">mg/h</option><option value="mcgmin">µg/min</option><option value="mgmin">mg/min</option><option value="UIh">UI/h</option><option value="UIkgh">UI/kg/h</option><option value="mmolh">mmol/h</option><option value="mEqh">mEq/h</option></select></div><div class="inputgroup"><label for="orderedDose">Dosis prescrita</label><input class="control" id="orderedDose" inputmode="decimal" min="0" placeholder="Sin dosis por defecto" step="any" type="number"/></div><div class="inputgroup"><label for="drugAmount">Cantidad en preparado</label><input class="control" id="drugAmount" inputmode="decimal" min="0" step="any" type="number"/></div><div class="inputgroup"><label for="drugAmountUnit">Unidad del preparado</label><select class="control" id="drugAmountUnit"><option value="mg">mg</option><option value="UI">UI</option><option value="mmol">mmol</option><option value="mEq">mEq</option></select></div><div class="inputgroup"><label for="finalVolume">Volumen FINAL (ml)</label><input class="control" id="finalVolume" inputmode="decimal" min="0" step="any" type="number"/></div></div><div aria-live="polite" class="calcresult" id="genericResult">Introduce la pauta y la concentración final para calcular.</div><div class="buttons"><button class="action" id="resetCalc" type="button">Limpiar campos</button><button class="action" id="copyCalc" type="button">Copiar cálculo</button></div><div class="warn">Verificar concentración y unidades con la ampolla real, monitorización, compatibilidades, vía y límites de la bomba. La aplicación no elige la dosis ni confirma que una perfusión sea apropiada para la planta.</div></div></details></section><div hidden="" id="lyticHome"><section class="calcAttachment" id="lyticBox"><details class="calcAccordion" id="lyticAccordion"><summary><span><span class="accordionName">Calculadora de fibrinólisis</span><span class="accordionSub">Solo para este fármaco y la indicación seleccionada</span></span><span class="accordionSide"></span></summary><div class="calcAccordionBody"><p class="small">Solo para la indicación seleccionada y bajo protocolo asistencial de trombólisis. No validan tiempos, pruebas de imagen ni contraindicaciones.</p><div class="calcgrid"><div class="inputgroup wide"><label for="lyticType">Medicamento e indicación</label><select class="control" id="lyticType"><option value="alteplase_stroke">Alteplasa · ictus isquémico</option><option value="tenecteplase_stroke">Tenecteplasa · ictus isquémico (vial 25 mg)</option><option value="tenecteplase_mi">Tenecteplasa · IAM (presentación para IAM)</option></select></div><div class="inputgroup"><label for="lyticWeight">Peso (kg)</label><input class="control" id="lyticWeight" inputmode="decimal" max="250" min="20" placeholder="Peso" step="0.1" type="number"/></div></div><div aria-live="polite" class="calcresult" id="lyticResult">Selecciona indicación e introduce peso.</div><div class="warn">Tenecteplasa: <strong>el vial y las bandas son diferentes para ictus e IAM</strong>. Revisar criterios de elegibilidad, edad, anticoagulación y ficha técnica actual antes de utilizar cualquier resultado.</div></div></details></section></div></div></div><p class="intro">Las fichas detallan su bibliografía en el desplegable «Ficha técnica y fuentes». La disponibilidad concreta en Hospital de Mérida no está acreditada.</p></main><footer class="wrap foot">Portal de Medicina Interna · Consulta de apoyo, sin datos identificativos y sin almacenamiento de datos del paciente. Requiere validación institucional y actualización antes de uso asistencial.</footer><script src="vademecum_datos.js"></script><script src="vademecum_app.js"></script></body></html>

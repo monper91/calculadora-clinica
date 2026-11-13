@@ -1,3 +1,16 @@
+VERSIÓN ACTUAL: v38 (13/11/2026) · Ver CAMBIOS_V38.txt y CONTINUIDAD_V38.txt para el estado del proyecto.
+
+PORTAL MEDICINA INTERNA · VERSIÓN 26 · EDITOR DE ANALÍTICAS (PILOTO)
+
+- Acceso: index.html → Herramientas de consulta → Editor de analíticas.
+- Nuevo lector PDF/TXT local experimental y recuadro de arrastrar archivos; compatible solo con algunos PDF de texto. No OCR.
+- Punto 2: editar y copiar resultado. Punto 3: todas las preferencias visibles y guardables.
+- Nuevas casillas independientes: FeNa, FeUrea, cocientes urinarios, IFR, anion gap, delta-delta y TIBC estimada.
+- «Valores críticos» eliminado. Porcentajes leucocitarios, cuando se activan, entre paréntesis tras el absoluto.
+- Modo IA local sigue siendo únicamente una vista previa, sin modelo operativo.
+- Esta versión NO se ha autorizado ni auditado para documentos clínicos identificados: usa datos ficticios/anonimizados.
+- Leer SEGURIDAD_Y_CALCULOS_EDITOR_V26.txt antes de usar el editor.
+
 PORTAL DE MEDICINA INTERNA · VERSIÓN 21 (acordeones y tabla de estatinas integrada)
 
 INICIO
@@ -140,3 +153,21 @@ ACTUALIZACIÓN V23 — EDITOR DE ANALÍTICAS (PILOTO)
 - No subir muestras clínicas ni datos identificativos al repositorio público.
 - Las preferencias del editor se guardan por dispositivo/navegador; no
   se sincronizan por GitHub.
+
+
+--- PILOTO v24 ---
+- Editor de analíticas predeterminado: todos los resultados válidos salvo hematíes, diferencial leucocitario en %; recuentos celulares siempre /mm³.
+- Cálculos derivados en casillas individuales. Tres formatos de gasometrías.
+- Enlace cerebro-circuito al modo IA local: SOLO VISTA PREVIA, ningún modelo instalado.
+- CSP que bloquea conexiones y recursos remotos en las páginas del editor. Sin PDF todavía; nunca introducir información identificativa hasta auditar y autorizar uso.
+
+
+VERSIÓN 25 — EDITOR DE ANALÍTICAS
+- Eliminados los botones «Ejemplo básico» y «Ejemplo formato hospital».
+- El formato de gasometrías es visible en el paso 2, junto al perfil de presentación.
+- Opción independiente «Sustituir valores en rango por normal»; desactivada por defecto.
+- «Guardar preferencias» permanece visible; se migran preferencias de v24.
+- Unidades inferidas de forma conservadora y señaladas en revisión; rangos orientativos opcionales DESACTIVADOS por defecto.
+- La extracción y el informe se procesan solo en el navegador; no hay conexiones salientes en el editor.
+- La vista previa IA NO contiene un modelo real y la lectura de PDF NO está habilitada; pendiente de verificación.
+- PILOTO: solo analíticas ficticias/anonimizadas. No utilizar documentos clínicos identificados sin auditoría y autorización institucional.

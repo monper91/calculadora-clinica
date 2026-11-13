@@ -1,0 +1,21 @@
+DISEÑO DE PRIVACIDAD - LECTOR PDF LOCAL (V29 PILOTO)
+
+Las muestras clínicas deben permanecer en el dispositivo. Este editor ejecuta PDF.js
+en navegador y procesa el File API sin servicios externos. Todas las dependencias
+están incluidas en vendor/pdfjs. No se usa OCR remoto ni IA remota.
+
+La política CSP de editor_analiticas.html restringe conexiones a su propio origen para
+cargar recursos estáticos (fuentes/cmaps/wasm), scripts y workers al mismo origen.
+Ningún PDF ni resultado se envía por estas llamadas. La aplicación no incluye telemetría.
+Los datos clínicos no se escriben en localStorage ni IndexedDB; solo las preferencias.
+El botón de borrar elimina los datos manejados por el editor de la sesión actual.
+El programa no puede proteger frente a un equipo infectado, extensiones maliciosas ni
+código modificado en el servidor web.
+
+ESTADO
+Pruebas automatizadas locales de extracción y clasificación completadas; no se ha
+realizado auditoría independiente ni validación de interfaz completa en el navegador del SES.
+No debe utilizarse con PDF identificativos hasta completar esas verificaciones y obtener
+las autorizaciones que correspondan.
+
+El documento 'GLInforme (22).pdf' utilizado durante las pruebas NO está empaquetado.

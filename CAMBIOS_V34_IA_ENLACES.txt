@@ -1,0 +1,9 @@
+Versión 34 · Enlaces externos de IA
+
+- Nueva sección de portada "Herramientas de IA" con icono genérico de cerebro-circuito.
+- Página ia.html con enlaces externos a Microsoft Copilot, Kleia, Vera Health, Consensus y paperORnot.
+- Botón "Ir a Copilot" en el encabezado del Editor de analíticas.
+- No se integran los servicios, no se insertan iframes ni se les envían datos del editor.
+- Todos los enlaces externos abren en otra pestaña con rel="noopener noreferrer" y referrerpolicy="no-referrer".
+- Iconos genéricos SVG incorporados en el HTML, sin descargar logotipos ni recursos externos.
+- Se conservan todos los módulos y datos internos de la versión 33.

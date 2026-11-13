@@ -1,0 +1,11 @@
+PORTAL CLÍNICO · V39 · IDENTIDAD E ICONOS
+
+Basada en Portal Medicina Interna v38; mantiene las calculadoras, el vademécum y las herramientas.
+- Nombre de la portada actualizado a «Portal Clínico».
+- Se usa el logotipo elegido: fondo verde, vara de Esculapio y serpiente blancas, MI a la derecha, onda blanca y base negra.
+- Iconos favicon PNG 16/32/48, fichero favicon.ico con varios tamaños, Apple Touch Icon de 180, Android 192/512 y maskable 512.
+- manifest.webmanifest para accesos directos Android; apple-touch-icon para iPhone/iPad.
+- Enlaces de iconos y manifiesto añadidos a todas las páginas HTML propias del portal.
+- No se ha implementado servicio worker ni funcionamiento sin conexión. El icono puede aparecer al añadir la web a la pantalla de inicio con el navegador.
+
+NOTA: Las preparaciones farmacológicas de la v38 mantienen sus advertencias originales de validación local.

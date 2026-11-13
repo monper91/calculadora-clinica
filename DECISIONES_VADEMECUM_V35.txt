@@ -1,0 +1,93 @@
+CONTINUIDAD DEL PROYECTO · VADEMÉCUM V35
+Base exacta: Portal_Medicina_Interna_v34_Enlaces_IA_Externos.zip
+Fecha de consolidación: 13 de noviembre de 2026.
+
+Esta versión implementa los acuerdos de la conversación transcrita por el usuario
+DESPUÉS del último ZIP v34, no los reconstruye a partir de la v30 ni de la v31.
+
+1) CRITERIOS DE DISEÑO ACORDADOS
+- En las fichas nuevas, las referencias quedan únicamente en el desplegable
+  «Ficha técnica y fuentes», no junto a las dosis ni las preparaciones.
+- Ficha compacta con dosis de referencia visibles y el resto de información
+  clínica en desplegables.
+- Si el peso afecta a las velocidades, se usa una tabla dinámica por peso;
+  si no, una tabla fija con selector de concentración.
+- Volumen final significa VOLUMEN TOTAL tras añadir el concentrado.
+- No atribuir a la ficha técnica una obligación de vía central en adultos que
+  no figure expresamente; valorar concentración, duración y acceso según centro.
+- Las tablas son conversiones matemáticas, NO órdenes de prescripción.
+
+2) SOLINITRINA FUERTE (NUEVA FICHA)
+- Nitroglicerina 50 mg/10 ml (5 mg/ml).
+- Preparación predeterminada que el usuario indica validada localmente:
+  50 mg hasta un volumen final de 250 ml en SG5%: 200 µg/ml.
+- Alternativa seleccionable: 50 mg hasta 500 ml finales: 100 µg/ml.
+- Alternativa de la MISMA concentración que la habitual: 100 mg hasta
+  500 ml finales: 200 µg/ml. Figura como nota, para no duplicar tablas.
+- Tabla visible, sin peso, con 1 a 6 mg/h y sus velocidades correspondientes.
+- Cambiar entre 200 y 100 µg/ml actualiza toda la tabla.
+- El resto de información clínica y fuentes, plegado.
+- La ficha técnica oficial describe la alternativa 100 µg/ml; la preparación
+  local 200 µg/ml no debe confundirse con la dilución de referencia de FT.
+
+3) DOBUTAMINA (FICHA EXISTENTE REVISADA)
+- Concentrado 250 mg/20 ml, 12,5 mg/ml.
+- Inicio orientativo 2–2,5 µg/kg/min, habitual 2,5–10 µg/kg/min.
+- Preparaciones seleccionables EN ESTE ORDEN:
+  A) 1 g en 250 ml finales de SG5%, 4 mg/ml, predeterminada.
+  B) 250 mg en 250 ml finales de SG5%, 1 mg/ml.
+  C) 250 mg en 50 ml finales de SG5%, 5 mg/ml, bomba de jeringa.
+- Peso editable (70 kg inicial) y «Una fila» por defecto.
+- «Tabla completa» opcional. Ambas recalculan al cambiar peso/preparado.
+- Cabeceras en µg/kg/min: 2; 2,5; 4; 6; 8; 10; 12; 15.
+- Velocidades en ml/h, 1 decimal. Vía, ajustes, hipotensión, monitorización,
+  interacciones y fuentes en desplegables.
+- Ajustes renal/hepático: titular según respuesta, sin tabla fija de reducción.
+- Hipotensión: precaución, no contraindicación absoluta.
+- Monitorización: ECG, FC, TA, diuresis y respuesta hemodinámica.
+- No se añadió sección de compatibilidades ni estabilidad, por petición del usuario.
+
+4) DOPAMINA (FICHA EXISTENTE REVISADA)
+- Concentrado 200 mg/5 ml, 40 mg/ml.
+- Preparación predeterminada: 1 g (5 ampollas) en 250 ml FINALES, 4 mg/ml;
+  el concentrado aporta 25 ml al volumen final.
+- Inicio 2–5 µg/kg/min; mantenimiento orientativo 5–20 µg/kg/min.
+- Peso editable (70 kg inicial) y tabla completa opcional, como dobutamina.
+- Columnas: 2; 3; 5; 7,5; 10; 12; 15; 20 µg/kg/min.
+- Efectos representados por color: amarillo dopaminérgico en 2;
+  rojo beta para 3–10; violeta alfa para 12–20.
+- Se rotulan como efectos orientativos SOLAPADOS; colores NO son dosis
+  seguras/recomendadas, ni describen cortes farmacológicos absolutos.
+- No se denomina «dosis renal» a las dosis bajas, porque NO deben utilizarse
+  para prevenir o tratar la lesión renal aguda (véase NICE en fuentes).
+- El preparado 4 mg/ml es concentrado y requiere cotejo del protocolo local.
+- Fuentes y datos clínicos ampliados en desplegables.
+
+5) FUNCIONALIDADES ANTERIORES CONSERVADAS
+- El v34 original contenía 50 entradas; v35 contiene 51 (la nueva Solinitrina).
+- Todos los archivos del v34 se conservan. Solo se han modificado:
+  vademecum_datos.js, vademecum_app.js y vademecum_clinico.html.
+- Siguen presentes favoritos, fibrinólisis, cálculos de hierro, editor de
+  analíticas sin aviso de versión de prueba, IA y enlaces externos, PDF local,
+  equivalencias y demás calculadoras del portal.
+- NO se ha sobreescrito ninguno de esos módulos.
+
+6) COMPROBACIONES REALIZADAS
+- Sintaxis de JavaScript válida.
+- Pruebas de interfaz con Chromium ejecutando HTML y scripts en memoria:
+  cambios de concentración Solinitrina; 3 preparaciones de dobutamina;
+  cambio de peso; tabla completa; colores de dopamina; fuentes plegadas;
+  existencia de calculadora de alteplasa y hierro; ficha de adenosina;
+  viewport móvil sin desbordamiento horizontal; ausencia de errores JS.
+- Las pruebas verifican cálculos y diseño, NO la validación clínica de
+  diluciones/administración por Farmacia o por el centro.
+
+FUENTES CLÍNICAS (SOLO DENTRO DE DESPLEGABLES DE LAS FICHAS)
+- Ficha técnica Solinitrina Fuerte, código 57127.
+- Ficha técnica Dobutamina Hikma, código 85914.
+- Ficha técnica Dopamina Grifols, código 55454.
+- NICE NG148, recomendación 1.5.5 sobre dopamina a dosis bajas y LRA.
+
+PRÓXIMOS PASOS
+- Continuar revisión de nuevas fichas manteniendo v35 como base. Las
+  decisiones futuras se añadirán a este registro antes de cambiar de chat.

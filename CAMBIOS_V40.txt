@@ -1,0 +1,54 @@
+PORTAL CLÍNICO · V40 · 13 noviembre 2026
+=======================================
+BASE: ZIP Portal_Clinico_v39_Identidad_e_Iconos. Se conservan calculadoras,
+editor de analíticas, equivalencias, PDFs locales, iconos y demás recursos.
+
+VADEMÉCUM
+- Listado ordenado alfabéticamente por denominación del medicamento.
+- Eliminados los mensajes «Fuente consultada» junto a los nombres.
+  Bibliografía y enlaces solo en el desplegable «Fuentes».
+- En todas las fichas aparecen separadamente Indicaciones, Precauciones y
+  Contraindicaciones. Se han revisado/ampliado los textos de indicaciones,
+  manteniendo estado provisional cuando no existe fuente farmacológica verificada.
+- Diluyente y vía visibles junto a la presentación en las fichas IV cuando
+  se dispone de datos. Las fichas no validadas muestran la necesidad de cotejar
+  diluyente, volumen, concentración y acceso según producto.
+- Pautas múltiples de amiodarona en renglones separados y botones Copiar
+  junto a las perfusiones individuales; sin duplicar otra lista inferior.
+- Eliminado botón Copiar de bolos simples de atropina, furosemida y fichas
+  sencillas de bolos IV seleccionadas; se mantienen en perfusiones complejas.
+- Ajustes de dosis/indicaciones de labetalol, urapidil y nicardipino;
+  se han añadido las fichas contrastadas con información oficial cuando procede.
+- Calcio IV pasa a dos fichas separadas (gluconato y cloruro).
+- Fosfatos IV: selector entre fosfato monosódico y dipotásico 1M; contenido
+  exacto de Na/K por ampolla; dosis inicial 0,08 mmol/kg en 6 h, opciones
+  ajustadas y 15/30 mmol de referencia sin prescripción automática;
+  selector de vía, diluyente, volumen final y duración; ritmo ml/h,
+  fósforo mmol/h y potasio mEq/h. Avisos rojos por exceso de 7,5 mmol/h P,
+  10 mEq/h K periférico, 20 mEq/h K central monitorizado o 5 mEq/h K en CAD;
+  referencia de concentración K 40/100 mEq/l periférica/central NO UNIVERSAL.
+  NO se habilita copia de la preparación IV de fósforo hasta validar Farmacia.
+- Fosfatos orales en ficha independiente (Fosfato NM, Joulie con concentración
+  magistral condicionada), navegación bidireccional entre fichas.
+- Fuentes de datos y formulaciones contrastadas con fichas AEMPS y referencias
+  clínicas. No convertir estas fichas en prescripciones sin comprobar contexto.
+
+CALCULADORAS E IDENTIDAD
+- Recuadro de puntuación independiente del recuadro de significado en las
+  principales escalas (4AT, FIB-4, IMC, EOSS, SARC-F, Padua, Wells, Caprini,
+  índice cintura-altura, TEP, CHA2DS2-VA/VASc, HAS-BLED, EVEREST, Villalta,
+  Child-Pugh, MELD, MELD-Na y H2FPEF).
+- Portada con cabecera verde, pie negro y franja ondulada blanca; conserva
+  el icono de la identidad v39 y el resto de secciones mantienen su color.
+- Índice de búsqueda global actualizado para reflejar fichas añadidas.
+
+VERIFICACIÓN Y LIMITACIONES
+- JavaScript de los archivos y de scripts embebidos: comprobación sintáctica
+  con Node.js sin errores.
+- No se ha podido realizar prueba de interacción visual en navegador por las
+  restricciones locales de este entorno.
+- 21 fichas antiguas continúan con indicación clínica orientativa y dosis,
+  dilución o fuentes pendientes de comprobación especializada: revisar antes
+  de cualquier uso como orden de tratamiento.
+- La administración de fosfato y las preparaciones locales concentradas,
+  incluyendo el suero hipertónico modificado, requieren revisión Farmacia.

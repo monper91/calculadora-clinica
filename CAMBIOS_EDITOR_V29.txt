@@ -1,0 +1,29 @@
+PORTAL MEDICINA INTERNA - V29 - LECTOR DE PDF.js LOCAL
+
+- Sustituido el extractor PDF experimental por Mozilla PDF.js 6.5.438.
+- Dependencias de PDF.js incluidas en vendor/pdfjs (sin CDN). Licencia original en vendor/pdfjs/LICENSE.
+- Extracción de texto PDF por páginas y coordenadas: reconstruye filas/columnas antes del parser.
+- Se filtran las cabeceras administrativas más habituales del SES y los bloques de validación.
+- Se corrigieron encabezados duplicados, orina, densidad y falsas gasometrías.
+- Se añade 'Retirar PDF / texto fuente' para despejar el campo de origen manteniendo el informe.
+- OCR e IA no incorporados.
+- Validación técnica de prueba: PDF ficticio de 1 página y PDF del SES de 4 páginas.
+- El PDF de laboratorio del usuario NO está en esta distribución.
+
+IMPORTANTE: versión piloto, no acreditada para tratar documentos identificados.
+Los resultados requieren cotejo con informe original. Se mantiene la advertencia de unidades dudosas.
+
+EJECUCIÓN OFFLINE
+Las bibliotecas PDF.js son módulos JavaScript. Abrir el HTML directamente como file:// puede
+ser bloqueado por las normas de seguridad del navegador. Para usarlo sin Internet,
+servir esta carpeta únicamente en localhost, por ejemplo (con Python instalado):
+  cd portal_medicina
+  python -m http.server 8765 --bind 127.0.0.1
+Y abrir http://127.0.0.1:8765/editor_analiticas.html
+Este servicio local no sube ningún PDF a Internet. No lo publiques con documentos clínicos.
+
+GITHUB PAGES
+Se puede probar con documentos ficticios/anonimizados en la web publicada.
+La página descarga únicamente los recursos estáticos alojados en el mismo origen, no
+sube el PDF ni su contenido a GitHub. Antes de usar documentos identificados, se requiere
+auditoría de seguridad y autorización institucional.

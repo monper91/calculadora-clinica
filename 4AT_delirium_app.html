@@ -1,12 +1,13 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="color-scheme" content="light">
-  <meta name="description" content="Calculadora clínica 4AT-ES para cribado del delirium. Aplicación sin conexión.">
-  <title>4AT-ES | Cribado del delirium</title>
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="light" name="color-scheme"/>
+<meta content="Calculadora clínica 4AT-ES para cribado del delirium. Aplicación sin conexión." name="description"/>
+<title>4AT-ES | Cribado del delirium</title>
+<style>
     :root{--ink:#142c3b;--muted:#586b78;--line:#dbe5e9;--teal:#087b78;--teal-dark:#075e62;--light:#eff8f7;--paper:#fff;--bg:#f3f6f8;--amber:#a45608;--amber-bg:#fff4de;--red:#a42f34;--red-bg:#fff0f0;--shadow:0 10px 35px rgba(22,51,66,.07)}
     *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background:var(--bg);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:15.5px;line-height:1.52}
     a{color:var(--teal-dark);text-underline-offset:2px}button,input{font:inherit}button{cursor:pointer}.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
@@ -42,78 +43,87 @@
   @media print{header a.back-to-category{display:none!important}}
 
 </style>
-</head>
+<link href="favicon.ico" rel="icon" sizes="any"/>
+<link href="icons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="icons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="manifest.webmanifest" rel="manifest"/>
+<meta content="#004c19" name="theme-color"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="default" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="Portal Clínico" name="apple-mobile-web-app-title"/>
+<style>/* v40: la puntuación se muestra sola y la interpretación va en una tarjeta independiente */
+.scoreMeaning{border:1px solid #d9e5e8;background:#f7fafb;border-radius:12px;padding:14px 17px;margin:13px 0;color:#31515e;line-height:1.6}
+.scoreMeaningHeading{font-size:12px;letter-spacing:.035em;text-transform:uppercase;font-weight:800;color:#376773;margin-bottom:8px}
+.scoreMeaning h3{font-size:17px;margin:0 0 5px}.scoreMeaning p{font-size:13px;margin:0}
+#result, #verdict{text-align:center}.result .score,.result .bigscore,.verdict .stat{margin:0 auto;justify-content:center}
+</style></head>
 <body>
 <header><div class="wrap">
-  <div class="topline"><div class="brand">MEDICINA INTERNA · CRONICIDAD Y PLURIPATOLOGÍA</div><a class="back-to-category" href="calculadoras.html#/categoria/cronicidad">← Volver a Cronicidad y Pluripatología</a></div>
-  <h1>Cribado rápido del delirium</h1>
-  <p>Escala 4AT-ES para la detección inicial de posible delirium y deterioro cognitivo. Complete los cuatro apartados. La puntuación se calcula de forma automática.</p>
-  <div class="leadrow"><span class="chip">4AT-ES · Versión 1.2</span><span class="chip">4 apartados</span><span class="chip">0–12 puntos</span><span class="chip">≈ 2 minutos</span><span class="chip">Funciona sin conexión</span></div>
+<div class="topline"><div class="brand">MEDICINA INTERNA · CRONICIDAD Y PLURIPATOLOGÍA</div><a class="back-to-category" href="calculadoras.html#/categoria/cronicidad">← Volver a Cronicidad y Pluripatología</a></div>
+<h1>Cribado rápido del delirium</h1>
+<p>Escala 4AT-ES para la detección inicial de posible delirium y deterioro cognitivo. Complete los cuatro apartados. La puntuación se calcula de forma automática.</p>
+<div class="leadrow"><span class="chip">4AT-ES · Versión 1.2</span><span class="chip">4 apartados</span><span class="chip">0–12 puntos</span><span class="chip">≈ 2 minutos</span><span class="chip">Funciona sin conexión</span></div>
 </div></header>
 <main class="wrap"><div class="layout"><div class="left">
-  <section class="card" id="patientCard" aria-labelledby="identityTitle">
-    <div class="cardhead"><div class="numb" aria-hidden="true">+</div><div><h2 id="identityTitle">Datos de la evaluación</h2><p>Opcionales; se usan únicamente al copiar o imprimir el informe.</p></div></div>
-    <div class="optional-grid"><div><label class="fieldlabel" for="patient">Identificador del paciente (opcional)</label><input class="field" id="patient" type="text" maxlength="80" autocomplete="off" placeholder="Ej. n.º de historia / código"></div><div><label class="fieldlabel" for="reviewer">Profesional evaluador (opcional)</label><input class="field" id="reviewer" type="text" maxlength="80" autocomplete="off" placeholder="Nombre o iniciales"></div></div>
-    <p class="privacy-note">Privacidad: el cálculo rápido no guarda datos. Si elige guardar en expediente de prueba, únicamente se conservan las respuestas y el resultado, no estos campos de identificación. No introduzca datos reales en la demo.</p>
-  </section>
-
-  <section class="card" aria-labelledby="item1Title"><div class="cardhead"><span class="numb">01</span><div><h2 id="item1Title">Nivel de conciencia</h2><p>Observe el nivel de alerta y la actividad del paciente.</p></div></div>
-    <div class="callout">Si está dormido, intente despertarlo hablándole o tocándole suavemente el hombro. Puede pedirle que diga su nombre y dirección para facilitar la valoración.</div>
-    <div class="options" role="radiogroup" aria-labelledby="item1Title">
-      <label class="option"><input type="radio" name="q1" value="0" data-label="Normal"><span class="option-text"><b>Normal</b>: completamente alerta, sin agitación durante la evaluación.</span><span class="points">0 pt</span></label>
-      <label class="option"><input type="radio" name="q1" value="0" data-label="Somnolencia leve breve"><span class="option-text">Somnolencia leve <b>menos de 10 segundos</b> tras despertar; después normal.</span><span class="points">0 pt</span></label>
-      <label class="option"><input type="radio" name="q1" value="4" data-label="Claramente anormal"><span class="option-text"><b>Claramente anormal</b> (somnolencia significativa, alteración de alerta o agitación/hiperactividad).</span><span class="points">4 pts</span></label>
-    </div>
-  </section>
-
-  <section class="card" aria-labelledby="item2Title"><div class="cardhead"><span class="numb">02</span><div><h2 id="item2Title">AMT4 · Orientación</h2><p>Formule al paciente las siguientes cuatro preguntas.</p></div></div>
-    <ul class="questions"><li><span class="qicon">1.</span> ¿Qué edad tiene?</li><li><span class="qicon">2.</span> ¿Cuál es su fecha de nacimiento?</li><li><span class="qicon">3.</span> ¿Dónde estamos?</li><li><span class="qicon">4.</span> ¿En qué año estamos?</li></ul>
-    <div class="options" role="radiogroup" aria-labelledby="item2Title">
-      <label class="option"><input type="radio" name="q2" value="0" data-label="Sin errores"><span class="option-text"><b>Sin errores</b>.</span><span class="points">0 pt</span></label>
-      <label class="option"><input type="radio" name="q2" value="1" data-label="1 error"><span class="option-text"><b>1 error</b>.</span><span class="points">1 pt</span></label>
-      <label class="option"><input type="radio" name="q2" value="2" data-label="2 o más errores / imposible de evaluar"><span class="option-text"><b>2 o más errores</b> o imposible de evaluar.</span><span class="points">2 pts</span></label>
-    </div>
-    <p class="help">Para el lugar, se admite una identificación razonable (p. ej., «el hospital»), sin exigir el nombre oficial.</p>
-  </section>
-
-  <section class="card" aria-labelledby="item3Title"><div class="cardhead"><span class="numb">03</span><div><h2 id="item3Title">Atención · Meses en orden inverso</h2><p>Evalúe la capacidad para mantener la atención.</p></div></div>
-    <div class="callout"><strong>Diga al paciente:</strong> «Por favor, dígame los meses del año en orden inverso, empezando por diciembre».<br>Se permite una única ayuda inicial: «¿Cuál es el mes anterior a diciembre?».</div>
-    <div class="options" role="radiogroup" aria-labelledby="item3Title">
-      <label class="option"><input type="radio" name="q3" value="0" data-label="7 o más meses correctos"><span class="option-text">Consigue decir <b>7 o más meses correctamente</b>.</span><span class="points">0 pt</span></label>
-      <label class="option"><input type="radio" name="q3" value="1" data-label="Menos de 7 meses / se niega a comenzar"><span class="option-text">Consigue <b>menos de 7 meses</b> o se niega a comenzar.</span><span class="points">1 pt</span></label>
-      <label class="option"><input type="radio" name="q3" value="2" data-label="Imposible de evaluar"><span class="option-text"><b>Imposible de evaluar</b> por malestar, somnolencia o falta de atención.</span><span class="points">2 pts</span></label>
-    </div>
-    <p class="help">Referencia: diciembre → noviembre → octubre → septiembre → agosto → julio → junio (siete meses).</p>
-  </section>
-
-  <section class="card" aria-labelledby="item4Title"><div class="cardhead"><span class="numb">04</span><div><h2 id="item4Title">Cambio agudo o curso fluctuante</h2><p>Compare con el estado basal del paciente.</p></div></div>
-    <div class="callout">¿Existe evidencia de cambio significativo o fluctuación del nivel de conciencia, cognición u otra función mental (p. ej., paranoia o alucinaciones) <strong>surgido en las últimas 2 semanas</strong> y <strong>presente en las últimas 24 horas</strong>?</div>
-    <div class="options" role="radiogroup" aria-labelledby="item4Title">
-      <label class="option"><input type="radio" name="q4" value="0" data-label="No"><span class="option-text"><b>No</b>.</span><span class="points">0 pt</span></label>
-      <label class="option"><input type="radio" name="q4" value="4" data-label="Sí"><span class="option-text"><b>Sí</b>.</span><span class="points">4 pts</span></label>
-    </div>
-    <p class="help">Utilice familiares, cuidadores, profesionales y/o la historia clínica. Si todavía no hay datos para este apartado, déjelo sin marcar y la prueba permanecerá pendiente.</p>
-  </section>
-
-  <section class="card" aria-labelledby="reportTitle"><div class="cardhead"><span class="numb" aria-hidden="true">≡</span><div><h2 id="reportTitle">Texto para la historia clínica</h2><p>Se genera al completar los cuatro apartados.</p></div></div>
-    <div class="report" id="report" aria-live="polite">Complete los cuatro apartados para generar el informe.</div>
-    <p class="footline">El resultado es de cribado: no establece por sí solo un diagnóstico definitivo de delirium.</p>
-  </section>
-  <div class="reference"><details><summary>Fuentes, uso e indicaciones</summary>
-    <p>Instrumento basado en el 4AT-ES, versión 1.2, y su guía de puntuación. Ítems 1–3: observación directa; ítem 4: información clínica sobre estado basal y curso temporal. Valore posibles barreras de comunicación (hipoacusia, disfasia, idioma).</p>
-    <p>Un resultado ≥4 sugiere posible delirium con o sin deterioro cognitivo; requiere valoración clínica. Un resultado 1–3 sugiere posible deterioro cognitivo, aunque no excluye delirium. Con 0 puntos, delirium o deterioro cognitivo son poco probables, pero no quedan descartados, sobre todo si la información del apartado 4 es incompleta.</p>
-    <p><a href="https://www.the4at.com/4at-espanol" target="_blank" rel="noopener noreferrer">Versión oficial en español</a> · <a href="https://www.the4at.com/userguide" target="_blank" rel="noopener noreferrer">Guía oficial de uso</a> · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">Licencia CC BY 4.0</a>.</p>
-    <p>Adaptación digital de la presentación para autocalcular y documentar, sin alterar los ítems ni las puntuaciones del instrumento. 4AT © 2011–2014 Alasdair MacLullich, Tracy Ryan y Helen Cash. CC BY 4.0. Versión oficial: https://www.the4at.com. No existe aval de los autores para esta interfaz. Se entrega sin garantías de idoneidad para un uso específico.</p>
-  </details></div>
+<section aria-labelledby="identityTitle" class="card" id="patientCard">
+<div class="cardhead"><div aria-hidden="true" class="numb">+</div><div><h2 id="identityTitle">Datos de la evaluación</h2><p>Opcionales; se usan únicamente al copiar o imprimir el informe.</p></div></div>
+<div class="optional-grid"><div><label class="fieldlabel" for="patient">Identificador del paciente (opcional)</label><input autocomplete="off" class="field" id="patient" maxlength="80" placeholder="Ej. n.º de historia / código" type="text"/></div><div><label class="fieldlabel" for="reviewer">Profesional evaluador (opcional)</label><input autocomplete="off" class="field" id="reviewer" maxlength="80" placeholder="Nombre o iniciales" type="text"/></div></div>
+<p class="privacy-note">Privacidad: el cálculo rápido no guarda datos. Si elige guardar en expediente de prueba, únicamente se conservan las respuestas y el resultado, no estos campos de identificación. No introduzca datos reales en la demo.</p>
+</section>
+<section aria-labelledby="item1Title" class="card"><div class="cardhead"><span class="numb">01</span><div><h2 id="item1Title">Nivel de conciencia</h2><p>Observe el nivel de alerta y la actividad del paciente.</p></div></div>
+<div class="callout">Si está dormido, intente despertarlo hablándole o tocándole suavemente el hombro. Puede pedirle que diga su nombre y dirección para facilitar la valoración.</div>
+<div aria-labelledby="item1Title" class="options" role="radiogroup">
+<label class="option"><input data-label="Normal" name="q1" type="radio" value="0"/><span class="option-text"><b>Normal</b>: completamente alerta, sin agitación durante la evaluación.</span><span class="points">0 pt</span></label>
+<label class="option"><input data-label="Somnolencia leve breve" name="q1" type="radio" value="0"/><span class="option-text">Somnolencia leve <b>menos de 10 segundos</b> tras despertar; después normal.</span><span class="points">0 pt</span></label>
+<label class="option"><input data-label="Claramente anormal" name="q1" type="radio" value="4"/><span class="option-text"><b>Claramente anormal</b> (somnolencia significativa, alteración de alerta o agitación/hiperactividad).</span><span class="points">4 pts</span></label>
 </div>
-<aside class="aside" aria-label="Resultado y acciones"><div class="scorecard">
-  <div class="scoretop"><div class="eyebrow">Puntuación 4AT</div><div class="bigscore"><span id="score">—</span> <small>/12</small></div><div class="completion" id="completion" aria-live="polite">0 de 4 apartados completados</div><div class="meter" aria-hidden="true"><div class="fill" id="progress"></div></div></div>
-  <div class="result" id="result" role="status" aria-live="polite"><h3 id="resultTitle">Evaluación pendiente</h3><p id="resultDesc">Seleccione una respuesta en cada apartado para interpretar el resultado.</p></div>
-  <div class="breakdown"><div class="sublabel">Desglose</div><div class="breakrow"><span>1. Nivel de conciencia</span><strong id="value1">—</strong></div><div class="breakrow"><span>2. AMT4</span><strong id="value2">—</strong></div><div class="breakrow"><span>3. Atención</span><strong id="value3">—</strong></div><div class="breakrow"><span>4. Cambio agudo</span><strong id="value4">—</strong></div></div>
-  <div class="actions"><button class="btn primary" id="copy" type="button" disabled>Copiar para historia clínica</button><button class="btn" id="print" type="button" disabled>Imprimir / Guardar PDF</button><button class="btn" id="reset" type="button">Nueva evaluación</button><p class="notice" id="notice" role="status" aria-live="polite"></p></div>
+</section>
+<section aria-labelledby="item2Title" class="card"><div class="cardhead"><span class="numb">02</span><div><h2 id="item2Title">AMT4 · Orientación</h2><p>Formule al paciente las siguientes cuatro preguntas.</p></div></div>
+<ul class="questions"><li><span class="qicon">1.</span> ¿Qué edad tiene?</li><li><span class="qicon">2.</span> ¿Cuál es su fecha de nacimiento?</li><li><span class="qicon">3.</span> ¿Dónde estamos?</li><li><span class="qicon">4.</span> ¿En qué año estamos?</li></ul>
+<div aria-labelledby="item2Title" class="options" role="radiogroup">
+<label class="option"><input data-label="Sin errores" name="q2" type="radio" value="0"/><span class="option-text"><b>Sin errores</b>.</span><span class="points">0 pt</span></label>
+<label class="option"><input data-label="1 error" name="q2" type="radio" value="1"/><span class="option-text"><b>1 error</b>.</span><span class="points">1 pt</span></label>
+<label class="option"><input data-label="2 o más errores / imposible de evaluar" name="q2" type="radio" value="2"/><span class="option-text"><b>2 o más errores</b> o imposible de evaluar.</span><span class="points">2 pts</span></label>
+</div>
+<p class="help">Para el lugar, se admite una identificación razonable (p. ej., «el hospital»), sin exigir el nombre oficial.</p>
+</section>
+<section aria-labelledby="item3Title" class="card"><div class="cardhead"><span class="numb">03</span><div><h2 id="item3Title">Atención · Meses en orden inverso</h2><p>Evalúe la capacidad para mantener la atención.</p></div></div>
+<div class="callout"><strong>Diga al paciente:</strong> «Por favor, dígame los meses del año en orden inverso, empezando por diciembre».<br/>Se permite una única ayuda inicial: «¿Cuál es el mes anterior a diciembre?».</div>
+<div aria-labelledby="item3Title" class="options" role="radiogroup">
+<label class="option"><input data-label="7 o más meses correctos" name="q3" type="radio" value="0"/><span class="option-text">Consigue decir <b>7 o más meses correctamente</b>.</span><span class="points">0 pt</span></label>
+<label class="option"><input data-label="Menos de 7 meses / se niega a comenzar" name="q3" type="radio" value="1"/><span class="option-text">Consigue <b>menos de 7 meses</b> o se niega a comenzar.</span><span class="points">1 pt</span></label>
+<label class="option"><input data-label="Imposible de evaluar" name="q3" type="radio" value="2"/><span class="option-text"><b>Imposible de evaluar</b> por malestar, somnolencia o falta de atención.</span><span class="points">2 pts</span></label>
+</div>
+<p class="help">Referencia: diciembre → noviembre → octubre → septiembre → agosto → julio → junio (siete meses).</p>
+</section>
+<section aria-labelledby="item4Title" class="card"><div class="cardhead"><span class="numb">04</span><div><h2 id="item4Title">Cambio agudo o curso fluctuante</h2><p>Compare con el estado basal del paciente.</p></div></div>
+<div class="callout">¿Existe evidencia de cambio significativo o fluctuación del nivel de conciencia, cognición u otra función mental (p. ej., paranoia o alucinaciones) <strong>surgido en las últimas 2 semanas</strong> y <strong>presente en las últimas 24 horas</strong>?</div>
+<div aria-labelledby="item4Title" class="options" role="radiogroup">
+<label class="option"><input data-label="No" name="q4" type="radio" value="0"/><span class="option-text"><b>No</b>.</span><span class="points">0 pt</span></label>
+<label class="option"><input data-label="Sí" name="q4" type="radio" value="4"/><span class="option-text"><b>Sí</b>.</span><span class="points">4 pts</span></label>
+</div>
+<p class="help">Utilice familiares, cuidadores, profesionales y/o la historia clínica. Si todavía no hay datos para este apartado, déjelo sin marcar y la prueba permanecerá pendiente.</p>
+</section>
+<section aria-labelledby="reportTitle" class="card"><div class="cardhead"><span aria-hidden="true" class="numb">≡</span><div><h2 id="reportTitle">Texto para la historia clínica</h2><p>Se genera al completar los cuatro apartados.</p></div></div>
+<div aria-live="polite" class="report" id="report">Complete los cuatro apartados para generar el informe.</div>
+<p class="footline">El resultado es de cribado: no establece por sí solo un diagnóstico definitivo de delirium.</p>
+</section>
+<div class="reference"><details><summary>Fuentes, uso e indicaciones</summary>
+<p>Instrumento basado en el 4AT-ES, versión 1.2, y su guía de puntuación. Ítems 1–3: observación directa; ítem 4: información clínica sobre estado basal y curso temporal. Valore posibles barreras de comunicación (hipoacusia, disfasia, idioma).</p>
+<p>Un resultado ≥4 sugiere posible delirium con o sin deterioro cognitivo; requiere valoración clínica. Un resultado 1–3 sugiere posible deterioro cognitivo, aunque no excluye delirium. Con 0 puntos, delirium o deterioro cognitivo son poco probables, pero no quedan descartados, sobre todo si la información del apartado 4 es incompleta.</p>
+<p><a href="https://www.the4at.com/4at-espanol" rel="noopener noreferrer" target="_blank">Versión oficial en español</a> · <a href="https://www.the4at.com/userguide" rel="noopener noreferrer" target="_blank">Guía oficial de uso</a> · <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener noreferrer" target="_blank">Licencia CC BY 4.0</a>.</p>
+<p>Adaptación digital de la presentación para autocalcular y documentar, sin alterar los ítems ni las puntuaciones del instrumento. 4AT © 2011–2014 Alasdair MacLullich, Tracy Ryan y Helen Cash. CC BY 4.0. Versión oficial: https://www.the4at.com. No existe aval de los autores para esta interfaz. Se entrega sin garantías de idoneidad para un uso específico.</p>
+</details></div>
+</div>
+<aside aria-label="Resultado y acciones" class="aside"><div class="scorecard">
+<div class="scoretop"><div class="eyebrow">Puntuación 4AT</div><div aria-live="polite" class="completion" id="completion">0 de 4 apartados completados</div><div aria-hidden="true" class="meter"><div class="fill" id="progress"></div></div></div>
+<div aria-live="polite" class="result" id="result" role="status"><div class="bigscore"><span id="score">—</span> <small>/12</small></div></div><section class="scoreMeaning"><div class="scoreMeaningHeading">Significado de la puntuación</div><h3 id="resultTitle">Evaluación pendiente</h3><p id="resultDesc">Seleccione una respuesta en cada apartado para interpretar el resultado.</p></section>
+<div class="breakdown"><div class="sublabel">Desglose</div><div class="breakrow"><span>1. Nivel de conciencia</span><strong id="value1">—</strong></div><div class="breakrow"><span>2. AMT4</span><strong id="value2">—</strong></div><div class="breakrow"><span>3. Atención</span><strong id="value3">—</strong></div><div class="breakrow"><span>4. Cambio agudo</span><strong id="value4">—</strong></div></div>
+<div class="actions"><button class="btn primary" disabled="" id="copy" type="button">Copiar para historia clínica</button><button class="btn" disabled="" id="print" type="button">Imprimir / Guardar PDF</button><button class="btn" id="reset" type="button">Nueva evaluación</button><p aria-live="polite" class="notice" id="notice" role="status"></p></div>
 </div><div class="reference"><strong>Importante:</strong> La escala 4AT es una herramienta de cribado, no un diagnóstico automático. Si existe sospecha clínica, evalúe al paciente independientemente de la puntuación.</div></aside>
 </div></main>
-<footer class="footer"><div class="wrap">Aplicación HTML local · 4AT-ES v1.2 · No transmite información; solo guarda resultados si pulsas «Guardar en expediente de prueba». Fuente: <a href="https://www.the4at.com" target="_blank" rel="noopener noreferrer">the4at.com</a> · CC BY 4.0.</div></footer>
+<footer class="footer"><div class="wrap">Aplicación HTML local · 4AT-ES v1.2 · No transmite información; solo guarda resultados si pulsas «Guardar en expediente de prueba». Fuente: <a href="https://www.the4at.com" rel="noopener noreferrer" target="_blank">the4at.com</a> · CC BY 4.0.</div></footer>
 <script>
   'use strict';
   const names = ['Nivel de conciencia', 'AMT4', 'Atención', 'Cambio agudo o curso fluctuante'];
@@ -162,6 +172,5 @@
   });
   render();
 </script>
-
 </body>
 </html>

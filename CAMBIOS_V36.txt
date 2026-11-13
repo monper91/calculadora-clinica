@@ -1,0 +1,21 @@
+V36 · NORADRENALINA Y EDITOR · 13-11-2026
+
+Base exacta: v35 (no v30/31/32).
+
+- Se recupera acuerdo pendiente de la conversación anterior: ficha de Noradrenalina B. Braun con tabla de perfusión por peso.
+- Presentaciones: 10 ml = 5 mg base / 10 mg bitartrato; 50 ml = 25 mg base / 50 mg bitartrato; concentrado 0,5 mg/ml base.
+- Se selecciona presentación y número de envases completos; el volumen FINAL es editable y no viene predefinido, porque NO se había confirmado una dilución habitual del centro.
+- Peso inicial 70 kg, «Una fila» o «Tabla completa». Recalcula los ml/h al cambiar envase, número de envases, volumen final o peso.
+- Columnas de cálculo ilustrativas: 0,02; 0,05; 0,1; 0,2; 0,3; 0,5; 0,75; 1 µg/kg/min de noradrenalina BASE. No son dosis recomendadas ni pauta automática.
+- Las fuentes están exclusivamente dentro del desplegable «Ficha técnica y fuentes».
+- La concentración final debe derivarse del volumen final total, incluyendo el concentrado; se requiere volumen final mayor que el volumen de concentrado.
+- Se preservan las fichas de Solinitrina, Dobutamina y Dopamina y demás funciones de v35.
+- Editor de analíticas: eliminado aviso «Versión de pruebas» y mención «Versión piloto» del pie, manteniendo la advertencia de privacidad y comprobación del informe original. El aviso había reaparecido porque v35 se reconstruyó a partir de v34, anterior a la corrección v32.
+
+Fuentes (dentro del apartado de la ficha):
+- Noradrenalina B. Braun 0,5 mg/ml, ficha técnica CIMA 62002:
+  https://cima.aemps.es/cima/dochtml/ft/62002/FT_62002.html
+- AEMPS sobre expresión base/bitartrato:
+  https://www.aemps.gob.es/informa/informacion-relevante-sobre-los-medicamentos-que-contienen-noradrenalina-norepinefrina/
+
+NOTA: Las velocidades son conversiones matemáticas y su uso clínico exige validar la preparación real y el protocolo del centro.

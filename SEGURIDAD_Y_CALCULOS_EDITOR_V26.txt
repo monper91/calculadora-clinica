@@ -1,0 +1,47 @@
+EDITOR DE ANALÍTICAS · v26 (PILOTO EXPERIMENTAL)
+=============================================
+
+PRIVACIDAD
+- El código editor_analiticas.html, editor_analiticas.js, editor_ui.js y pdf_local_reader.js trabaja en el navegador, sin peticiones a API, IA remota, telemetría ni librerías/CDN externos.
+- Controles de política de seguridad del contenido (CSP): connect-src 'none', form-action 'none', object-src 'none', frame-src 'none', etc.
+- Archivos clínicos/resultados no se envían ni se almacenan automáticamente por el editor. Solo se guardan preferencias expresamente elegidas por el usuario.
+- El uso del portapapeles puede dejar el contenido accesible a otras aplicaciones en el sistema operativo; el botón «Limpiar» borra el estado manejado por el editor, no el portapapeles ni la memoria física del equipo.
+- No afirmamos garantías absolutas frente a malware, extensiones, versiones de navegador comprometidas, fallos del sistema operativo o alteraciones del código que se aloje en otro servidor.
+- No se ha realizado una auditoría formal independiente ni hay autorización institucional para tratar documentos identificados. Usar solo datos ficticios/anonimizados hasta verificar y autorizar.
+
+IMPORTACIÓN PDF
+- Recuadro arrastrar/seleccionar PDF o TXT, procesado en memoria. Tamaño máximo 12 MB.
+- Lector PDF experimental escrito en JavaScript y empaquetado: soporta un SUBCONJUNTO de PDF con texto seleccionable (streams Flate, ASCII85, texto sencillo). No soporta todos los PDF, tipografías con codificaciones complejas, OCR ni PDF cifrados.
+- Si la extracción falla, el programa informa del motivo y permite pegar texto manualmente. NUNCA se debe suponer que una extracción parcial es completa; cotejar el informe con el original.
+- El lector actual NO equivale a PDF.js; cuando sea posible incorporar una versión actualizada local y auditada, se sustituirá por una biblioteca más completa y se repetirán las pruebas de seguridad.
+- El PDF no se añade al repositorio de GitHub. No cargar PDF identificativos en repositorios públicos.
+
+PREFERENCIAS
+- Todos los resultados válidos con unidades; no mostrar hematíes; células siempre /mm³; % del diferencial leucocitario desactivados por defecto.
+- Resultados editables en el punto 2, preferencias visibles en punto 3, revisión opcional en punto 4.
+- «Sustituir valores en rango por «normal»» optativo, desactivado de fábrica.
+- Casillas independientes para RNL, no-HDL, reticulocitos corregidos, FeNa, FeUrea, índice de fallo renal, cocientes urinarios, anion gap, delta-delta y TIBC estimada.
+- Los cálculos no se efectúan si faltan datos o unidades comparables; no se rellenan campos vacíos.
+
+FÓRMULAS (verificar que las muestras sanguínea y urinaria sean coetáneas)
+- FeNa (%) = 100 × Na_orina × Cr_suero / (Na_suero × Cr_orina).
+- FeUrea (%) = 100 × Urea_orina × Cr_suero / (Urea_suero × Cr_orina).
+- Cociente urea = Urea_orina/Urea_suero; cociente creatinina = Cr_orina/Cr_suero.
+- Índice de fallo renal (IFR) = Na_orina × Cr_suero / Cr_orina (sin Na sérico).
+- Anion gap = Na_suero − (Cl_suero + HCO3 actual). Se utiliza bicarbonato actual de la gasometría, NO estándar.
+- Si albúmina <4 g/dL y se aporta: AG corregido = AG + 2,5 × (4 − albúmina en g/dL).
+- Razón delta-delta = (AG corregido − 12) / (24 − HCO3 actual) cuando AG >12 y HCO3 <24.
+- TIBC estimada (µg/dL) = transferrina (mg/dL) × 1,4. El factor depende del método del laboratorio, y se presenta explícitamente como estimación.
+
+REFERENCIAS ORIENTATIVAS DE CÁLCULOS
+- FENa y FEUrea: https://recursos.opas.org.br/en/tools/fena-calculator y https://recursos.opas.org.br/en/tools/urea-excretion-fraction
+- Índice de fallo renal: https://soc-nephrologie.org/eservice/calcul/FENa-RFI.htm
+- AG y delta: https://pmc.ncbi.nlm.nih.gov/articles/PMC12242095/ y https://pmc.ncbi.nlm.nih.gov/articles/PMC10539198/
+- TIBC: https://www.marshfieldlabs.org/sites/ltrm/Human/Pages/22803.aspx
+
+COMPROBACIONES REALIZADAS EN EL PROTOTIPO
+- Extracción de PDF ficticio generado con ReportLab (compresión ASCII85 + Flate), sin solicitudes de red en prueba de navegador (con JavaScript embebido solo para la prueba).
+- Botón de selección de archivos y arrastrar/soltar PDF de prueba; caja de texto y resultados actualizados correctamente.
+- Cálculos verificados con casos sintéticos: FeNa 0,14 %, FeUrea 16 %, IFR 0,20, AG 18 y razón delta-delta 1,42.
+- Resultado editable conserva correcciones manuales hasta que el usuario decide regenerar.
+- No se ha verificado la extracción frente a PDF reales del entorno hospitalario, ni se ha realizado auditoría completa de seguridad; ambos puntos siguen pendientes.

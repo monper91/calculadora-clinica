@@ -1,175 +1,98 @@
-<!doctype html>
-<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Editor de analíticas · Medicina Interna</title>
+<!DOCTYPE html>
+
+<html lang="es"><head><meta charset="utf-8"/><meta content="default-src 'none'; base-uri 'none'; connect-src 'none'; form-action 'none'; font-src 'self'; img-src 'self' data:; script-src 'self'; style-src 'self' 'unsafe-inline'; object-src 'none'; frame-src 'none'; worker-src 'none';" http-equiv="Content-Security-Policy"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>Editor de analíticas · Medicina Interna</title>
 <style>
 :root{font-family:system-ui,-apple-system,Segoe UI,sans-serif;color:#1a3348;background:#f3f7fa;--teal:#137c85;--blue:#215579;--muted:#61798b;--line:#d6e2e8;--pale:#eaf5f6}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0}button,input,textarea,select{font:inherit}button{cursor:pointer}a{color:inherit}.wrap{max-width:1120px;margin:auto;padding:0 22px}.hero{background:linear-gradient(115deg,#1d5069,#17838b);color:white;padding:22px 0 45px}.top{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}.brand{font-size:12px;font-weight:800;letter-spacing:.07em}.back{display:inline-block;background:white;color:#16485c;border-radius:9px;padding:10px 14px;text-decoration:none;font-size:13px;font-weight:800}.hero h1{font-size:clamp(30px,5vw,42px);margin:26px 0 7px;letter-spacing:-.025em}.hero p{line-height:1.6;color:#e6f4f6;font-size:14px;margin:0;max-width:850px}.main{position:relative;margin-top:-22px;padding-bottom:36px}.panel{background:white;border:1px solid var(--line);border-radius:17px;box-shadow:0 8px 26px #16395112;padding:22px;margin-bottom:17px}.paneHead{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:13px}.paneHead h2{font-size:19px;letter-spacing:-.02em;margin:0}.tag{font-size:11px;color:#117480;background:#e9f6f6;border:1px solid #c9e9e8;padding:5px 8px;border-radius:8px;font-weight:800}.desc{color:var(--muted);font-size:13px;line-height:1.5;margin:0 0 14px}.work{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px}.textInput{width:100%;min-height:300px;border:1px solid #b8cbd6;border-radius:11px;padding:14px;line-height:1.6;resize:vertical;font-size:13px;background:#fbfdfd;color:#19344b}.textInput:focus,select:focus,input:focus-visible,button:focus-visible{outline:3px solid #b7e0e2;outline-offset:2px}.buttons{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-top:13px}.btn{display:inline-flex;justify-content:center;align-items:center;gap:8px;border:1px solid #accdd0;border-radius:10px;background:#f3faf9;color:#11616c;min-height:42px;padding:10px 15px;font-size:13px;font-weight:800}.btn.primary{background:var(--teal);border-color:var(--teal);color:white}.btn.light{background:white;color:#385d71;border-color:#c7d7df}.btn.danger{border-color:#efc9cb;color:#a5434b;background:#fff9f9}.btn:disabled{opacity:.5;cursor:not-allowed}.flex{display:flex;gap:12px;flex-wrap:wrap}.gridOptions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.pref{display:flex;gap:9px;align-items:flex-start;border:1px solid #dce7eb;border-radius:10px;padding:10px 11px;background:#fbfdfd;font-size:13px;line-height:1.35;cursor:pointer}.pref input{accent-color:#117d86;width:17px;height:17px;margin:1px 0 0;flex-shrink:0}.pref span small{display:block;color:#66818e;margin-top:3px;font-size:11px}.fieldset{display:flex;align-items:center;gap:11px;flex-wrap:wrap}.field{display:grid;gap:5px;min-width:170px}.field label{font-size:12px;color:#516e80;font-weight:800}.field select{min-height:43px;border:1px solid #bfd2dc;border-radius:9px;padding:9px 11px;color:#14394e;background:white;max-width:100%}.strip{border-radius:11px;background:#f3f8fb;border:1px solid #ddeaf0;padding:12px 13px;color:#4d687a;font-size:12px;line-height:1.55}.strip strong{color:#2a546c}.status{margin-top:11px;font-size:12px;color:#5d7b86;min-height:16px}.warn{border:1px solid #edc78c;border-left:4px solid #d89430;background:#fff9ee;color:#83510b;border-radius:10px;padding:11px 13px;font-size:13px;line-height:1.45;margin:10px 0}.warn[hidden],.hidden{display:none!important}details{border:1px solid #dbe7ed;border-radius:12px;background:white;margin-bottom:14px;overflow:hidden}details summary{cursor:pointer;padding:14px 15px;font-weight:800;font-size:14px;color:#1c5366;list-style:none;display:flex;justify-content:space-between;gap:10px;align-items:center}details summary:after{content:'+';font-size:19px;color:#5f93a2}details[open] summary:after{content:'−'}details[open] summary{border-bottom:1px solid #e0e9ee;background:#f8fbfc}.detailsBody{padding:15px}.mini{font-size:12px;line-height:1.5;color:#5e788a}.muted{color:#61798b}.selectAll{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:700;color:#256475;cursor:pointer}.checks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:10px}.secCheck{border:1px solid #dce9ee;border-radius:9px;padding:10px;display:flex;gap:10px;align-items:center;background:#f8fcfd;font-size:13px}.secCheck input{accent-color:#18838c;width:17px;height:17px}.counts{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:12px}.count{background:#eef5f7;color:#315c6e;padding:7px 10px;border-radius:8px;font-size:11px;font-weight:800}.reviewTable{width:100%;border-collapse:collapse;font-size:12px}.reviewTable th{text-align:left;color:#527087;background:#f5f9fa}.reviewTable th,.reviewTable td{padding:8px 7px;border-bottom:1px solid #e5edf0;vertical-align:top}.reviewTable td:nth-child(2){font-variant-numeric:tabular-nums}.reviewTable .flag{color:#9c5c12;font-weight:800}.reviewRows{max-height:270px;overflow:auto}.reviewList{padding-left:18px;font-size:12px;line-height:1.5;color:#597284;max-height:210px;overflow:auto}.reviewList li{margin-bottom:6px;overflow-wrap:anywhere}.output{font-size:13px;min-height:350px;line-height:1.7;white-space:pre-wrap;color:#19374c;background:#fbfcfd}.noteBox{background:#eaf5f6;color:#2b626c;padding:11px 12px;border-radius:9px;font-size:12px;line-height:1.5;margin:11px 0}.footer{border-top:1px solid #dde7ec;color:#6c8595;font-size:12px;padding:20px 0 32px;line-height:1.6}.sr{position:absolute;left:-9999px}.smallHead{font-weight:850;font-size:13px;color:#29596c;margin:0 0 12px}.firstGrid{display:grid;grid-template-columns:1fr 1fr;gap:13px}.empty{color:#718c9a;font-size:12px;font-style:italic}.microFmt{margin-top:14px}.infoIcon{font-size:16px;margin-right:4px}
 @media(max-width:840px){.work{grid-template-columns:1fr}.textInput{min-height:245px}.output{min-height:250px}}@media(max-width:530px){.wrap{padding:0 14px}.panel{padding:16px;border-radius:14px}.hero{padding:19px 0 44px}.hero h1{margin-top:22px;font-size:32px}.gridOptions,.checks,.firstGrid{grid-template-columns:1fr}.back{font-size:12px}.btn{flex:1}.buttons{gap:8px}.field{flex:1;min-width:145px}.reviewTable{font-size:11px}}
-</style></head><body>
-<header class="hero"><div class="wrap"><div class="top"><span class="brand">MEDICINA INTERNA · HERRAMIENTAS DE CONSULTA</span><a href="index.html" class="back">← Volver al índice general</a></div><h1>Editor de analíticas</h1><p>Pega los resultados de laboratorio, ordénalos según tus preferencias y corrige manualmente el texto antes de incorporarlo a un informe.</p></div></header>
-<main class="wrap main">
- <section class="panel"><div class="paneHead"><h2>1. Introducir analítica</h2><span class="tag">PROCESAMIENTO LOCAL</span></div><p class="desc">Pega texto sin datos identificativos. El texto original y el resultado no se almacenan ni se envían a un servidor. Esta versión piloto reconoce formatos frecuentes, incluido el ejemplo de laboratorio del SES. Revisa siempre los resultados antes de copiarlos.</p><label class="sr" for="rawInput">Texto original del laboratorio</label><textarea id="rawInput" class="textInput" spellcheck="false" placeholder="Pega aquí los valores copiados del laboratorio..." aria-label="Texto original del laboratorio"></textarea><div class="buttons"><button class="btn primary" id="processBtn" type="button">Procesar analítica</button><button class="btn light" id="sampleBtn" type="button">Ejemplo básico</button><button class="btn light" id="sampleSesBtn" type="button">Ejemplo formato hospital</button><button class="btn light" id="clearBtn" type="button">Limpiar</button></div><p class="status" id="inputStatus" aria-live="polite"></p><div id="parseAlert" class="warn" role="alert" hidden></div></section>
- <section class="panel"><div class="paneHead"><h2>2. Elegir presentación</h2><span class="tag">PERSONALIZABLE</span></div><div class="fieldset"><div class="field"><label for="profile">Perfil de presentación</label><select id="profile"><option value="habitual">Informe habitual</option><option value="completo">Analítica completa</option><option value="alterados">Solo alteraciones</option><option value="personalizado">Personalizado</option></select></div><div id="gasField" class="field hidden"><label for="gasType">Origen de la gasometría</label><select id="gasType"><option value="">Seleccionar tipo</option><option value="venosa">Venosa</option><option value="arterial">Arterial</option></select></div></div><p class="mini">El perfil habitual sigue tus reglas: hemograma seleccionado, parámetros básicos de bioquímica, enzimas alteradas, perfiles completos y microbiología agrupada.</p>
- <div class="gridOptions" style="margin-top:14px"><label class="pref"><input id="optUnits" type="checkbox" checked><span>Conservar unidades<small>Permite un resultado más compacto sin unidades.</small></span></label><label class="pref"><input id="optRnl" type="checkbox" checked><span>Calcular RNL<small>Neutrófilos / linfocitos.</small></span></label><label class="pref"><input id="optNonhdl" type="checkbox" checked><span>Calcular no-HDL<small>Colesterol total − HDL, con unidades compatibles.</small></span></label><label class="pref"><input id="optRetic" type="checkbox" checked><span>Reticulocitos corregidos<small>Reticulocitos (%) × Hto / 40.</small></span></label><label class="pref"><input id="optCritical" type="checkbox"><span>Marcar valores críticos<small>Solo cuando el laboratorio los señala expresamente.</small></span></label><label class="pref"><input id="optVpm" type="checkbox"><span>Mostrar VPM<small>Opcional en hemograma.</small></span></label></div>
- <details style="margin-top:14px"><summary>Mis preferencias</summary><div class="detailsBody"><p class="desc">Se guardan únicamente estas opciones en tu navegador, nunca analíticas ni informes.</p><div class="gridOptions"><label class="pref"><input id="optCmi" type="checkbox"><span>Mostrar CMI en antibiogramas</span></label><label class="pref"><input id="optMicroDetail" type="checkbox"><span>Antibiograma detallado<small>Predeterminado: agrupado por S, I y R.</small></span></label></div><div class="buttons"><button class="btn primary" id="savePrefs" type="button">Guardar preferencias</button><button class="btn light" id="resetPrefs" type="button">Restablecer</button><button class="btn light" id="exportPrefs" type="button">Exportar configuración</button><label class="btn light" for="importPrefs" style="cursor:pointer">Importar configuración</label><input type="file" accept=".json,application/json" id="importPrefs" class="sr" aria-label="Importar preferencias JSON"></div><p class="status" id="prefsStatus" aria-live="polite"></p></div></details>
- <details id="sectionDetails" open><summary>Seleccionar apartados detectados</summary><div class="detailsBody"><div class="buttons" style="margin-top:0"><label class="selectAll"><input type="checkbox" id="allSections" checked> Seleccionar todos</label></div><div id="sectionChecks" class="checks"><span class="empty">Primero procesa una analítica para ver sus apartados.</span></div></div></details></section>
- <section class="work"><div><section class="panel"><div class="paneHead"><h2>3. Revisar extracción</h2><span class="tag">CONTROL DE CALIDAD</span></div><div class="counts"><span class="count" id="countRecognized">0 reconocidos</span><span class="count" id="countOmitted">0 omitidos</span><span class="count" id="countPending">0 pendientes</span></div><p class="desc">Los parámetros no reconocidos y los que requieren revisión no se completan automáticamente.</p><details><summary>Valores reconocidos</summary><div class="detailsBody"><div class="reviewRows"><table class="reviewTable"><thead><tr><th>Determinación</th><th>Valor</th><th>Apartado</th></tr></thead><tbody id="recognizedList"></tbody></table></div></div></details><details><summary>Omitidos por el formato</summary><div class="detailsBody"><ul class="reviewList" id="omittedList"><li>Sin resultados procesados.</li></ul></div></details><details><summary>Revisión pendiente</summary><div class="detailsBody"><ul class="reviewList" id="pendingList"><li>Sin resultados procesados.</li></ul></div></details></section></div>
- <div><section class="panel"><div class="paneHead"><h2>4. Editar y copiar</h2><span class="tag">TEXTO PLANO</span></div><p class="desc">Texto listo para el informe. Puedes modificarlo manualmente. Los cambios no se pierden al marcar casillas hasta que pulses «Regenerar».</p><label class="sr" for="outputText">Resultado editable</label><textarea id="outputText" class="textInput output" placeholder="El resultado aparecerá aquí..." spellcheck="false"></textarea><div class="buttons"><button class="btn primary" id="copyBtn" type="button">Copiar resultado</button><button class="btn light" id="regenBtn" type="button">Regenerar</button><button class="btn light" id="restoreBtn" type="button">Restaurar generado</button></div><p class="status" id="outputStatus" aria-live="polite"></p><div class="noteBox"><strong>Sin interpretación clínica:</strong> se reorganizan resultados, no se emiten diagnósticos. Revisa especialmente unidades, intervalos de referencia, gasometrías y antibiogramas.</div></section></div></section>
-</main><footer class="wrap footer">Editor de analíticas · Versión piloto local. No introducir información identificativa. El reconocimiento se ajustará al formato de laboratorio con ejemplos anonimizados. No sustituye la comprobación del informe original.</footer>
+
+.brainBtn{display:inline-flex;align-items:center;gap:8px;border-radius:10px;border:1px solid #b7ebde;background:#e9f8f1;color:#176a55;padding:9px 12px;font-weight:800;text-decoration:none;font-size:13px}.brainBtn:hover{background:#d5f2e6}.brainBtn svg{width:20px;height:20px;flex-shrink:0}.heroLinks{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.secureInfo{border-left:4px solid #18856c;background:#eefaf5;border-radius:11px;padding:13px 16px;color:#245d51;line-height:1.5;font-size:12px;margin-bottom:14px}.secureInfo strong{display:block;font-size:13px;margin-bottom:3px}.gate{background:#fff8e9;border:1px solid #eacb94;padding:10px 12px;border-radius:10px;color:#795210;font-size:12px;line-height:1.5;margin-bottom:12px}
+.gasFmtField{min-width:220px;flex:1}.persistBar{border-top:1px solid #e7eef1;padding-top:12px;margin-top:10px}.persistBar .mini{margin:0}@media(max-width:660px){.gasFmtField{min-width:100%}}
+.dropZone{border:2px dashed #b1cbd3;border-radius:14px;background:#f7fbfc;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;text-align:center;padding:18px 14px;margin-bottom:16px;transition:.15s;background-clip:padding-box}.dropZone.dragOver{border-color:#13808a;background:#e8f8f6}.dropZone .dropIcon{font-size:34px;color:#147a83;line-height:1}.dropZone>span:not(.dropIcon){font-size:12px;color:#61798b}.dropZone strong{font-size:14px}.dropZone .btn{min-height:36px}.main>.panel{margin-bottom:17px}.main>.panel .output{min-height:205px}
+
+/* v27: flujo principal + preferencias laterales, sin subpantallas */
+.editorLayout{display:grid;grid-template-columns:minmax(0,1fr) minmax(285px,365px);grid-template-areas:"entry prefs" "result prefs" "review prefs";gap:17px;align-items:start}
+.editorLayout>.panel{margin:0;min-width:0}
+.inputPanel{grid-area:entry}.outputPanel{grid-area:result}.reviewPanel{grid-area:review}.prefsPanel{grid-area:prefs;position:sticky;top:14px;max-height:calc(100vh - 28px);overflow:auto;overscroll-behavior:contain;padding:18px;scrollbar-width:thin}
+.editorLayout .output{min-height:260px}
+.prefsPanel .paneHead{margin-bottom:12px}.prefsPanel .paneHead h2{font-size:18px}.prefsPanel .field{min-width:0}.prefsPanel .field select{width:100%}
+.generalPrefs{display:grid;gap:8px}.generalPrefs .field{margin-bottom:4px}
+.prefsPanel .pref{border-radius:8px;padding:9px 10px;font-size:12.5px}.prefsPanel .pref span{min-width:0}
+.sidebarTip{font-size:11px;color:#628092;line-height:1.45;margin:11px 0 15px}
+.prefsAccordions{display:grid;gap:8px}.prefGroup{border:1px solid #dce8ed;border-radius:11px;margin:0;background:white}.prefGroup>summary{padding:12px 13px;font-size:13px}.prefGroup[open]>summary{background:#edf7f7}
+.prefBody{padding:10px 11px 12px;display:grid;gap:8px}.prefBody .mini{margin:1px 0 0}
+.saveBar{margin:14px 0 9px}.saveMain{width:100%}.saveMore{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}.saveMore .btn{flex:1;padding:8px;min-height:37px;font-size:11px}
+.sectionChooser{margin-top:11px}.sectionChooser .checks{grid-template-columns:1fr}.sectionChooser .secCheck{font-size:12px}
+@media(max-width:920px){.editorLayout{grid-template-columns:minmax(0,1fr);grid-template-areas:"entry" "result" "prefs" "review"}.prefsPanel{position:static;max-height:none;overflow:visible}.prefsAccordions{grid-template-columns:repeat(2,minmax(0,1fr))}.sectionChooser .checks{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:590px){.prefsAccordions{grid-template-columns:1fr}.sectionChooser .checks{grid-template-columns:1fr}.prefsPanel{padding:16px}.editorLayout{gap:13px}}
+.externalCopilot{display:inline-flex;align-items:center;gap:7px;border:1px solid rgba(255,255,255,.56);border-radius:9px;padding:9px 12px;background:rgba(255,255,255,.12);color:white;text-decoration:none;font-size:13px;font-weight:800}.externalCopilot:hover,.externalCopilot:focus-visible{background:rgba(255,255,255,.23)}.externalCopilot .ico{width:16px;height:16px;flex:none}@media(max-width:560px){.externalCopilot{padding:9px 10px}}
+</style><link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#004c19">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Portal Clínico">
+</head><body>
+<header class="hero"><div class="wrap"><div class="top"><span class="brand">MEDICINA INTERNA · HERRAMIENTAS DE CONSULTA</span><div class="heroLinks"><a aria-label="Ver el prototipo del modo IA local" class="brainBtn" href="editor_ia_local.html"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 5.2a3.5 3.5 0 0 0-6.1-1.1A4.2 4.2 0 0 0 4 10.7a4 4 0 0 0 .5 6.8 3.7 3.7 0 0 0 6 2.6L12 18.8V5.2ZM12 5.2a3.5 3.5 0 0 1 6.1-1.1A4.2 4.2 0 0 1 20 10.7a4 4 0 0 1-.5 6.8 3.7 3.7 0 0 1-6 2.6L12 18.8"></path><path d="M8 8h3M5 13h5M14 9h4M13 15h6"></path><circle cx="8" cy="8" r=".8"></circle><circle cx="5" cy="13" r=".8"></circle><circle cx="18" cy="9" r=".8"></circle><circle cx="19" cy="15" r=".8"></circle></svg> Modo IA <small>experimental</small></a><a class="externalCopilot" href="https://copilot.cloud.microsoft/" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" aria-label="Ir a Microsoft Copilot, sitio externo"><svg class="ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 4h7v7M20 4l-9 9"/><path d="M20 13v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h6"/></svg> Ir a Copilot</a><a class="back" href="index.html">← Volver al índice general</a></div></div><h1>Editor de analíticas</h1><p>Pega el texto o importa un archivo local, organiza los resultados y copia el informe. Personaliza las opciones desde el lateral.</p></div></header>
+<main class="wrap main"><div class="editorLayout"><section class="panel inputPanel"><div class="paneHead"><h2>1. Introducir analítica</h2></div><div class="secureInfo"><strong>🔒 Privacidad: procesamiento en este dispositivo</strong>El texto se analiza en tu navegador. Esta versión no utiliza IA remota, no incorpora servicios de seguimiento y bloquea las conexiones externas durante su funcionamiento. No guarda analíticas ni informes automáticamente; únicamente puedes guardar tus preferencias. El lector PDF.js está incluido en este portal; no envía archivos ni resultados. Puede cargar recursos estáticos del propio portal.</div><div aria-label="Importar PDF o texto" class="dropZone" id="dropZone" role="group"><span aria-hidden="true" class="dropIcon">⇩</span><strong>Arrastra aquí un archivo PDF o TXT</strong><span>O selecciona un archivo desde tu dispositivo</span><label class="btn light" for="documentFile" style="cursor:pointer">Seleccionar archivo</label><input accept=".pdf,.txt,.text,application/pdf,text/plain" class="sr" id="documentFile" type="file"/><button class="btn light" hidden id="retirePdfBtn" type="button">Retirar PDF / texto fuente</button><span class="mini" id="fileStatus">PDF.js local · texto seleccionable · sin OCR.</span></div><label class="sr" for="rawInput">Texto original del laboratorio</label><textarea aria-label="Texto original del laboratorio" class="textInput" id="rawInput" placeholder="Pega aquí los valores copiados del laboratorio..." spellcheck="false"></textarea><div class="buttons"><button class="btn primary" id="processBtn" type="button">Procesar analítica</button><button class="btn light" id="clearBtn" type="button">Borrar todo</button></div><p aria-live="polite" class="status" id="inputStatus"></p><div class="warn" hidden="" id="parseAlert" role="alert"></div></section><section class="panel outputPanel"><div class="paneHead"><h2>2. Editar y copiar</h2></div><p class="desc">Texto listo para el informe. Puedes modificarlo manualmente. Los cambios se conservan aunque cambies opciones; pulsa «Regenerar» para volver a aplicar el formato.</p><label class="sr" for="outputText">Resultado editable</label><textarea class="textInput output" id="outputText" placeholder="El resultado aparecerá aquí..." spellcheck="false"></textarea><div class="buttons"><button class="btn primary" id="copyBtn" type="button">Copiar resultado</button><button class="btn light" id="regenBtn" type="button">Regenerar</button><button class="btn light" id="restoreBtn" type="button">Restaurar generado</button></div><p aria-live="polite" class="status" id="outputStatus"></p><div class="noteBox"><strong>Sin interpretación clínica:</strong> se reorganizan resultados, no se emiten diagnósticos. Revisa especialmente unidades, intervalos de referencia, gasometrías y antibiogramas.</div></section><section class="panel prefsPanel">
+<div class="paneHead"><h2>Mis preferencias</h2><span class="tag">GUARDABLES</span></div>
+<div class="generalPrefs">
+<div class="field"><label for="profile">Perfil de presentación</label><select id="profile"><option value="completo">Todos los resultados</option><option value="alterados">Resultados alterados</option></select></div>
+<label class="pref"><input checked="" id="optUnits" type="checkbox"/><span>Conservar unidades</span></label>
+<label class="pref"><input id="optNormal" type="checkbox"/><span>Sustituir valores en rango por «normal»</span></label>
+<label class="pref"><input checked="" id="optInferUnits" type="checkbox"/><span>Completar unidades ausentes</span></label>
+
+</div>
+<p class="sidebarTip">Los recuentos celulares se expresan siempre en /mm3 y los hematíes se omiten.</p>
+<div class="prefsAccordions">
+<details class="prefGroup"><summary>Hemograma</summary><div class="prefBody">
+<label class="pref"><input id="optDifferentialPct" type="checkbox"/><span>Porcentajes leucocitarios</span></label>
+<label class="pref"><input id="optRnl" type="checkbox"/><span>Calcular RNL</span></label>
+<label class="pref"><input id="optRetic" type="checkbox"/><span>Reticulocitos corregidos</span></label>
+</div></details>
+<details class="prefGroup"><summary>Perfil lipídico</summary><div class="prefBody">
+<label class="pref"><input id="optNonhdl" type="checkbox"/><span>Calcular colesterol no-HDL</span></label>
+</div></details>
+<details class="prefGroup"><summary>Perfil férrico</summary><div class="prefBody">
+<label class="pref"><input id="optTibc" type="checkbox"/><span>Calcular TIBC estimada</span></label>
+</div></details>
+<details class="prefGroup"><summary>Perfil urinario</summary><div class="prefBody">
+<label class="pref"><input id="optFena" type="checkbox"/><span>Calcular FeNa</span></label>
+<label class="pref"><input id="optFeurea" type="checkbox"/><span>Calcular FeUrea</span></label>
+<label class="pref"><input id="optUreaRatio" type="checkbox"/><span>Urea orina / urea sérica</span></label>
+<label class="pref"><input id="optCrRatio" type="checkbox"/><span>Creatinina orina / creatinina sérica</span></label>
+<label class="pref"><input id="optRfi" type="checkbox"/><span>Índice de fallo renal</span></label>
+</div></details>
+<details class="prefGroup"><summary>Ácido-base</summary><div class="prefBody">
+<div class="field"><label for="gasFormat">Formato de gasometría</label><select id="gasFormat"><option value="completo">Completa</option><option value="etiquetado">Resumida con nombres</option><option value="barras">Compacta con barras</option></select></div>
+<div class="field hidden" id="gasField"><label for="gasType">Origen de la gasometría</label><select id="gasType"><option value="">Seleccionar tipo</option><option value="venosa">Venosa</option><option value="arterial">Arterial</option></select></div>
+<label class="pref"><input id="optAnionGap" type="checkbox"/><span>Calcular anion gap</span></label>
+<label class="pref"><input id="optDeltaRatio" type="checkbox"/><span>Calcular razón delta-delta</span></label>
+</div></details>
+<details class="prefGroup"><summary>Cultivos</summary><div class="prefBody">
+<label class="pref"><input id="optCmi" type="checkbox"/><span>Mostrar CMI</span></label>
+<label class="pref"><input id="optMicroDetail" type="checkbox"/><span>Antibiograma detallado</span></label>
+<p class="mini">Por defecto, S / I / R agrupados.</p>
+</div></details>
+</div>
+<div class="saveBar">
+<button class="btn primary saveMain" id="savePrefs" type="button">Guardar preferencias</button>
+<div class="saveMore"><button class="btn light" id="resetPrefs" type="button">Restablecer</button><button class="btn light" id="exportPrefs" type="button">Exportar</button><label class="btn light" for="importPrefs" style="cursor:pointer">Importar</label><input accept=".json,application/json" aria-label="Importar preferencias JSON" class="sr" id="importPrefs" type="file"/></div>
+<p aria-live="polite" class="status" id="prefsStatus"></p>
+<p class="mini">Solo se guardan las preferencias, nunca los resultados clínicos.</p>
+</div>
+<details class="prefGroup sectionChooser" id="sectionDetails"><summary>Seleccionar apartados detectados</summary><div class="prefBody"><label class="selectAll"><input checked="" id="allSections" type="checkbox"/> Seleccionar todos</label><div class="checks" id="sectionChecks"><span class="empty">Primero procesa una analítica para ver sus apartados.</span></div></div></details>
+</section><section class="panel reviewPanel"><div class="paneHead"><h2>3. Revisión</h2></div><div class="counts"><span class="count" id="countRecognized">0 reconocidos</span><span class="count" id="countOmitted">0 omitidos</span><span class="count" id="countPending">0 pendientes</span></div><p class="desc">Los parámetros no reconocidos y los que requieren revisión no se completan automáticamente.</p><details><summary>Valores reconocidos</summary><div class="detailsBody"><div class="reviewRows"><table class="reviewTable"><thead><tr><th>Determinación</th><th>Valor</th><th>Apartado</th></tr></thead><tbody id="recognizedList"></tbody></table></div></div></details><details><summary>Omitidos por el formato</summary><div class="detailsBody"><ul class="reviewList" id="omittedList"><li>Sin resultados procesados.</li></ul></div></details><details><summary>Valores completados automáticamente</summary><div class="detailsBody"><p class="desc">Unidades o referencias inferidas a partir del nombre de la prueba. Nunca equivalen a información confirmada por el laboratorio.</p><ul class="reviewList" id="inferredList"><li>Sin valores completados.</li></ul></div></details><details><summary>Revisión pendiente</summary><div class="detailsBody"><ul class="reviewList" id="pendingList"><li>Sin resultados procesados.</li></ul></div></details></section></div>
+
+
+
+
+</main><footer class="wrap footer">Editor de analíticas · Procesamiento local sin IA. No introducir información identificativa. Comprueba siempre los resultados con el informe original.</footer>
+<script src="laboratorio_catalogo_datos.js"></script>
 <script src="editor_analiticas.js"></script>
-<script>
-'use strict';
-const DEMO=`Fecha de extracción: 11/11/2026
-HEMOGRAMA
-Hematíes: 4,38 x10^6/µL (4,1 - 5,6)
-Hemoglobina: 12,8 g/dL (12 - 16)
-VCM: 89 fL (80 - 98)
-HCM: 29 pg (27 - 33)
-ADE: 13,5 % (11 - 15)
-Leucocitos: 8,10 x10^3/µL (4 - 11)
-Neutrófilos: 68 % (40 - 75)
-Linfocitos: 20 % (18 - 45)
-Plaquetas: 212 x10^3/µL (150 - 400)
-Hematocrito: 38 % (35 - 48)
-Reticulocitos: 1,6 % (0,5 - 2,0)
-BIOQUÍMICA
-Glucosa: 101 mg/dL (70 - 110)
-Creatinina: 1,12 mg/dL (0,6 - 1,2)
-Sodio: 140 mmol/L (135 - 145)
-Potasio: 4,1 mmol/L (3,5 - 5,1)
-Bilirrubina total: 0,8 mg/dL (0,1 - 1,2)
-GOT: 22 U/L (10 - 35)
-GPT: 73 U/L (5 - 40)
-GGT: 30 U/L (8 - 45)
-Ferritina: 48 ng/mL (15 - 150)
-Transferrina: 260 mg/dL (200 - 360)
-Saturación de transferrina: 24 % (20 - 45)
-Hierro: 75 µg/dL (50 - 170)
-Colesterol total: 188 mg/dL
-HDL: 51 mg/dL
-LDL: 113 mg/dL
-Triglicéridos: 119 mg/dL
-PCR: 14 mg/L (0 - 5)
-Gasometría venosa
-pH: 7,366 (7,31 - 7,41)
-pCO2: 40,2 mmHg
-pO2: 38,1 mmHg
-Bicarbonato: 22,7 mmol/L
-Bicarbonato estándar: 23,4 mmol/L
-Saturación de oxígeno: 72,8 %
-Lactato: 1,8 mmol/L
-Hemocultivos (09/11/2026): negativos.
-Urocultivo (10/11/2026): positivo para Escherichia coli
-S: ceftriaxona, meropenem
-I: piperacilina/tazobactam
-R: ciprofloxacino`;
-const DEMO_SES=`HEMOGRAMA
-13,50 Hemoglobina g/dL (12,00 - 16,00)
-42,20 Hematocrito % (36 - 48)
-88,20 VCM fL (80 - 96)
-29,00 HCM pg (26 - 33)
-12,70 ADE % (11 - 15,5)
-7,20 Leucocitos x10^9/L (4 - 12)
-65,00 Neutrófilos % % (45 - 75)
-4,68 Neutrófilos x10^9/L (1,8 - 7,5)
-24,00 Linfocitos % % (22 - 50)
-1,73 Linfocitos x10^9/L (1 - 4,5)
-235 Plaquetas x10^9/L (150 - 450)
-BIOQUÍMICA EN SANGRE BIOQUÍMICA EN SANGRE
-(65 - 110) 96 Glucosa mg/dL
-(12 - 50) 33 Urea mg/dL
-(0,60 - 1,40) 0,94 Creatinina mg/dL
-87 Filtrado glomerular estimado (CKD-EPI) mL/min/1,73 m²
-(135 - 145) 139 Sodio mmol/L
-(3,5 - 5,1) 4,4 Potasio mmol/L
-(0,2 - 1,2) 0,6 Bilirrubina total mg/dL
-(5 - 38) 25 GOT UI/L
-(5 - 41) 30 GPT UI/L
-METABOLISMO LIPÍDICO METABOLISMO LIPÍDICO
-<200 169 Colesterol mg/dL
-<116 Colesterol LDL Prueba rechazada
-(40 - 80) 55 Colesterol HDL mg/dL
-(40 - 150) 98 Triglicéridos mg/dL
-PROTEÍNAS ESPECIALES PROTEÍNAS ESPECIALES
-(0,3 - 5,0) 1,4 Proteína C reactiva mg/L
-BIOQUÍMICA EN ORINA AISLADA BIOQUÍMICA EN ORINA AISLADA
-(80 - 150) 110,00 Creatinina mg/dL
-(0 - 30) 8,0 Albúmina/Creatinina mg/g creatinina
-Negativo Hematíes (0 - 49)
-Negativo Leucocitos (0 - 49)
-Negativo Nitrito NEG
-Normal Glucosa NEG`;
-const DEMO_SES=`HEMOGRAMA
-13,50 Hemoglobina g/dL (12,00 - 16,00)
-42,20 Hematocrito % (36 - 48)
-88,20 VCM fL (80 - 96)
-29,00 HCM pg (26 - 33)
-12,70 ADE % (11 - 15,5)
-7,20 Leucocitos x10^9/L (4 - 12)
-65,00 Neutrófilos % % (45 - 75)
-4,68 Neutrófilos x10^9/L (1,8 - 7,5)
-24,00 Linfocitos % % (22 - 50)
-1,73 Linfocitos x10^9/L (1 - 4,5)
-235 Plaquetas x10^9/L (150 - 450)
-BIOQUÍMICA EN SANGRE BIOQUÍMICA EN SANGRE
-(65 - 110) 96 Glucosa mg/dL
-(12 - 50) 33 Urea mg/dL
-(0,60 - 1,40) 0,94 Creatinina mg/dL
-87 Filtrado glomerular estimado (CKD-EPI) mL/min/1,73 m²
-(135 - 145) 139 Sodio mmol/L
-(3,5 - 5,1) 4,4 Potasio mmol/L
-(0,2 - 1,2) 0,6 Bilirrubina total mg/dL
-(5 - 38) 25 GOT UI/L
-(5 - 41) 30 GPT UI/L
-METABOLISMO LIPÍDICO METABOLISMO LIPÍDICO
-<200 169 Colesterol mg/dL
-<116 Colesterol LDL Prueba rechazada
-(40 - 80) 55 Colesterol HDL mg/dL
-(40 - 150) 98 Triglicéridos mg/dL
-PROTEÍNAS ESPECIALES PROTEÍNAS ESPECIALES
-(0,3 - 5,0) 1,4 Proteína C reactiva mg/L
-BIOQUÍMICA EN ORINA AISLADA BIOQUÍMICA EN ORINA AISLADA
-(80 - 150) 110,00 Creatinina mg/dL
-(0 - 30) 8,0 Albúmina/Creatinina mg/g creatinina
-Negativo Hematíes (0 - 49)
-Negativo Leucocitos (0 - 49)
-Negativo Nitrito NEG
-Normal Glucosa NEG`;
-const $=x=>document.getElementById(x), L=window.LabEditor, KEYS={units:'optUnits',rnl:'optRnl',nonhdl:'optNonhdl',retic:'optRetic',critical:'optCritical',cmi:'optCmi',microDetail:'optMicroDetail',vpm:'optVpm'};
-let parsed=null,selected={},generated='',manual=false,confirmRegen=false;
-function readOpts(){const o={profile:$('profile').value,gasType:$('gasType').value};for(const [k,id] of Object.entries(KEYS))o[k]=$(id).checked;return o;}
-function writeOpts(o){$('profile').value=['habitual','completo','alterados','personalizado'].includes(o.profile)?o.profile:'habitual';for(const [k,id] of Object.entries(KEYS))$(id).checked=o[k]??L.defaults[k];if(o.gasType)$('gasType').value=o.gasType;}
-function settingStatus(msg){$('prefsStatus').textContent=msg;}
-function outputStatus(msg){$('outputStatus').textContent=msg;}
-function savePrefs(){const c=readOpts();delete c.gasType;try{localStorage.setItem('editor_analiticas_prefs_v1',JSON.stringify(c));settingStatus('Preferencias guardadas en este navegador.')}catch(e){settingStatus('No se ha podido guardar en el navegador; puedes exportar el archivo.')}}
-function loadPrefs(){try{const data=JSON.parse(localStorage.getItem('editor_analiticas_prefs_v1')||'null');if(data&&typeof data==='object')writeOpts({...L.defaults,...data})}catch(e){}}
-function downloadFile(name,body){const blob=new Blob([body],{type:'application/json;charset=utf-8'});const a=document.createElement('a');const url=URL.createObjectURL(blob);a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500);}
-function visibleSections(){if(!parsed)return[];const found=new Set(parsed.items.map(e=>e.section));if(parsed.cultures.length)found.add('microbiologia');if(parsed.texts.frotis)found.add('frotis');if(parsed.texts.proteinograma)found.add('proteinograma');return L.ORDER.filter(k=>found.has(k));}
-function buildSections(){const el=$('sectionChecks');el.replaceChildren();const keys=visibleSections();if(!keys.length){el.innerHTML='<span class="empty">No se han reconocido apartados.</span>';return;}
- for(const k of keys){selected[k]=selected[k]!==false;const label=document.createElement('label');label.className='secCheck';const inp=document.createElement('input');inp.type='checkbox';inp.checked=selected[k];inp.dataset.section=k;inp.addEventListener('change',()=>{selected[k]=inp.checked;markStale()});label.append(inp,document.createTextNode(L.TITLES[k]));el.append(label)}
- $('allSections').checked=keys.every(k=>selected[k]);}
-function reviewList(id,rows,msg){const ul=$(id);ul.replaceChildren();if(!rows.length){const li=document.createElement('li');li.textContent=msg;ul.append(li);return;}
- for(const x of rows){const li=document.createElement('li');li.textContent=(x.line||'')+(x.reason?' — '+x.reason:'');ul.append(li);}}
-function updateReview(res){$('countRecognized').textContent=(parsed.items.length+parsed.cultures.length)+' reconocidos';$('countOmitted').textContent=res.ignored.length+' omitidos';$('countPending').textContent=res.pending.length+' pendientes';const tbody=$('recognizedList');tbody.replaceChildren();for(const e of parsed.items){const row=document.createElement('tr');const name=document.createElement('td');name.textContent=e.name;const val=document.createElement('td');val.textContent=e.raw+(e.unit?' '+e.unit:'');if(e.abnormal&&e.abnormal!=='normal')val.className='flag';const sec=document.createElement('td');sec.textContent=L.TITLES[e.section];row.append(name,val,sec);tbody.append(row);}for(const c of parsed.cultures){const row=document.createElement('tr');for(const s of [c.name,c.status||c.organism||'—','Microbiología']){const cell=document.createElement('td');cell.textContent=s;row.append(cell)}tbody.append(row)}reviewList('omittedList',res.ignored,'No hay valores omitidos por reglas fijas.');reviewList('pendingList',res.pending,'Sin datos pendientes de revisión.');}
-function markStale(){if(parsed)outputStatus(manual?'Has editado el texto. Las opciones han cambiado; pulsa Regenerar si deseas sustituirlo.':'Opciones modificadas. Pulsa Regenerar para aplicarlas.');}
-function regenerate(force=false){if(!parsed){outputStatus('Procesa una analítica primero.');return;}
- if(manual&&!force&&!confirmRegen){confirmRegen=true;outputStatus('Tienes cambios manuales. Vuelve a pulsar Regenerar para sustituirlos, o usa «Restaurar generado».');return;}
- confirmRegen=false;const opts=readOpts();const res=L.format(parsed,opts,selected);updateReview(res);$('parseAlert').hidden=!res.blocked;$('parseAlert').textContent=res.blocked||'';
- if(res.blocked){outputStatus('Generación detenida: revisa el aviso.');return;}
- $('outputText').value=res.output;generated=res.output;manual=false;outputStatus(res.pending.length?'Resultado generado. Revisa los '+res.pending.length+' elementos pendientes.':'Resultado generado. Puedes editarlo y copiarlo.');}
-function process(){const raw=$('rawInput').value;if(!raw.trim()){$('inputStatus').textContent='Introduce una analítica o carga el ejemplo ficticio.';return;}
- parsed=L.parse(raw);selected={};$('gasField').classList.toggle('hidden',!parsed.seenGas);$('gasType').value=parsed.gas.sourceType||'';buildSections();manual=false;confirmRegen=false;generated='';$('outputText').value='';$('inputStatus').textContent='Análisis completado localmente: '+(parsed.items.length+parsed.cultures.length)+' valores o cultivos identificados.';regenerate(true);}
-$('processBtn').addEventListener('click',process);
-$('sampleBtn').addEventListener('click',()=>{$('rawInput').value=DEMO;$('inputStatus').textContent='Ejemplo básico ficticio cargado. Pulsa «Procesar analítica». ';});
-$('sampleSesBtn').addEventListener('click',()=>{$('rawInput').value=DEMO_SES;$('inputStatus').textContent='Ejemplo ficticio de formato hospitalario cargado. Pulsa «Procesar analítica». ';});
-$('clearBtn').addEventListener('click',()=>{$('rawInput').value='';$('outputText').value='';$('inputStatus').textContent='';$('outputStatus').textContent='';$('parseAlert').hidden=true;$('gasField').classList.add('hidden');parsed=null;selected={};generated='';manual=false;confirmRegen=false;$('sectionChecks').innerHTML='<span class="empty">Primero procesa una analítica para ver sus apartados.</span>';$('recognizedList').replaceChildren();reviewList('omittedList',[],'Sin resultados procesados.');reviewList('pendingList',[],'Sin resultados procesados.');$('countRecognized').textContent='0 reconocidos';$('countOmitted').textContent='0 omitidos';$('countPending').textContent='0 pendientes';});
-$('outputText').addEventListener('input',()=>{manual=$('outputText').value!==generated;confirmRegen=false;outputStatus(manual?'Texto modificado manualmente; tus cambios se conservarán hasta regenerar.':'Texto generado sin modificaciones.');});
-$('regenBtn').addEventListener('click',()=>regenerate());
-$('restoreBtn').addEventListener('click',()=>{$('outputText').value=generated;manual=false;confirmRegen=false;outputStatus('Restaurado el último resultado generado, sin modificar la analítica original.');});
-$('copyBtn').addEventListener('click',async()=>{const txt=$('outputText').value;if(!txt){outputStatus('No hay texto que copiar.');return;}try{if(navigator.clipboard&&window.isSecureContext)await navigator.clipboard.writeText(txt);else{$('outputText').focus();$('outputText').select();if(!document.execCommand('copy'))throw Error('No disponible')}outputStatus('Texto copiado.')}catch(e){outputStatus('No se ha podido copiar automáticamente. Selecciona el texto y utiliza Ctrl+C.');}});
-$('profile').addEventListener('change',markStale);$('gasType').addEventListener('change',markStale);for(const id of Object.values(KEYS))$(id).addEventListener('change',markStale);
-$('allSections').addEventListener('change',e=>{for(const k of visibleSections())selected[k]=e.target.checked;buildSections();markStale();});
-$('savePrefs').addEventListener('click',savePrefs);
-$('resetPrefs').addEventListener('click',()=>{writeOpts(L.defaults);settingStatus('Opciones restablecidas. Guarda si quieres mantenerlas.');markStale();});
-$('exportPrefs').addEventListener('click',()=>{const obj=readOpts();delete obj.gasType;downloadFile('preferencias_editor_analiticas.json',JSON.stringify({version:1,editor:'Editor de analíticas',preferences:obj},null,2));settingStatus('Archivo de configuración preparado.');});
-$('importPrefs').addEventListener('change',async e=>{const f=e.target.files?.[0];if(!f)return;try{if(f.size>25000)throw Error('Archivo demasiado grande');const j=JSON.parse(await f.text());if(j.editor!=='Editor de analíticas'||!j.preferences||j.version!==1)throw Error('Configuración no reconocida');writeOpts({...L.defaults,...j.preferences});settingStatus('Preferencias importadas. Pulsa Guardar preferencias para conservarlas.');markStale();}catch(err){settingStatus('No se pudo importar: '+err.message)}finally{e.target.value='';}});
-loadPrefs();
-</script></body></html>
+<script src="vendor/pdfjs/build/pdf.worker.compat.js"></script>
+<script src="vendor/pdfjs/build/pdf.compat.js"></script>
+<script src="pdf_local_reader.js"></script>
+<script src="editor_ui.js"></script></body></html>

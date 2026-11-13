@@ -1,0 +1,19 @@
+CONTINUIDAD DEL PROYECTO · V38
+
+BASE PARA LA SIGUIENTE ACTUALIZACIÓN: Portal_Medicina_Interna_v38_Actualizacion_Acumulada.zip
+NUNCA volver a v37 como base salvo reversión solicitada.
+
+Categorías (6): Cronicidad y Pluripatología; Diabetes, Obesidad y Nutrición; Ecografía Clínica; Enfermedad Tromboembólica; Insuficiencia Cardíaca y FA; Digestivo y Hepatología (icono hígado/ámbar).
+Herramientas digestivas: Child-Pugh, MELD, MELD-Na y FIB-4 compartido con Nutrición. Cardiología añade H₂FPEF.
+
+Fichas revisadas nuevas: adenosina (6/12 elegido, AEMPS 3/6/12), digoxina, verapamilo, metoprolol, esmolol, magnesio IV, furosemida, levosimendán. También corregidas noradrenalina, amiodarona, nitroglicerina. Dobutamina sin aviso de betabloqueantes.
+
+Revisar en siguiente iteración necesidad de enlazar H₂FPEF con expediente local, si se retoma perfiles. No está incluido.
+
+PENDIENTE RIESGO PRIORITARIO: concentración y administración de suero salino hipertónico: esquema propuesto por usuario de 150 ml finales cada vez, en una hora, cantidades de NaCl 20% por natremia. NO se convierte en prescripción automática antes de validación farmacéutica local; también banda Na=125 sin asignación. Se documenta claramente dentro de la ficha. No confundir perfusión lenta de furosemida en mg/min con paso del suero hipertónico en 1 h: son administraciones diferentes.
+
+Levosimendán: cálculo de aviso por fármaco TOTAL 24h de mantenimiento + carga, concentración siempre 50 µg/ml; copia deshabilitada cuando supera 25mg hasta planificar bolsas adicionales. Las tablas de carga presentan velocidades para 10min, las de mantenimiento ml/h; revisar siempre variación según peso/dosis.
+
+Principios UX: genérico en cabecera; referencias solo desplegable Fuentes; una concentración preseleccionada y pocas alternativas; cero conversores innecesarios; velocidades calculadas sobre volumen FINAL; copiar orden adyacente a etapa/celda; fichas breves, no tratado de Urgencias.
+
+NÚMERO DE MEDICAMENTOS ACTUAL: 54, revisados 30. Continúan fichas pendientes (24) que no deben copiar pautas.

@@ -1,0 +1,13 @@
+ICONOS PORTAL CLÍNICO
+
+PARA GITHUB PAGES:
+Sube o reemplaza todos los archivos del directorio «portal_medicina» en la raíz de tu repositorio.
+En especial deben quedar en la misma carpeta que index.html: manifest.webmanifest, favicon.ico, apple-touch-icon.png; la subcarpeta icons/ debe estar al mismo nivel.
+Espera a que GitHub Pages sirva la nueva versión (en ocasiones cacheada).
+
+ANDROID (Chrome): abre la web pública, menú de tres puntos > Añadir a pantalla de inicio / Instalar aplicación (según versión).
+iPHONE (Safari): abre la web pública, Compartir > Añadir a pantalla de inicio.
+ESCRITORIO: el navegador puede utilizar favicon.ico para un acceso directo o icon-512.png para una app instalada.
+Si había un icono anterior, elimina y vuelve a añadir el acceso directo y, si fuera necesario, borra la caché de la página.
+
+NOTA: este paquete permite identificar la web y el acceso directo con el icono. No incluye modo offline.
