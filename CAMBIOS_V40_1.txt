@@ -1,0 +1,32 @@
+PARCHE v40.1 — ICONO Y EXTRACTOR PDF PARA GITHUB PAGES
+
+CAUSA DETECTADA
+El repositorio publicado incluye index.html y editor_analiticas.html,
+pero faltan las carpetas icons/ y vendor/ del ZIP v40.
+El logo se obtenía de icons/icon-192.png y el editor intentaba cargar
+vendor/pdfjs/build/pdf.worker.compat.js y pdf.compat.js.
+
+SOLUCIÓN
+Esta revisión ofrece las cinco imágenes principales y los dos scripts
+PDF.js en la raíz del repositorio, junto a index.html, evitando subir
+199 archivos PDF.js con la interfaz web de GitHub.
+
+PASOS
+1. Descomprime el ZIP de PARCHE (no subas el ZIP a GitHub).
+2. Abre https://github.com/monper91/calculadora-clinica
+3. Add file > Upload files.
+4. Arrastra TODOS los archivos descomprimidos de la carpeta
+   «ARCHIVOS_PARA_SUBIR_A_RAIZ» al navegador. No arrastres solo la carpeta
+   porque debe quedar index.html en la raíz del repositorio.
+5. Comprueba que en la lista aparezcan icon-192.png, pdf.compat.js,
+   pdf.worker.compat.js y los archivos HTML.
+6. Commit changes; vuelve a abrir la web y recarga con Ctrl+F5.
+
+IMPORTANTE
+La extracción sigue siendo local, sin OCR y solo para PDF con texto
+seleccionable. Las dependencias auxiliares de PDF.js (mapas CJK,
+fuentes y WASM), conservadas en el ZIP completo v40.1 dentro de vendor/,
+pueden ser necesarias en PDF especializados; para compatibilidad máxima,
+sube el árbol vendor/ entero con GitHub Desktop o Git.
+
+NUNCA subir PDF clínicos con datos de pacientes al repositorio.

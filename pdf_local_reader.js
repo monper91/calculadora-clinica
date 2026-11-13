@@ -36,7 +36,7 @@
 
   function getPdfJs() {
     if (!global.pdfjsLib?.getDocument || !global.pdfjsWorker?.WorkerMessageHandler) {
-      throw Error('No se ha cargado el motor PDF local. Comprueba los archivos vendor/pdfjs/build/pdf.compat.js y pdf.worker.compat.js.');
+      throw Error('No se ha cargado el motor PDF local. Comprueba los archivos pdf.compat.js y pdf.worker.compat.js en la raíz del portal.');
     }
     // PDF.js utiliza un worker simulado en este mismo contexto. Evita
     // importación de módulos y evita depender de permisos file://.
